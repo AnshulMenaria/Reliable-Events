@@ -13,10 +13,7 @@ const Home = () => {
           <h1 className="animate-text">Creating Unforgettable Memories</h1>
           <p className="animate-subtext">We plan, design, and manage exceptional celebrations for any occasion.</p>
           <button className="cta-btn">Explore Our Services</button>
-          <div className="hero-scroll-indicator">
-            <span>Scroll Down</span>
-            <div className="scroll-icon"></div>
-          </div>
+          
         </div>
       </div>
     </div>
