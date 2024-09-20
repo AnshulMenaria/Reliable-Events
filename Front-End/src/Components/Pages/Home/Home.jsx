@@ -20,9 +20,15 @@ const Home = () => {
         </div>
       </div>
     </div>
+    <section id="services">
     <ServicesSection/>
+    </section>
+    <section id="testimonials">
     <Testimonials/>
+    </section>
+    <section id="contact">
     <Contact/>
+    </section>
     </>
   );
 };
