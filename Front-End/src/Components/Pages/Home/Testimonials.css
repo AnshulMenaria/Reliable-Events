@@ -1,0 +1,19 @@
+.testimonials-section {
+    background-color: #343a40;
+    color: white;
+    padding: 50px;
+  }
+  
+  .testimonials-section h2 {
+    margin-bottom: 30px;
+  }
+  
+  .carousel-item p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+  
+  .carousel-item h5 {
+    margin-top: 20px;
+  }
+  
