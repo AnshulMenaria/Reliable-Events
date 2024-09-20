@@ -1,5 +1,5 @@
 .custom-navbar {
-  background: rgba(0, 0, 0, 0.338); 
+  background: rgba(37, 35, 35, 0.142);
   padding: 1rem 2rem;
   position: fixed;
   width: 100%;
@@ -7,79 +7,122 @@
 }
 
 .navbar-logo {
-  width: 120px; 
-  height: 90px; 
+  width: 120px;
+  height: 90px;
   margin-right: 1rem;
-  transition: transform 0.3s ease-in-out; 
+  transition: transform 0.3s ease-in-out;
 }
 
 .navbar-logo:hover {
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 .brandname {
   font-family: 'Poppins', sans-serif;
   font-size: 3rem;
-  color: #8A5B3E; 
+  color: #8A5B3E;
   text-decoration: none;
   font-family: Brush Script MT, Brush Script Std, cursive;
-  margin-top: 10px;
   font-weight: bold;
-  transition: color 0.3s ease-in-out; 
+  transition: color 0.3s ease-in-out;
 }
 
 .brandname:hover {
-  color: darkcyan; 
+  color: darkcyan;
+}
+
+.navbar-nav {
+  flex-grow: 1; /* Allow navbar links to grow */
+  justify-content: center;
+  margin-right: 30px; /* Center the nav links */
 }
 
 .navbar-nav .nav-link {
   font-size: 1.2rem;
   font-weight: 500;
-  margin-left: 20px;
-  color: #fcfcfc; 
-  transition: color 0.3s ease-in-out; 
+  margin-left: 25px;
+  color: #fcfcfc;
+  transition: color 0.3s ease-in-out;
 }
-
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus,
 .navbar-nav .nav-link.active {
-  color: darkcyan !important; 
-  text-decoration: none; 
-  outline: none; 
+  color: darkcyan !important;
+  text-decoration: none;
+  outline: none;
 }
-
 
 .phone-numbers {
   display: flex;
-  flex-direction: column; 
-  align-items: flex-start; 
+  flex-direction: column;
+  align-items: flex-end; /* Align phone numbers to the right */
 }
 
 .phone-numbers .nav-link {
-  padding-left: 0; 
-  font-size: 1rem; 
+  padding-left: 0;
+  font-size: 1rem;
+  color: #fcfcfc;
 }
-
 
 @media (max-width: 768px) {
   .navbar-logo {
-    width: 80px; 
-    height: 60px; 
+    width: 60px;
+    height: 50px;
   }
 
   .brandname {
-    font-size: 2rem; 
-    margin-top: 5px;
+    font-size: 2rem;
+    font-weight: 900;
   }
 
-  .navbar-nav .nav-link {
-    font-size: 1rem; 
-    margin-left: 10px;
-  }
-
-  
   .custom-navbar {
     padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
   }
+  .navbar-nav{
+    background-color: white;
+    width: 100%;
+
+  }
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+    color: black;
+  }
+
+  .phone-numbers  {
+    align-items: flex-start;
+    background-color: white;
+    color: black;
+
+    
+  }
+  .phone-numbers .nav-link{
+    color: black;
+    font-size: 1rem;
+
+
+  }
+
+  .navbar-toggler .navbar-toggler-icon {
+    background-color: rgb(39, 34, 34); /* Make the background transparent */
+  }
+  .navbar-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .line {
+    width: 30px; /* Adjust width as needed */
+    height: 2px; /* Adjust height as needed */
+    background-color: #8A5B3E; /* Line color */
+    margin: 4px 0; /* Space between lines */
+    transition: background-color 0.3s ease;
+  }
+  
+
 }
