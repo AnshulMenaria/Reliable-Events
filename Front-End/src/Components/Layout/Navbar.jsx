@@ -33,8 +33,9 @@ const NavigationBar = () => {
           <Nav className="ml-auto">
             <Nav.Link href="/" className="mt-2" onClick={handleLinkClick}>Home</Nav.Link>
             <Nav.Link href="#services" className="mt-2" onClick={handleLinkClick}>Services</Nav.Link>
+            <Nav.Link href="#gallery" className="mt-2" onClick={handleLinkClick}>Gallery</Nav.Link>
             <Nav.Link href="#testimonials" className="mt-2" onClick={handleLinkClick}>Testimonials</Nav.Link>
-            <Nav.Link href="#contact" className="mt-2" onClick={handleLinkClick}>Contact</Nav.Link>
+            <Nav.Link href="/contact" className="mt-2" onClick={handleLinkClick}>Contact</Nav.Link>
           </Nav>
 
           <div className="phone-numbers">

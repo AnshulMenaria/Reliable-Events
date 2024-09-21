@@ -2,7 +2,7 @@ import React from 'react';
 import './Home.css';
 import ServicesSection from './Services';
 import Testimonials from './Testimonials';
-import Contact from './Contact';
+import Contact from '../View More/Contact';
 import Gallery from './Gallery';
 
 const Home = () => {
@@ -26,9 +26,6 @@ const Home = () => {
       </section>
       <section id="testimonials">
         <Testimonials />
-      </section>
-      <section id="contact">
-        <Contact />
       </section>
     </>
   );
