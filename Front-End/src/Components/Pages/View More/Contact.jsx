@@ -15,7 +15,7 @@ const Contact = () => {
 
     try {
       // Send the data to your backend
-      const response = await axios.post('http://localhost:8080/api/contact', {
+      const response = await axios.post('http://localhost:8080/api/contact', { // eslint-disable-line no-unused-vars
         name,
         email,
         message,

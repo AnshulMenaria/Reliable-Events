@@ -2,7 +2,7 @@ import React from 'react';
 import './Home.css';
 import ServicesSection from './Services';
 import Testimonials from './Testimonials';
-import Contact from '../View More/Contact';
+import Contact from '../View More/Contact';// eslint-disable-line no-unused-vars
 import Gallery from './Gallery';
 
 const Home = () => {
