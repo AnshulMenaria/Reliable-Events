@@ -1,5 +1,5 @@
 .custom-navbar {
-  background: rgba(37, 35, 35, 0.237);
+  background: rgb(8, 88, 137);
   padding: 1rem 2rem;
   position: fixed;
   width: 100%;
@@ -34,13 +34,13 @@
 .navbar-nav {
   flex-grow: 1; /* Allow navbar links to grow */
   justify-content: center;
-  margin-right: 30px; /* Center the nav links */
+  margin-right: 70px; /* Center the nav links */
 }
 
 .navbar-nav .nav-link {
   font-size: 1.2rem;
   font-weight: 500;
-  margin-left: 25px;
+  margin-left: 35px;
   color: #fcfcfc;
   transition: color 0.3s ease-in-out;
 }
