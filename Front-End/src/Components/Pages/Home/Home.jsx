@@ -1,9 +1,8 @@
-import React from 'react';
-import './Home.css';
-import ServicesSection from './Services';
-import Testimonials from './Testimonials';
-import Contact from '../View More/Contact';// eslint-disable-line no-unused-vars
-import Gallery from './Gallery';
+import React from "react";
+import "./Home.css";
+import ServicesSection from "./Services";
+import Testimonials from "./Testimonials";
+import Gallery from "./Gallery";
 
 const Home = () => {
   return (
@@ -14,8 +13,12 @@ const Home = () => {
         </div>
         <div className="hero-content">
           <h2 className="animate-text">Creating Unforgettable Memories</h2>
-          <p className="animate-subtext">We plan, design, and manage exceptional celebrations for any occasion.</p>
+          <p className="animate-subtext">
+            We plan, design, and manage exceptional celebrations for any
+            occasion.
+          </p>
           <button className="cta-btn">Explore Our Services</button>
+          <button className="cta1-btn">View more</button>
         </div>
       </div>
       <section id="services">
@@ -27,8 +30,10 @@ const Home = () => {
       <section id="testimonials">
         <Testimonials />
       </section>
+      
     </>
   );
 };
 
 export default Home;
+

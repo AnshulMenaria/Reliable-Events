@@ -37,7 +37,7 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
-      <div className="contact-container">
+      <div className="contact-container mt-5">
         <h2>Contact Us</h2>
         {status && <p className="status-message">{status}</p>} {/* Show status messages */}
         <form onSubmit={handleSubmit}>

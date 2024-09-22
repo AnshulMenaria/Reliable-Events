@@ -1,15 +1,52 @@
-.custom-navbar {
-  background: rgb(12, 11, 11);
-  padding: 1rem 2rem;
+/* Header above the navbar */
+.header-top {
+  background: linear-gradient(135deg, #8a5b3e, #ccaf66);
+  padding: 0.5rem 0;
+  color: #fff; /* White text */
+  text-align: right;
   position: fixed;
   width: 100%;
-  z-index: 10;
+  top: 0;
+  z-index: 80; /* Ensure it's above the navbar */
+  height: 40px; /* Define the height of the header */
+}
+
+.phone-numbers {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.phone-number {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.phone-number:hover {
+  color: #8a5b3e;
+}
+
+.custom-navbar {
+  background: #ffffff;
+  padding: 1.5rem 1.5rem;
+  position: fixed;
+  width: 100%;
+  z-index: 100; /* Place the navbar below the header */
+  top: 50px; /* Adjust this to be slightly larger than the header's height */
+  margin-top: 40px;
+}
+
+.navbar-logo-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .navbar-logo {
-  width: 120px;
-  height: 90px;
-  margin-right: 1rem;
+  width: 150px;
+  height: 130px;
+  margin: 0 2rem;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -17,112 +54,168 @@
   transform: scale(1.1);
 }
 
-.brandname {
-  font-family: 'Poppins', sans-serif;
-  font-size: 3rem;
-  color: #8A5B3E;
-  text-decoration: none;
-  font-family: Brush Script MT, Brush Script Std, cursive;
-  font-weight: bold;
-  transition: color 0.3s ease-in-out;
+.navbar-nav-left,
+.navbar-nav-right {
+  display: flex;
+  align-items: center;
 }
 
-.brandname:hover {
-  color: darkcyan;
+.navbar-nav-left,
+.navbar-nav-right {
+  flex-grow: 1; /* Make sure both nav sections expand to occupy space equally */
+  justify-content: flex-end;
 }
 
-.navbar-nav {
-  flex-grow: 1; /* Allow navbar links to grow */
-  justify-content: center;
-  margin-right: 70px; /* Center the nav links */
+.navbar-nav-left {
+  margin-right: 30px;
+  justify-content: flex-end; /* Align left links to the right side of their container */
 }
 
-.navbar-nav .nav-link {
-  font-size: 1.2rem;
+.navbar-nav-right {
+  justify-content: flex-start; /* Align right links to the left side of their container */
+}
+
+.navbar-nav-left .nav-link,
+.navbar-nav-right .nav-link {
+  position: relative;
+  font-size: 1.5rem;
   font-weight: 500;
   margin-left: 35px;
-  color: #fcfcfc;
+  color: #ccaf66;
   transition: color 0.3s ease-in-out;
-}
-
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus,
-.navbar-nav .nav-link.active {
-  color: darkcyan !important;
   text-decoration: none;
-  outline: none;
 }
 
-.phone-numbers {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end; /* Align phone numbers to the right */
+/* Lines above and below the links */
+.navbar-nav-left .nav-link::before,
+.navbar-nav-left .nav-link::after,
+.navbar-nav-right .nav-link::before,
+.navbar-nav-right .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #8a5b3e;
+  transition: width 0.3s ease;
 }
 
-.phone-numbers .nav-link {
-  padding-left: 0;
-  font-size: 1rem;
-  color: #fcfcfc;
+.navbar-nav-left .nav-link::before,
+.navbar-nav-right .nav-link::before {
+  top: 5px; /* Line above the link */
+  left: 0;
 }
 
+.navbar-nav-left .nav-link::after,
+.navbar-nav-right .nav-link::after {
+  bottom: 5px; /* Line below the link */
+  left: 0;
+}
+
+/* Hover effects for the lines */
+.navbar-nav-left .nav-link:hover::before,
+.navbar-nav-left .nav-link:hover::after,
+.navbar-nav-right .nav-link:hover::before,
+.navbar-nav-right .nav-link:hover::after {
+  width: 100%; /* Lines will expand across the link */
+}
+
+/* Active and focus states */
+.navbar-nav-left .nav-link.active::before,
+.navbar-nav-left .nav-link.active::after,
+.navbar-nav-right .nav-link.active::before,
+.navbar-nav-right .nav-link.active::after {
+  width: 100%; /* Keep lines visible for active links */
+}
+
+/* Adjusting for mobile view */
+/* Adjusting for mobile view */
 @media (max-width: 768px) {
-  .navbar-logo {
-    width: 60px;
-    height: 50px;
+  /* Remove the toggle button and ensure links are always visible */
+  .navbar-toggler {
+    display: none; /* Hide the toggle button on mobile */
   }
 
-  .brandname {
-    font-size: 2rem;
-    font-weight: 900;
+  .navbar-collapse {
+    display: flex !important; /* Ensure navbar links are visible */
+    flex-direction: row;
+    justify-content: space-between; /* Spread links and logo out */
+  }
+
+  .navbar-logo {
+    width: 100px; /* Smaller logo for mobile */
+    height: 100px;
+  }
+
+  .header-top {
+    padding: 0.3rem 0;
+    font-size: 0.8rem;
   }
 
   .custom-navbar {
     padding: 0.5rem 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-  }
-  .navbar-nav{
-    background-color: rgba(35, 30, 30, 0.687);
-    width: 100%;
-
-  }
-  .navbar-nav .nav-link {
-    font-size: 1rem;
-    color: rgb(255, 255, 255);
+    top: 40px; /* Adjust to the height of the header on mobile */
   }
 
-  .phone-numbers  {
-    align-items: flex-start;
-    background-color: rgba(35, 30, 30, 0.687);
-    color: rgb(255, 255, 255);
-
-    
-  }
-  .phone-numbers .nav-link{
-    color: rgb(255, 255, 255);
-    font-size: 1rem;
-
-
+  /* Adjust the size of the navbar links for mobile */
+  .navbar-nav-left .nav-link,
+  .navbar-nav-right .nav-link {
+    font-size: 1rem; /* Smaller font size for mobile */
+    margin-left: 15px; /* Reduce spacing between links */
+    color: #ccaf66;
   }
 
-  .navbar-toggler .navbar-toggler-icon {
-    background-color: rgb(39, 34, 34); /* Make the background transparent */
+  .navbar-nav-left,
+  .navbar-nav-right {
+    justify-content: center; /* Center the navigation items */
   }
-  .navbar-toggle {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-  }
-  
-  .line {
-    width: 30px; /* Adjust width as needed */
-    height: 2px; /* Adjust height as needed */
-    background-color: #8A5B3E; /* Line color */
-    margin: 4px 0; /* Space between lines */
-    transition: background-color 0.3s ease;
-  }
-  
 
+  /* Center the phone numbers in the header */
+  .header-top .phone-numbers {
+    justify-content: center;
+  }
+}
+@media (max-width: 967px) {
+  /* Remove the toggle button and ensure links are always visible */
+  .navbar-toggler {
+    display: none; /* Hide the toggle button on mobile */
+  }
+
+  .navbar-collapse {
+    display: flex !important; /* Ensure navbar links are visible */
+    flex-direction: row;
+    justify-content: space-between; /* Spread links and logo out */
+  }
+
+  .navbar-logo {
+    width: 100px; /* Smaller logo for mobile */
+    height: 100px;
+  }
+
+  .header-top {
+    padding: 0.3rem 0;
+    font-size: 0.8rem;
+  }
+
+  .custom-navbar {
+    padding: 0.5rem 1rem;
+    top: 40px; /* Adjust to the height of the header on mobile */
+  }
+
+  /* Adjust the size of the navbar links for mobile */
+  .navbar-nav-left .nav-link,
+  .navbar-nav-right .nav-link {
+    font-size: 1rem; /* Smaller font size for mobile */
+    margin-left: 15px; /* Reduce spacing between links */
+    color: #ccaf66;
+  }
+
+  .navbar-nav-left,
+  .navbar-nav-right {
+    justify-content: center; /* Center the navigation items */
+  }
+
+  /* Center the phone numbers in the header */
+  .header-top .phone-numbers {
+    justify-content: center;
+  }
 }
