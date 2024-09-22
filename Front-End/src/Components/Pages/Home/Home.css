@@ -14,9 +14,9 @@
 }
 
 .image-slider {
-  width: 100%; /* Take full width for large screens */
+  width: 70%; /* Take full width for large screens */
   max-width: 1200px;
-  height: 90%; /* Set a height for the image slider */
+  height: 400px; /* Set a height for the image slider on desktop */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,9 +26,10 @@
 .image-slide {
   width: 100%; /* Adjust width of the image */
   height: 100%; /* Ensure the image fills the container */
-  background-size: cover;
+  background-size: cover !important; /* Ensure the image covers the container */
   background-position: center;
-  animation: changeImage 3s infinite ease-in-out;
+  animation: changeImage 8s infinite ease-in-out; /* Slower animation */
+  transition: opacity 1s ease-in-out; /* Smooth transition effect */
 }
 
 .hero-content {
@@ -91,10 +92,33 @@
 }
 
 @keyframes changeImage {
-  0% { background-image: url("/public/eventbg.jpg"); }
-  33% { background-image: url("/public/eventbg.jpg"); }
-  66% { background-image: url("/public/eventbg.jpg"); }
-  100% { background-image: url("/public/eventbg.jpg"); }
+  0% {
+    opacity: 1;
+    background-image: url("/public/eventbg1.jpg");
+  }
+  25% {
+    opacity: 1; /* Keep the current image visible */
+  }
+ 
+  40% {
+    opacity: 1; /* Fade in next image */
+    background-image: url("/public/eventbg2.jpg");
+  }
+  65% {
+    opacity: 1; /* Keep the current image visible */
+  }
+  
+  80% {
+    opacity: 1; /* Fade in next image */
+    background-image: url("/public/eventbg3.jpg");
+  }
+  95% {
+    opacity: 1; /* Keep the current image visible */
+  }
+  100% {
+    opacity: 1; /* Fade out before the next image */
+    background-image: url("/public/eventbg4.jpg");
+  }
 }
 
 /* Mobile responsive styles */
@@ -159,6 +183,7 @@
     font-size: 0.85rem;
   }
 }
+
 /* Tablet view adjustments for image slider */
 @media only screen and (min-width: 481px) and (max-width: 1024px) {
   .image-slider {

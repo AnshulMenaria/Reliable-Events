@@ -33,6 +33,7 @@
   padding: 1.5rem 1.5rem;
   position: fixed;
   width: 100%;
+  height: 20vh;
   z-index: 100; /* Place the navbar below the header */
   top: 50px; /* Adjust this to be slightly larger than the header's height */
   margin-top: 40px;
