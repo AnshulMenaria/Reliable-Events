@@ -1,126 +1,130 @@
-/* Full page hero section */
 .hero-section {
   display: flex;
   flex-direction: column; /* Stack the image-slide and hero-content vertically */
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding: 60px;
+  height: 120vh;
+  padding: 20px;
   color: white;
-  margin-top: 120px;
   position: relative;
   overflow: hidden;
-  background-image: linear-gradient(155deg, #fff 45%, #000 45%);
-
+  background-image: linear-gradient(160deg, #000 50%, #fff 40%);
 }
 
 .image-slider {
-  width: 100%; /* Take full width for large screens */
-  max-width: 1200px;
-  height: 500px; /* Set a height for the image slider on desktop */
+  width: 80%; /* Take full width */
+  height: 90%; /* Set a height for the image slider */
   display: flex;
+  flex-direction: column; /* Ensure the line is stacked below the image-slide */
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
-
 }
 
 .image-slide {
   width: 100%; /* Adjust width of the image */
   height: 100%; /* Ensure the image fills the container */
-  background-size: cover !important; /* Ensure the image covers the container */
+  background-size: cover;
   background-position: center;
-  animation: changeImage 8s infinite ease-in-out; /* Slower animation */
-  transition: opacity 1s ease-in-out; /* Smooth transition effect */
-  border: 10px solid #AB8552 !important;
+  animation: changeImage 3s infinite ease-in-out;
+}
+
+.slider-line {
+  width: 100%; /* Same width as the image slider */
+  height: 3px; /* Adjust thickness of the line */
+  background-color: #ccaf66; /* Set the line color */
+  margin-bottom: 20px; /* Space between the line and content */
 }
 
 .hero-content {
   text-align: center;
   padding: 20px;
+  margin-top: 20px;
   flex-grow: 1; /* Ensure hero-content takes up the remaining space */
 }
 
 .animate-text {
+  font-family: "Script", Sans-serif;
+  color: #ccaf66;
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 20px;
-  color: #8a5b3e;
   animation: fadeIn 2s ease-in-out;
 }
 
 .animate-subtext {
+  font-family: Georgia, "Times New Roman", Times, serif, serif;
   font-size: 1.5rem;
   margin-bottom: 20px;
   animation: fadeIn 3s ease-in-out;
 }
 
-.cta-btn, .cta1-btn {
+.cta-btn {
+  background: linear-gradient(135deg, #8a5b3e, #ccaf66);
   padding: 15px 30px;
+  color: white;
   font-weight: 600;
   border: none;
   border-radius: 50px;
   margin-top: 20px;
   cursor: pointer;
   font-size: 1rem;
-  text-decoration: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: fadeInUp 4s ease-in-out;
-}
-
-.cta-btn {
-  background: linear-gradient(135deg, #8a5b3e, #ccaf66);
-  color: white;
   margin-right: 20px;
 }
 
 .cta1-btn {
   background: #ffffff2b;
+  padding: 15px 30px;
   color: #ccaf66;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 4s ease-in-out;
   margin-right: 30px;
 }
 
-.cta-btn:hover, .cta1-btn:hover {
+.cta-btn:hover,
+.cta1-btn:hover {
   transform: scale(1.1);
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes changeImage {
   0% {
-    opacity: 1;
     background-image: url("/public/eventbg1.jpg");
   }
-  25% {
-    opacity: 1; /* Keep the current image visible */
-  }
- 
-  40% {
-    opacity: 1; /* Fade in next image */
+  33% {
     background-image: url("/public/eventbg2.jpg");
   }
-  65% {
-    opacity: 1; /* Keep the current image visible */
-  }
-  
-  80% {
-    opacity: 1; /* Fade in next image */
+  66% {
     background-image: url("/public/eventbg3.jpg");
   }
-  95% {
-    opacity: 1; /* Keep the current image visible */
-  }
   100% {
-    opacity: 1; /* Fade out before the next image */
     background-image: url("/public/eventbg4.jpg");
   }
 }
@@ -128,53 +132,27 @@
 /* Mobile responsive styles */
 @media only screen and (max-width: 768px) {
   .hero-section {
-    padding: 20px;
-    margin-top: 50px;
+    padding: 0px;
+    height: 90vh;
+    background-image: linear-gradient(1 0deg, #000 20%, #fff 28%);
   }
 
   .image-slider {
     width: 100%;
     height: 250px; /* Adjust height for mobile visibility */
-    margin-bottom: 20px;
+    margin-top: 10px;
   }
 
-  .image-slide {
-    width: 100%;
-    height: 100%;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-top: 300px;
-    border: 10px solid #AB8552 !important;
-    
-
+  .slider-line {
+    width: 90%; /* Keep line width consistent in mobile */
+    height: 3px; /* Adjust thickness of the line */
+    background-color: #ccaf66;
+    margin-bottom: 40px; /* Space between the line and content */
   }
 
   .hero-content {
-    padding: 10px;
-    margin-bottom: 20px;
-  }
-
-  .animate-text {
-    font-size: 2rem;
-    margin-top: 150px;
-  }
-
-  .animate-subtext {
-    font-size: 1rem;
-  }
-
-  .cta-btn, .cta1-btn {
-    width: 100%;
-    padding: 12px 0;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-section {
-    padding: 10px;
-    margin-top: 30px;
+    padding: 20px;
+    text-align: center;
   }
 
   .animate-text {
@@ -182,30 +160,12 @@
   }
 
   .animate-subtext {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
   }
 
-  .cta-btn, .cta1-btn {
-    padding: 10px 0;
-    font-size: 0.85rem;
-  }
-}
-
-/* Tablet view adjustments for image slider */
-@media only screen and (min-width: 481px) and (max-width: 1024px) {
-  .image-slider {
-    height: 400px; /* Increase the height for better visibility on tablets */
-  }
-
-  .image-slide {
-    height: 100%;
-    background-size: cover; /* Ensure the image covers the container */
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-top: 0; /* Remove margin that might push the image down */
-  }
-
-  .hero-section {
-    margin-top: 100px; /* Adjust margin for tablet view */
+  .cta-btn {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 1rem;
   }
 }

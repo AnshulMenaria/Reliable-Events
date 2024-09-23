@@ -13,25 +13,32 @@ const NavigationBar = () => {
 
   return (
     <>
-      {/* Header above the navbar for displaying phone numbers */}
-      <div className="header-top">
-        <Container fluid className="d-flex justify-content-end">
-          
-        </Container>
-      </div>
-
       {/* Navbar */}
-      <Navbar expand="lg" className="custom-navbar" fixed="top">
+      <Navbar expand="lg" className="custom-navbar">
         <Container
           fluid
-          className="d-flex align-items-center justify-content-center"
+          className="d-flex align-items-center justify-content-between"
         >
+          {/* Logo on the left */}
+          <a href="/" className="navbar-logo-wrapper">
+            <img
+              src={process.env.PUBLIC_URL + "Logo.png"}
+              alt="Company Logo"
+              className="navbar-logo"
+            />
+          </a>
+
+          {/* Navbar toggle for mobile */}
           <Navbar.Toggle
             aria-controls="basic-navbar-nav"
             onClick={toggleNavbar}
-          />
+            className="ml-auto navbar-toggle"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </Navbar.Toggle>
+          
           <Navbar.Collapse id="basic-navbar-nav" in={navbarOpen}>
-            <Nav className="navbar-nav-left">
+            <Nav className="mx-auto navbar-nav-left">
               <Nav.Link href="/" className="mt-2" onClick={handleLinkClick}>
                 Home
               </Nav.Link>
@@ -49,18 +56,6 @@ const NavigationBar = () => {
               >
                 Gallery
               </Nav.Link>
-            </Nav>
-            
-
-            <a href="/" className="navbar-logo-wrapper">
-              <img
-                src={process.env.PUBLIC_URL + "Logo.png"}
-                alt="Company Logo"
-                className="navbar-logo"
-              />
-            </a>
-
-            <Nav className="navbar-nav-right">
               <Nav.Link
                 href="#testimonials"
                 className="mt-2"
@@ -69,18 +64,21 @@ const NavigationBar = () => {
                 Testimonials
               </Nav.Link>
               <Nav.Link
-                href="/contact"
-                className="mt-2"
-                onClick={handleLinkClick}
-              >
-                Contact Us
-              </Nav.Link>
-              <Nav.Link
                 href="/about"
                 className="mt-2"
                 onClick={handleLinkClick}
               >
                 About Us
+              </Nav.Link>
+            </Nav>
+
+            <Nav className="navbar-nav-right">
+              <Nav.Link
+                href="/contact"
+                className="mt-1 contact"
+                onClick={handleLinkClick}
+              >
+                Contact Us
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

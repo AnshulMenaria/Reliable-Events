@@ -1,38 +1,20 @@
-/* Header above the navbar */
-.header-top {
-  background: linear-gradient(135deg, #8a5b3e, #ccaf66);
-  padding: 0.5rem 0;
-  color: #fff; /* White text */
-  text-align: right;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 80; /* Ensure it's above the navbar */
-  height: 20px; /* Define the height of the header */
-}
-
-
 .custom-navbar {
-  background: #ffffff;
-  padding: 1.5rem 1.5rem;
-  position: fixed;
+  background: black;
+  padding: 1.5rem 2rem;
   width: 100%;
-  height: 20vh;
-  z-index: 100; /* Place the navbar below the header */
-  top: 10px; /* Adjust this to be slightly larger than the header's height */
-  margin-top: 20px;
+  z-index: 100;
+  top: 0;
 }
 
 .navbar-logo-wrapper {
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
 }
 
 .navbar-logo {
-  width: 250px;
-  height: 150px;
-  margin: 1.2rem;
+  width: 170px;
+  height: 140px;
+  margin: 0 4rem;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -46,25 +28,32 @@
   align-items: center;
 }
 
-.navbar-nav-left,
-.navbar-nav-right {
-  flex-grow: 1; /* Make sure both nav sections expand to occupy space equally */
-  justify-content: flex-end;
-}
-
 .navbar-nav-left {
   margin-right: 30px;
-  justify-content: flex-end; /* Align left links to the right side of their container */
+  justify-content: center;
 }
 
 .navbar-nav-right {
-  justify-content: flex-start; /* Align right links to the left side of their container */
+  justify-content: flex-end;
+  margin-right: 150px;
 }
 
-.navbar-nav-left .nav-link,
 .navbar-nav-right .nav-link {
+  background: linear-gradient(135deg, #8a5b3e, #ccaf66);
+  width: 100px;
+  padding: 10px 10px;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.navbar-nav-left .nav-link {
   position: relative;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 500;
   margin-left: 35px;
   color: #ccaf66;
@@ -72,136 +61,111 @@
   text-decoration: none;
 }
 
-/* Lines above and below the links */
 .navbar-nav-left .nav-link::before,
-.navbar-nav-left .nav-link::after,
-.navbar-nav-right .nav-link::before,
-.navbar-nav-right .nav-link::after {
+.navbar-nav-left .nav-link::after {
   content: "";
   position: absolute;
   width: 0;
   height: 2px;
   background-color: #8a5b3e;
   transition: width 0.3s ease;
+  color: #fafafa !important;
 }
 
 .navbar-nav-left .nav-link::before,
 .navbar-nav-right .nav-link::before {
-  top: 5px; /* Line above the link */
+  top: 5px;
   left: 0;
 }
 
 .navbar-nav-left .nav-link::after,
 .navbar-nav-right .nav-link::after {
-  bottom: 5px; /* Line below the link */
+  bottom: 5px;
   left: 0;
 }
 
-/* Hover effects for the lines */
 .navbar-nav-left .nav-link:hover::before,
-.navbar-nav-left .nav-link:hover::after,
-.navbar-nav-right .nav-link:hover::before,
-.navbar-nav-right .nav-link:hover::after {
-  width: 100%; /* Lines will expand across the link */
+.navbar-nav-left .nav-link:hover::after {
+  width: 100%;
 }
 
-/* Active and focus states */
+.navbar-nav-left .nav-link:hover,
+.navbar-nav-right .nav-link:hover {
+  color: #fff;
+}
+
 .navbar-nav-left .nav-link.active::before,
-.navbar-nav-left .nav-link.active::after,
-.navbar-nav-right .nav-link.active::before,
-.navbar-nav-right .nav-link.active::after {
-  width: 100%; /* Keep lines visible for active links */
+.navbar-nav-left .nav-link.active::after {
+  width: 100%;
 }
 
-/* Adjusting for mobile view */
-/* Adjusting for mobile view */
+.navbar-toggle {
+  border-color: transparent;
+  background: none;
+}
+
+.navbar-toggler-icon {
+  background-color: #ccaf66;
+  border-radius: 10px;
+  width: 40px !important;
+  height: 3px;
+  display: block;
+  margin: 5px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+/* Adjust the navbar for mobile */
 @media (max-width: 768px) {
-  /* Remove the toggle button and ensure links are always visible */
-  .navbar-toggler {
-    display: none; /* Hide the toggle button on mobile */
+  .custom-navbar {
+    padding: 0.5rem 1rem;
+    top: 0px;
   }
 
-  .navbar-collapse {
-    display: flex !important; /* Ensure navbar links are visible */
-    flex-direction: row;
-    justify-content: space-between; /* Spread links and logo out */
+  .navbar-logo-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-left: -4rem;
+    margin-bottom: 0.5rem;
   }
 
   .navbar-logo {
-    width: 100px; /* Smaller logo for mobile */
+    width: 130px;
     height: 100px;
+  }
+
+  .navbar-nav-left,
+  .navbar-nav-right {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .navbar-nav-left .nav-link,
+  .navbar-nav-right .nav-link {
+    font-size: 1rem;
+    margin-left: 0;
+    margin-top: 1rem;
+    text-align: center;
+    color: #ccaf66;
+  }
+
+  .navbar-nav-right .nav-link {
+    margin-left: 120px;
+    width: 80%;
+  }
+  .contact {
+    margin-left: 140px !important;
+  }
+
+  .navbar-toggle {
+    margin-left: auto;
   }
 
   .header-top {
     padding: 0.3rem 0;
     font-size: 0.8rem;
-  }
-
-  .custom-navbar {
-    padding: 0.5rem 1rem;
-    top: 40px; /* Adjust to the height of the header on mobile */
-  }
-
-  /* Adjust the size of the navbar links for mobile */
-  .navbar-nav-left .nav-link,
-  .navbar-nav-right .nav-link {
-    font-size: 1rem; /* Smaller font size for mobile */
-    margin-left: 15px; /* Reduce spacing between links */
-    color: #ccaf66;
-  }
-
-  .navbar-nav-left,
-  .navbar-nav-right {
-    justify-content: center; /* Center the navigation items */
-  }
-
-  /* Center the phone numbers in the header */
-  .header-top .phone-numbers {
-    justify-content: center;
-  }
-}
-@media (max-width: 967px) {
-  /* Remove the toggle button and ensure links are always visible */
-  .navbar-toggler {
-    display: none; /* Hide the toggle button on mobile */
-  }
-
-  .navbar-collapse {
-    display: flex !important; /* Ensure navbar links are visible */
-    flex-direction: row;
-    justify-content: space-between; /* Spread links and logo out */
-  }
-
-  .navbar-logo {
-    width: 100px; /* Smaller logo for mobile */
-    height: 100px;
-  }
-
-  .header-top {
-    padding: 0.3rem 0;
-    font-size: 0.8rem;
-  }
-
-  .custom-navbar {
-    padding: 0.5rem 1rem;
-    top: 40px; /* Adjust to the height of the header on mobile */
-  }
-
-  /* Adjust the size of the navbar links for mobile */
-  .navbar-nav-left .nav-link,
-  .navbar-nav-right .nav-link {
-    font-size: 1rem; /* Smaller font size for mobile */
-    margin-left: 15px; /* Reduce spacing between links */
-    color: #ccaf66;
-  }
-
-  .navbar-nav-left,
-  .navbar-nav-right {
-    justify-content: center; /* Center the navigation items */
-  }
-
-  /* Center the phone numbers in the header */
-  .header-top .phone-numbers {
-    justify-content: center;
   }
 }

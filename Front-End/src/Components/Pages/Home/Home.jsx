@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Home.css";
 import ServicesSection from "./Services";
 import Testimonials from "./Testimonials";
@@ -10,6 +9,7 @@ const Home = () => {
     <>
       <div className="hero-section">
         <div className="image-slider">
+          <div className="slider-line"></div>{" "}
           <div className="image-slide"></div>
         </div>
         <div className="hero-content">
@@ -18,8 +18,8 @@ const Home = () => {
             We plan, design, and manage exceptional celebrations for any
             occasion.
           </p>
-          <Link to="/services" className="cta-btn">Explore Our Services</Link>
-          <Link to="/more" className="cta1-btn">View More</Link>
+          <button className="cta-btn">Explore Our Services</button>
+          <button className="cta1-btn">View more</button>
         </div>
       </div>
       <section id="services">
