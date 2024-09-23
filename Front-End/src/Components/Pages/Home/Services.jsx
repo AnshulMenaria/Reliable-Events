@@ -1,6 +1,6 @@
 import React from 'react';
 import './Services.css';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const services = [
   {
@@ -24,17 +24,23 @@ const ServicesSection = () => {
   return (
     <section id="services" className="services-section">
       <Container>
-        <h2 className="section-title">Our Services</h2>
+        <h1 className="section-title"  >Our Services</h1>
         <Row>
           {services.map((service, index) => (
             <Col md={6} lg={4} key={index} className="service-col">
-              <Card className="service-card">
-                <Card.Img variant="top" src={service.image} />
-                <Card.Body>
-                  <Card.Title>{service.title}</Card.Title>
-                  <Card.Text>{service.description}</Card.Text>
-                </Card.Body>
-              </Card>
+              <div className="flip-card">
+                <div className="flip-card-inner">
+                  <p>Tap Here</p>
+                  <div className="flip-card-front">
+                    <h3 className="service-name">{service.title}</h3>
+                  </div>
+                  <div className="flip-card-back">
+                    <img src={service.image} alt={service.title} />
+                    <h4>{service.title}</h4>
+                    <p>{service.description}</p>
+                  </div>
+                </div>
+              </div>
             </Col>
           ))}
         </Row>

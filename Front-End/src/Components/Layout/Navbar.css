@@ -8,25 +8,9 @@
   width: 100%;
   top: 0;
   z-index: 80; /* Ensure it's above the navbar */
-  height: 40px; /* Define the height of the header */
+  height: 20px; /* Define the height of the header */
 }
 
-.phone-numbers {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  font-size: 0.9rem;
-}
-
-.phone-number {
-  color: #ffffff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.phone-number:hover {
-  color: #8a5b3e;
-}
 
 .custom-navbar {
   background: #ffffff;
@@ -35,19 +19,20 @@
   width: 100%;
   height: 20vh;
   z-index: 100; /* Place the navbar below the header */
-  top: 50px; /* Adjust this to be slightly larger than the header's height */
-  margin-top: 40px;
+  top: 10px; /* Adjust this to be slightly larger than the header's height */
+  margin-top: 20px;
 }
 
 .navbar-logo-wrapper {
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 .navbar-logo {
-  width: 150px;
-  height: 130px;
-  margin: 0 2rem;
+  width: 250px;
+  height: 150px;
+  margin: 1.2rem;
   transition: transform 0.3s ease-in-out;
 }
 

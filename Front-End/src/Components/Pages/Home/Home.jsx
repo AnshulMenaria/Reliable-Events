@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 import ServicesSection from "./Services";
 import Testimonials from "./Testimonials";
@@ -17,8 +18,8 @@ const Home = () => {
             We plan, design, and manage exceptional celebrations for any
             occasion.
           </p>
-          <button className="cta-btn">Explore Our Services</button>
-          <button className="cta1-btn">View more</button>
+          <Link to="/services" className="cta-btn">Explore Our Services</Link>
+          <Link to="/more" className="cta1-btn">View More</Link>
         </div>
       </div>
       <section id="services">
@@ -30,10 +31,8 @@ const Home = () => {
       <section id="testimonials">
         <Testimonials />
       </section>
-      
     </>
   );
 };
 
 export default Home;
-

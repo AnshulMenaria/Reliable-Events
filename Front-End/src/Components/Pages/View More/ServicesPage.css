@@ -1,45 +1,75 @@
 #services-page {
-    padding: 50px 0;
-  }
-  
-  .section-title {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-  }
-  
+  padding: 50px 0;
+  margin-top: 70px;
+  background-color: #f5f5f5;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #b29600; /* Gold header color */
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+}
+
+.service-row {
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.service-row.flex-row-reverse {
+  flex-direction: row-reverse;
+  transform: translateX(-100px); /* Start from left for reversed rows */
+}
+
+.service-image {
+  width: 100%;
+  height: auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease;
+}
+
+.text-col {
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.service-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #b29600; /* Gold color for titles */
+}
+
+.service-description {
+  font-size: 1.1rem;
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+}
+
+.service-row:hover .service-image {
+  transform: scale(1.05); /* Image zoom effect on hover */
+}
+
+@media (max-width: 767px) {
   .service-row {
-    display: flex;
-    align-items: center;
+    flex-direction: column;
+    transform: translateX(0); /* Reset for smaller screens */
   }
-  
-  .service-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+  .service-row.flex-row-reverse {
+    flex-direction: column;
   }
-  
-  .text-col {
-    padding: 20px;
-  }
-  
-  .service-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-  }
-  
-  .service-description {
-    font-size: 1.1rem;
-    color: #555;
-  }
-  
-  @media (max-width: 767px) {
-    .service-row {
-      flex-direction: column;
-    }
-    .service-row.flex-row-reverse {
-      flex-direction: column;
-    }
-  }
-  
+}
+
+/* Scroll Animation */
+.service-row.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+ 

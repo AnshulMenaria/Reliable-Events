@@ -16,15 +16,7 @@ const NavigationBar = () => {
       {/* Header above the navbar for displaying phone numbers */}
       <div className="header-top">
         <Container fluid className="d-flex justify-content-end">
-          <div className="phone-numbers">
-            <a href="tel:+918005754631" className="phone-number">
-              +91 8005754631
-            </a>
-            <span>|</span>
-            <a href="tel:+918690606970" className="phone-number">
-              +91 8690606970
-            </a>
-          </div>
+          
         </Container>
       </div>
 
@@ -50,11 +42,19 @@ const NavigationBar = () => {
               >
                 Services
               </Nav.Link>
+              <Nav.Link
+                href="/gallery"
+                className="mt-2"
+                onClick={handleLinkClick}
+              >
+                Gallery
+              </Nav.Link>
             </Nav>
+            
 
             <a href="/" className="navbar-logo-wrapper">
               <img
-                src={process.env.PUBLIC_URL + "Event-logo.png"}
+                src={process.env.PUBLIC_URL + "Logo.png"}
                 alt="Company Logo"
                 className="navbar-logo"
               />
@@ -73,7 +73,14 @@ const NavigationBar = () => {
                 className="mt-2"
                 onClick={handleLinkClick}
               >
-                Contact
+                Contact Us
+              </Nav.Link>
+              <Nav.Link
+                href="/about"
+                className="mt-2"
+                onClick={handleLinkClick}
+              >
+                About Us
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
