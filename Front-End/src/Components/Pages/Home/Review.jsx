@@ -46,7 +46,7 @@ const Review = () => {
   // Fetch all reviews from backend
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/review")
+      .get("https://reliable-events.onrender.com/api/review")
       .then((res) => setReviews(res.data))
       .catch((err) => console.error(err));
   }, []);
@@ -61,7 +61,7 @@ const Review = () => {
     };
 
     try {
-      await axios.post("http://localhost:8080/api/review", reviewData);
+      await axios.post("https://reliable-events.onrender.com/api/review", reviewData);
       setSubmitted(true);
       setName("");
       setRating(0);

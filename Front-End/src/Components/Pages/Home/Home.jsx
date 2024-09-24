@@ -7,6 +7,7 @@ import eventbg1 from "../../../Assets/HeroSection/eventbg1.jpg";
 import eventbg2 from "../../../Assets/HeroSection/eventbg2.jpg";
 import eventbg3 from "../../../Assets/HeroSection/eventbg3.jpg";
 import eventbg4 from "../../../Assets/HeroSection/eventbg4.jpg";
+import Review from "./Review";
 
 const images = [eventbg1, eventbg2, eventbg3, eventbg4]; // Define images outside
 
@@ -61,6 +62,9 @@ const Home = () => {
       </section>
       <section id="testimonials">
         <Testimonials />
+      </section>
+      <section id="reviews">
+        <Review />
       </section>
     </>
   );

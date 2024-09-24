@@ -15,7 +15,7 @@ const Contact = () => {
 
     try {
       // Send the data to your backend
-      const response = await axios.post('http://localhost:8080/api/contact', { // eslint-disable-line no-unused-vars
+      const response = await axios.post('https://reliable-events.onrender.com/api/contact', { // eslint-disable-line no-unused-vars
         name,
         email,
         message,
@@ -37,7 +37,7 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
-      <div className="contact-container mt-5">
+      <div className="contact-container ">
         <h2>Contact Us</h2>
         {status && <p className="status-message">{status}</p>} {/* Show status messages */}
         <form onSubmit={handleSubmit}>
