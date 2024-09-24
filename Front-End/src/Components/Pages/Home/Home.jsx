@@ -8,12 +8,11 @@ import eventbg2 from "../../../Assets/HeroSection/eventbg2.jpg";
 import eventbg3 from "../../../Assets/HeroSection/eventbg3.jpg";
 import eventbg4 from "../../../Assets/HeroSection/eventbg4.jpg";
 
+const images = [eventbg1, eventbg2, eventbg3, eventbg4]; // Define images outside
+
 const Home = () => {
   const [currentImage, setCurrentImage] = useState(eventbg1);
   const [fadeOut, setFadeOut] = useState(false);
-  const [fadeIn, setFadeIn] = useState(false); // Add fade-in state
-
-  const images = [eventbg1, eventbg2, eventbg3, eventbg4];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -25,13 +24,12 @@ const Home = () => {
           const nextIndex = (currentIndex + 1) % images.length;
           return images[nextIndex];
         });
-        setFadeIn(true); // Trigger fade in for the new image
         setFadeOut(false); // Reset fade out state
       }, 1500); // Match this with the CSS transition duration
     }, 4000); // Change image every 4 seconds
 
     return () => clearInterval(interval);
-  }, [images]);
+  }, []);
 
   return (
     <>
