@@ -1,6 +1,6 @@
 .hero-section {
   display: flex;
-  flex-direction: column; /* Stack the image-slide and hero-content vertically */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 120vh;
@@ -12,34 +12,47 @@
 }
 
 .image-slider {
-  width: 80%; /* Take full width */
-  height: 90%; /* Set a height for the image slider */
+  width: 80%;
+  height: 90%;
   display: flex;
-  flex-direction: column; /* Ensure the line is stacked below the image-slide */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .image-slide {
-  width: 100%; /* Adjust width of the image */
-  height: 100%; /* Ensure the image fills the container */
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
-  animation: changeImage 3s infinite ease-in-out;
+  border: 5px solid #ccaf66;
+  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out; /* Faster transition */
+  opacity: 1;
+  transform: scale(1);
+}
+
+.image-slide.fade-out {
+  opacity: 0; /* Fades out the current image */
+  transform: scale(1.1); /* Slightly zooms out */
+}
+
+.image-slide.fade-in {
+  opacity: 1; /* Fades in the next image */
+  transform: scale(1); /* Resets the scale */
 }
 
 .slider-line {
-  width: 100%; /* Same width as the image slider */
-  height: 3px; /* Adjust thickness of the line */
-  background-color: #ccaf66; /* Set the line color */
-  margin-bottom: 20px; /* Space between the line and content */
+  width: 100%;
+  height: 5px;
+  background-color: #ccaf66;
+  margin-bottom: 20px;
 }
 
 .hero-content {
   text-align: center;
   padding: 20px;
   margin-top: 20px;
-  flex-grow: 1; /* Ensure hero-content takes up the remaining space */
+  flex-grow: 1;
 }
 
 .animate-text {
@@ -48,18 +61,16 @@
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 20px;
-  animation: fadeIn 2s ease-in-out;
 }
 
 .animate-subtext {
-  font-family: Georgia, "Times New Roman", Times, serif, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 1.5rem;
   margin-bottom: 20px;
-  animation: fadeIn 3s ease-in-out;
 }
 
-.cta-btn {
-  background: linear-gradient(135deg, #8a5b3e, #ccaf66);
+.cta-btn,
+.cta1-btn {
   padding: 15px 30px;
   color: white;
   font-weight: 600;
@@ -69,64 +80,21 @@
   cursor: pointer;
   font-size: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeInUp 4s ease-in-out;
-  margin-right: 20px;
+}
+
+.cta-btn {
+  background: linear-gradient(135deg, #8a5b3e, #ccaf66);
 }
 
 .cta1-btn {
   background: #ffffff2b;
-  padding: 15px 30px;
   color: #ccaf66;
-  font-weight: 600;
-  border: none;
-  border-radius: 50px;
-  margin-top: 20px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeInUp 4s ease-in-out;
-  margin-right: 30px;
 }
 
 .cta-btn:hover,
 .cta1-btn:hover {
   transform: scale(1.1);
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes changeImage {
-  0% {
-    background-image: url("/public/eventbg1.jpg");
-  }
-  33% {
-    background-image: url("/public/eventbg2.jpg");
-  }
-  66% {
-    background-image: url("/public/eventbg3.jpg");
-  }
-  100% {
-    background-image: url("/public/eventbg4.jpg");
-  }
 }
 
 /* Mobile responsive styles */
@@ -139,15 +107,15 @@
 
   .image-slider {
     width: 100%;
-    height: 250px; /* Adjust height for mobile visibility */
+    height: 300px; /* Adjust height for mobile visibility */
     margin-top: 10px;
   }
 
   .slider-line {
-    width: 90%; /* Keep line width consistent in mobile */
-    height: 3px; /* Adjust thickness of the line */
+    width: 90%;
+    height: 4px;
     background-color: #ccaf66;
-    margin-bottom: 40px; /* Space between the line and content */
+    margin-bottom: 40px;
   }
 
   .hero-content {

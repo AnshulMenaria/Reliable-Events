@@ -1,12 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import './Gallery.css';
 import { Container, Row, Col, Card } from 'react-bootstrap';
+import wedding1 from '../../../Assets/HomeGallery/wedding1.jpg';
+import wedding2 from '../../../Assets/HomeGallery/wedding2.jpg';
+import wedding3 from '../../../Assets/HomeGallery/wedding3.png';
+import corporate1 from '../../../Assets/HomeGallery/corporate1.jpg';
+import corporate2 from '../../../Assets/HomeGallery/corporate2.jpg';
+import corporate3 from '../../../Assets/HomeGallery/corporate3.png';
+import party1 from '../../../Assets/HomeGallery/party1.jpg';
+import party2 from '../../../Assets/HomeGallery/party2.jpg';
+import party3 from '../../../Assets/HomeGallery/party3.jpg';
+import seminar1 from '../../../Assets/HomeGallery/seminar1.jpg';
+import seminar2 from '../../../Assets/HomeGallery/seminar2.jpg';
+import seminar3 from '../../../Assets/HomeGallery/corporate2.jpg'; // Reusing for demonstration
 
 const galleryImages = {
-  wedding: ['/wedding1.jpg', '/wedding2.jpg', '/wedding3.png'],
-  corporate: ['/corporate1.jpg', '/corporate2.jpg', '/corporate3.png'],
-  parties: ['/party1.jpg', '/party2.jpg', '/party3.jpg'],
-  seminars: ['/seminar1.jpg', '/seminar2.jpg', '/corporate2.jpg']
+  wedding: [wedding1, wedding2, wedding3],
+  corporate: [corporate1, corporate2, corporate3],
+  parties: [party1, party2, party3],
+  seminars: [seminar1, seminar2, seminar3]
 };
 
 const Gallery = () => {
@@ -69,7 +81,7 @@ const Gallery = () => {
           </Col>
           <Col md={6}>
             <Card className="gallery-card">
-              <Card.Img variant="top" src={currentImages.seminars} alt="College Fest" className="animated-image"/>
+              <Card.Img variant="top" src={currentImages.seminars} alt="Seminars" className="animated-image"/>
               <Card.Body>
                 <Card.Title>Seminars</Card.Title>
               </Card.Body>

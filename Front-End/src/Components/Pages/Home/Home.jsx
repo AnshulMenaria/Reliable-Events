@@ -1,16 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import ServicesSection from "./Services";
 import Testimonials from "./Testimonials";
 import Gallery from "./Gallery";
+import eventbg1 from "../../../Assets/HeroSection/eventbg1.jpg";
+import eventbg2 from "../../../Assets/HeroSection/eventbg2.jpg";
+import eventbg3 from "../../../Assets/HeroSection/eventbg3.jpg";
+import eventbg4 from "../../../Assets/HeroSection/eventbg4.jpg";
 
 const Home = () => {
+  const [currentImage, setCurrentImage] = useState(eventbg1);
+  const [fadeOut, setFadeOut] = useState(false);
+  const [fadeIn, setFadeIn] = useState(false); // Add fade-in state
+
+  const images = [eventbg1, eventbg2, eventbg3, eventbg4];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFadeOut(true); // Trigger fade out
+
+      setTimeout(() => {
+        setCurrentImage((prevImage) => {
+          const currentIndex = images.indexOf(prevImage);
+          const nextIndex = (currentIndex + 1) % images.length;
+          return images[nextIndex];
+        });
+        setFadeIn(true); // Trigger fade in for the new image
+        setFadeOut(false); // Reset fade out state
+      }, 1500); // Match this with the CSS transition duration
+    }, 4000); // Change image every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [images]);
+
   return (
     <>
       <div className="hero-section">
         <div className="image-slider">
-          <div className="slider-line"></div>{" "}
-          <div className="image-slide"></div>
+          <div className="slider-line"></div>
+          <div
+            className={`image-slide ${fadeOut ? "fade-out" : "fade-in"}`} // Use both classes
+            style={{
+              backgroundImage: `url(${currentImage})`,
+            }}
+          ></div>
         </div>
         <div className="hero-content">
           <h2 className="animate-text">Creating Unforgettable Memories</h2>
