@@ -1,54 +1,54 @@
 .about-section {
-    background-color: #f8f9fa;
-    padding: 40px 20px;
-  }
-  
-  .title {
-    font-size: 2.5rem;
-    color: #343a40;
-    font-weight: bold;
-  }
-  
-  .subtitle {
-    font-size: 1.25rem;
-    color: #6c757d;
-  }
-  
-  .owner-name {
-    font-size: 2rem;
-    color: #007bff;
-    margin-top: 30px;
-  }
-  
-  .icon-box {
-    background: #ffffff;
-    border: 1px solid #dee2e6;
-    border-radius: 10px;
-    padding: 30px;
-    margin: 10px;
-    transition: transform 0.2s;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .icon-box:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
-  }
-  
-  .icon {
-    font-size: 3rem;
-    color: #007bff;
-    margin-bottom: 10px;
-  }
-  
-  h3 {
-    color: #343a40;
-    margin-bottom: 1rem;
-  }
-  
-  p {
-    color: #495057;
-    line-height: 1.6;
-    font-size: 1rem;
-  }
-  
+  background-color: #f8f9fa;
+  padding: 40px 20px;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #343a40;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #6c757d;
+}
+
+.owner-name {
+  font-size: 2rem;
+  color: #007bff;
+  margin-top: 30px;
+}
+
+.statistic-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.circle {
+  width: 80px; /* Circle size */
+  height: 80px; /* Circle size */
+  background-color: #007bff; /* Circle color */
+  color: white; /* Text color */
+  border-radius: 50%; /* Make it circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem; /* Font size of number */
+  margin-bottom: 10px; /* Space between circle and title */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  color: #343a40;
+  margin: 0; /* Reset margin for titles */
+  font-size: 1.25rem; /* Font size for titles */
+}
+
+p {
+  color: #495057;
+  line-height: 1.6;
+  font-size: 1.20rem;
+}

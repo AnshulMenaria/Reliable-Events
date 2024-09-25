@@ -3,17 +3,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Use 100vh for full viewport height */
+  height: 100vh; /* Full viewport height */
   padding: 20px;
   color: white;
   position: relative;
   overflow: hidden;
-  background-image: linear-gradient(160deg, rgb(0, 0, 0) 40%, rgb(243, 243, 243) 40%);
+  background-image: linear-gradient(165deg, rgb(0, 0, 0) 40%, rgb(243, 243, 243) 40%);
 }
 
 .image-slider {
-  width: 90%; /* Use a percentage for responsiveness */
-  height: 90%; /* Use a percentage to scale with viewport */
+  width: 90%; /* Responsive width */
+  height: 100%; /* Responsive height */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,14 +57,14 @@
 .animate-text {
   font-family: "Script", Sans-serif;
   color: #ccaf66;
-  font-size: 3rem; /* Use a larger font size for visibility */
+  font-size: 3rem; /* Large font size */
   font-weight: bold;
   margin-bottom: 20px;
 }
 
 .animate-subtext {
   font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 1.5rem; /* Consistent size for readability */
+  font-size: 1.5rem;
   margin-bottom: 20px;
 }
 
@@ -96,14 +96,21 @@
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Mobile responsive styles */
+/* Desktop (1024px and above) */
+@media only screen and (min-width: 1024px) {
+  .image-slider {
+    height: 1000px !important; /* Increase image height only for desktop */
+  }
+}
+
+/* Tablet (768px to 1024px) */
 @media only screen and (max-width: 1024px) {
   .hero-section {
     padding: 10px;
   }
 
   .image-slider {
-    height: 70%; /* Adjust height for smaller screens */
+    height: 100%; /* Adjust height for smaller screens */
   }
 
   .animate-text {
@@ -118,19 +125,20 @@
   .cta1-btn {
     width: 100%;
     padding: 12px 0;
-    font-size: 1rem; /* Consistent font size */
+    font-size: 1rem;
   }
 }
 
+/* Mobile (768px and below) */
 @media only screen and (max-width: 768px) {
   .hero-section {
-    height: auto; /* Allow height to adapt on mobile */
-    padding: 0; /* Remove padding for mobile */
-    background-image: linear-gradient(145deg, rgb(0, 0, 0) 28%, rgb(255, 255, 255) 28%);
+    height: auto;
+    padding: 0;
+    background-image: linear-gradient(145deg, rgb(0, 0, 0) 40%, rgb(255, 255, 255) 28%);
   }
 
   .image-slider {
-    height: 300px; /* Fixed height for mobile visibility */
+    height: 300px; /* Fixed height for mobile */
     margin-top: 10px;
   }
 
@@ -140,31 +148,32 @@
   }
 
   .animate-text {
-    font-size: 1.8rem; /* Smaller font for mobile */
+    font-size: 1.8rem;
   }
 
   .animate-subtext {
-    font-size: 1rem; /* Smaller font for mobile */
+    font-size: 1rem;
   }
 
   .cta-btn,
   .cta1-btn {
     width: 100%;
-    padding: 10px 0; /* Reduced padding for mobile */
+    padding: 10px 0;
   }
 }
 
+/* Extra small mobile (480px and below) */
 @media only screen and (max-width: 480px) {
   .animate-text {
-    font-size: 1.5rem; /* Further reduced for smaller screens */
+    font-size: 1.5rem;
   }
 
   .animate-subtext {
-    font-size: 0.9rem; /* Further reduced for smaller screens */
+    font-size: 0.9rem;
   }
 
   .cta-btn,
   .cta1-btn {
-    font-size: 0.9rem; /* Smaller button font */
+    font-size: 0.9rem;
   }
 }

@@ -78,7 +78,7 @@ const services = [
 const ServicesPage = () => {
   useEffect(() => {
     const handleScroll = () => {
-      const rows = document.querySelectorAll('.service-row');
+      const rows = document.querySelectorAll('.unique-service-row');
       rows.forEach((row, index) => {
         if (index === 0) return; // Skip the first row (already visible)
 
@@ -99,15 +99,18 @@ const ServicesPage = () => {
       <Container className='mt-5'>
         <h2 className="section-title text-center">Our Services</h2>
         {services.map((service, index) => (
-          <Row key={index} className={`service-row ${index === 0 ? 'show' : ''} ${index % 2 === 0 ? 'flex-row-reverse' : ''} mb-5`}>
+          <Row 
+            key={index} 
+            className={`unique-service-row ${index === 0 ? 'show' : ''} ${index % 2 === 0 ? 'flex-row-reverse' : ''} mb-5`}
+          >
             <Col md={6} className="image-col">
               <Card.Img src={service.image} alt={service.title} className="service-image rounded-corner" />
             </Col>
             <Col md={6} className="text-col">
               <Card className="service-card">
                 <Card.Body>
-                  <Card.Title>{service.title}</Card.Title>
-                  <Card.Text>{service.description}</Card.Text>
+                  <Card.Title className="service-title">{service.title}</Card.Title>
+                  <Card.Text className="service-description">{service.description}</Card.Text>
                 </Card.Body>
               </Card>
             </Col>

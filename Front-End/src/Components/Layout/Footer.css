@@ -1,0 +1,119 @@
+.custom-footer {
+    background-color: black;
+    color: #fafafa; /* Unified color for all text */
+    padding: 3rem 0;
+    border-top: 2px solid #8a5b3e;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-logo-wrapper {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .footer-logo {
+    width: 140px;
+    height: 120px;
+  }
+  
+  .footer-section-title {
+    color: #ccaf66; /* Section title color */
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links a {
+    color: #fafafa; /* Unified color for links */
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .footer-links a:hover {
+    color: #ccaf66; /* Hover color for links */
+  }
+  
+  .footer-socials {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px !important;
+  }
+  
+  .footer-socials li {
+    margin-bottom: 20px;
+  }
+  
+  .footer-socials a {
+    color: #fafafa; /* Unified color for social media icons */
+    font-size: 1rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .footer-socials a:hover {
+    color: #ccaf66; /* Hover color for social media icons */
+  }
+  
+  .footer-socials i {
+    margin-right: 10px; /* Space between icon and text */
+  }
+  
+  .footer-contact-wrapper a {
+    color: #fafafa; /* Unified color for clickable email and phone */
+    text-decoration: none;
+    margin-bottom: 34px !important;
+  }
+  
+  .footer-contact-wrapper a:hover {
+    color: #ccaf66; /* Hover color for clickable email and phone */
+  }
+  
+  .footer-address-wrapper p {
+    margin-top: 20px;
+  }
+  
+  .footer-copyright {
+    color: #ccaf66;
+    font-size: 0.9rem;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .footer-logo {
+      width: 120px;
+      height: 100px;
+    }
+  
+    .footer-links {
+      text-align: left;
+    }
+  
+    .footer-socials {
+      margin-top: 1rem;
+    }
+  
+    .footer-section-title {
+      font-size: 1rem;
+    }
+  
+    .footer-contact-wrapper, .footer-address-wrapper {
+      text-align: center;
+    }
+  }
+  

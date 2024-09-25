@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import ServicesSection from "./Services";
 import Testimonials from "./Testimonials";
 import Gallery from "./Gallery";
+import Review from "./Review";
 import eventbg1 from "../../../Assets/HeroSection/eventbg1.jpg";
 import eventbg2 from "../../../Assets/HeroSection/eventbg2.jpg";
 import eventbg3 from "../../../Assets/HeroSection/eventbg3.jpg";
 import eventbg4 from "../../../Assets/HeroSection/eventbg4.jpg";
-import Review from "./Review";
 
-const images = [eventbg1, eventbg2, eventbg3, eventbg4]; // Define images outside
+const images = [eventbg1, eventbg2, eventbg3, eventbg4];
 
 const Home = () => {
+  const navigate = useNavigate();
   const [currentImage, setCurrentImage] = useState(eventbg1);
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setFadeOut(true); // Trigger fade out
+      setFadeOut(true);
 
       setTimeout(() => {
         setCurrentImage((prevImage) => {
@@ -25,12 +27,16 @@ const Home = () => {
           const nextIndex = (currentIndex + 1) % images.length;
           return images[nextIndex];
         });
-        setFadeOut(false); // Reset fade out state
-      }, 1500); // Match this with the CSS transition duration
-    }, 4000); // Change image every 4 seconds
+        setFadeOut(false);
+      }, 1500);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
+
+  const handleExploreClick = () => {
+    navigate("/services");
+  };
 
   return (
     <>
@@ -38,7 +44,7 @@ const Home = () => {
         <div className="image-slider">
           <div className="slider-line"></div>
           <div
-            className={`image-slide ${fadeOut ? "fade-out" : "fade-in"}`} // Use both classes
+            className={`image-slide ${fadeOut ? "fade-out" : "fade-in"}`}
             style={{
               backgroundImage: `url(${currentImage})`,
             }}
@@ -50,8 +56,7 @@ const Home = () => {
             We plan, design, and manage exceptional celebrations for any
             occasion.
           </p>
-          <button className="cta-btn">Explore Our Services</button>
-          <button className="cta1-btn">View more</button>
+          <button className="cta-btn" onClick={handleExploreClick}>Explore Our Services</button>
         </div>
       </div>
       <section id="services">

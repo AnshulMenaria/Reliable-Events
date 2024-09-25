@@ -57,7 +57,7 @@ const NavigationBar = () => {
                 Gallery
               </Nav.Link>
               <Nav.Link
-                href="#testimonials"
+                href="/testimonials"
                 className="mt-2"
                 onClick={handleLinkClick}
               >
