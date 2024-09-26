@@ -1,90 +1,141 @@
 /* General Page Styling */
 .testimonials-page-container {
-    padding: 60px;
-    background: #f0f0f5;
-    text-align: center;
-  }
-  
-  .testimonials-heading {
-    font-size: 3.5rem;
-    color: #333;
-    margin-bottom: 50px;
-    font-family: "Georgia", serif;
-    text-transform: capitalize;
-    letter-spacing: 1.5px;
-    color: #ccaf66;
-  }
-  
-  /* Testimonials Grid */
+  padding: 60px;
+  background: #f0f0f5;
+  text-align: center;
+}
+
+.testimonials-heading {
+  font-size: 3.5rem;
+  color: #333;
+  margin-bottom: 50px;
+  font-family: "Georgia", serif;
+  text-transform: capitalize;
+  letter-spacing: 1.5px;
+  color: #ccaf66;
+}
+
+/* Testimonials Grid */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Testimonial Card */
+.testimonial-card {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.testimonial-card:hover {
+  transform: scale(1.05);
+}
+
+/* Frame Effect */
+.testimonial-frame {
+  border: 4px solid #ccaf66; /* Gold border */
+  border-radius: 15px;
+  padding: 20px;
+  background: linear-gradient(135deg, #faf2e4, #fff0db); /* Subtle background gradient */
+}
+
+/* Testimonial Content */
+.testimonial-content {
+  text-align: left;
+  background: #fff5e1; /* Matching light background for greeting card effect */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-feedback {
+  font-size: 1.4rem;
+  color: #555;
+  font-family: "Times New Roman", serif;
+  margin-bottom: 25px;
+  font-style: italic;
+}
+
+.testimonial-name {
+  font-size: 1.6rem;
+  color: #ccaf66;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.testimonial-location {
+  font-size: 1.2rem;
+  color: #777;
+}
+
+.testimonial-date {
+  font-size: 1rem;
+  color: #999;
+  font-style: italic;
+}
+
+/* Responsive Design for Tablets */
+@media (max-width: 768px) {
   .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: 1fr;
   }
-  
-  /* Testimonial Card */
-  .testimonial-card {
-    background-color: #fff;
-    border-radius: 20px;
-    padding: 0;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    cursor: pointer;
+
+  .testimonials-page-container {
+    padding: 40px 20px;
   }
-  
-  .testimonial-card:hover {
-    transform: scale(1.05);
-  }
-  
-  /* Frame Effect */
-  .testimonial-frame {
-    border: 4px solid #ccaf66; /* Gold border */
-    border-radius: 15px;
-    padding: 20px;
-    background: linear-gradient(135deg, #faf2e4, #fff0db); /* Subtle background gradient */
-  }
-  
-  /* Testimonial Content */
-  .testimonial-content {
-    text-align: left;
-    background: #fff5e1; /* Matching light background for greeting card effect */
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
-  }
-  
+
   .testimonial-feedback {
-    font-size: 1.4rem;
-    color: #555;
-    font-family: "Times New Roman", serif;
-    margin-bottom: 25px;
-    font-style: italic;
-  }
-  
-  .testimonial-name {
-    font-size: 1.6rem;
-    color: #ccaf66;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .testimonial-location {
     font-size: 1.2rem;
-    color: #777;
   }
-  
+
+  .testimonial-name {
+    font-size: 1.4rem;
+  }
+
+  .testimonial-location,
+  .testimonial-date {
+    font-size: 1.1rem;
+  }
+}
+
+/* Responsive Design for Mobile Phones */
+@media (max-width: 480px) {
+  .testimonials-page-container {
+    padding: 30px 15px;
+  }
+
+  .testimonials-heading {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+
+  .testimonial-feedback {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+
+  .testimonial-name {
+    font-size: 1.2rem;
+  }
+
+  .testimonial-location,
   .testimonial-date {
     font-size: 1rem;
-    color: #999;
-    font-style: italic;
   }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .testimonials-grid {
-      grid-template-columns: 1fr;
-    }
+
+  .testimonial-frame {
+    padding: 15px;
   }
+
+  .testimonial-content {
+    padding: 20px;
+  }
+}
   

@@ -1,3 +1,4 @@
+
 #services-page {
   padding: 50px 0;
   margin-top: 70px;
@@ -27,7 +28,8 @@
 
 .service-image {
   width: 100%; /* Full width */
-  height: 300px; /* Fixed height for all images */
+  height: 350px; /* Fixed height for all images */
+  border-radius: 10px !important;
   object-fit: cover; /* Maintain aspect ratio and cover the container */
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.5s ease;
@@ -41,9 +43,10 @@
 }
 
 .service-title {
-  font-size: 1.8rem;
+  font-size: 2rem !important;
   font-weight: bold;
   margin-bottom: 15px;
+  font-family: 'Dancing Script', cursive; 
   color: #b29600; /* Gold color for titles */
 }
 
