@@ -1,41 +1,101 @@
 /* Full page contact section */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
 .contact-page {
-  min-height: 100vh; /* Full viewport height */
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f5f5f5; /* Light gray background */
-  padding: 50px 20px; /* Added padding for smaller screens */
+  background: linear-gradient(135deg, #f8f8f8 30%, #ffffff 100%);
+  font-family: 'Dancing Script', cursive; /* Curs ive font */
+
+  padding: 50px 20px;
 }
 
-.contact-container {
+.content-container {
+  display: flex;
   background-color: #fff;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
   width: 100%;
-  box-sizing: border-box; /* Ensures padding doesn't break the layout */
+  overflow: hidden;
+  transition: transform 0.3s ease;
 }
 
-.contact-container h2 {
+.content-container:hover {
+  transform: translateY(-5px);
+}
+
+.left-section {
+  flex: 1;
+  background-color: #f7f2ed;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left-section h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-family: 'Dancing Script', cursive; /* Cursive font */
+  color: #333;
+}
+
+.left-section p {
+  font-size: 1.3rem;
+  color: #666;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+
+
+/* Right form section */
+.form-container {
+  flex: 1;
+  padding: 60px;
+  background-color: #fff;
+}
+
+.form-container h2 {
   font-size: 2.5rem;
   margin-bottom: 30px;
   text-align: center;
-  line-height: 1.2;
+  color: #333;  
+  font-family: 'Dancing Script', cursive; /* Cursive font */
+
+}
+
+.status-message {
+  color: #28a745;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+  font-family: 'Dancing Script', cursive; /* Cursive font */
+
 }
 
 .form-control {
   padding: 15px;
-  font-size: 1rem;
-  border-radius: 5px;
+  font-size: 1.1rem;
+  border-radius: 8px;
   border: 1px solid #ddd;
   width: 100%;
-  box-sizing: border-box; /* Ensures padding doesn’t affect width */
+  font-family: 'Dancing Script', cursive; /* Cursive font */
+
+  transition: border-color 0.3s ease;
+  background-color: #f9f9f9;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.form-control:focus {
+  border-color: #ff7e7e;
 }
 
 textarea.form-control {
@@ -43,31 +103,43 @@ textarea.form-control {
   resize: none;
 }
 
-.btn-primary {
-  background-color: #ff5a5f;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  width: 100%;
-  cursor: pointer;
-  transition: background-color 0.3s;
+.btn-submit {
+  background-color: #ff7e7e !important;
+  color: white !important;
+  border: none !important;
+  padding: 14px 40px !important;
+  font-size: 1.3rem !important;
+  width: 100% !important;
+  cursor: pointer !important;
+  border-radius: 50px !important;
+  transition: background-color 0.3s ease, transform 0.3s ease !important;
 }
 
-.btn-primary:hover {
-  background-color: #ff7f7f;
+.btn-submit:hover {
+  background-color: #ff4e4e;
+  transform: translateY(-3px);
 }
 
-/* Adjustments for smaller devices */
-@media (max-width: 767px) {
-  .contact-page {
-    padding: 20px 10px; /* Reduced padding for very small screens */
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .content-container {
+    flex-direction: column;
   }
 
-  .contact-container {
-    padding: 20px;
+  .left-section,
+  .form-container {
+    width: 100%;
+    padding: 30px;
   }
 
-  .contact-container h2 {
+  .left-section h2 {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .left-section h2,
+  .form-container h2 {
     font-size: 2rem;
   }
 
@@ -75,22 +147,7 @@ textarea.form-control {
     padding: 12px;
   }
 
-  .btn-primary {
-    font-size: 1rem;
-  }
-}
-
-/* Adjustments for extra small devices like smartphones */
-@media (max-width: 480px) {
-  .contact-page {
-    padding: 15px 5px;
-  }
-
-  .contact-container h2 {
-    font-size: 1.8rem;
-  }
-
-  .btn-primary {
-    font-size: 0.9rem;
+  .btn-submit {
+    font-size: 1.1rem;
   }
 }

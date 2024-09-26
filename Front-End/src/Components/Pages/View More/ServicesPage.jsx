@@ -60,7 +60,7 @@ const services = [
     image: lightingImage
   },
   {
-    title: 'Live Shows',
+    title: 'Live Shows & Artist Management', // Updated title
     description: `
       We organize live performances, concerts, and stage shows with expertise in event logistics, artist management, and technical setup. 
       From small intimate gatherings to large-scale concerts, we ensure that your live show runs smoothly, delivering a memorable experience for both the performers and the audience.`,

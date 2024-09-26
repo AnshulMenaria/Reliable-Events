@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Navbar.css";
+import "./Navbar.css"; // Import the CSS for styling
 import { Nav, Navbar, Container } from "react-bootstrap";
 
 const NavigationBar = () => {
@@ -15,10 +15,7 @@ const NavigationBar = () => {
     <>
       {/* Navbar */}
       <Navbar expand="lg" className="custom-navbar">
-        <Container
-          fluid
-          className="d-flex align-items-center justify-content-between"
-        >
+        <Container fluid className="d-flex align-items-center justify-content-between">
           {/* Logo on the left */}
           <a href="/" className="navbar-logo-wrapper">
             <img
@@ -28,56 +25,38 @@ const NavigationBar = () => {
             />
           </a>
 
-          {/* Navbar toggle for mobile */}
-          <Navbar.Toggle
+          {/* Navbar toggle for mobile only */}
+          <button 
+            className="navbar-toggle d-lg-none" // Hide on large screens
+            onClick={toggleNavbar} 
             aria-controls="basic-navbar-nav"
-            onClick={toggleNavbar}
-            className="ml-auto navbar-toggle"
           >
-            <span className="navbar-toggler-icon"></span>
-          </Navbar.Toggle>
-          
+            <span className={`navbar-toggler-line ${navbarOpen ? 'open' : ''}`}></span>
+            <span className={`navbar-toggler-line ${navbarOpen ? 'open' : ''}`}></span>
+            <span className={`navbar-toggler-line ${navbarOpen ? 'open' : ''}`}></span>
+          </button>
+
           <Navbar.Collapse id="basic-navbar-nav" in={navbarOpen}>
             <Nav className="mx-auto navbar-nav-left">
               <Nav.Link href="/" className="mt-2" onClick={handleLinkClick}>
                 Home
               </Nav.Link>
-              <Nav.Link
-                href="/services"
-                className="mt-2"
-                onClick={handleLinkClick}
-              >
+              <Nav.Link href="/services" className="mt-2" onClick={handleLinkClick}>
                 Services
               </Nav.Link>
-              <Nav.Link
-                href="/gallery"
-                className="mt-2"
-                onClick={handleLinkClick}
-              >
+              <Nav.Link href="/gallery" className="mt-2" onClick={handleLinkClick}>
                 Gallery
               </Nav.Link>
-              <Nav.Link
-                href="/testimonials"
-                className="mt-2"
-                onClick={handleLinkClick}
-              >
+              <Nav.Link href="/testimonials" className="mt-2" onClick={handleLinkClick}>
                 Testimonials
               </Nav.Link>
-              <Nav.Link
-                href="/about"
-                className="mt-2"
-                onClick={handleLinkClick}
-              >
+              <Nav.Link href="/about" className="mt-2" onClick={handleLinkClick}>
                 About Us
               </Nav.Link>
             </Nav>
 
             <Nav className="navbar-nav-right">
-              <Nav.Link
-                href="/contact"
-                className="mt-1 contact"
-                onClick={handleLinkClick}
-              >
+              <Nav.Link href="/contact" className="mt-1 contact" onClick={handleLinkClick}>
                 Contact Us
               </Nav.Link>
             </Nav>

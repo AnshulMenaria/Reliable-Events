@@ -100,21 +100,38 @@
 }
 
 .navbar-toggle {
-  border-color: transparent;
-  background: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.navbar-toggler-icon {
-  background-color: #ccaf66;
-  border-radius: 10px;
-  width: 40px !important;
-  height: 3px;
-  display: block;
-  margin: 5px 0;
+.navbar-toggler-line {
+  width: 30px; /* Width of each line */
+  height: 3px; /* Height of each line */
+  background-color: #ccaf66; /* Default line color */
+  margin: 3px 0; /* Space between lines */
   transition: all 0.3s ease-in-out;
 }
 
+.navbar-toggler-line.open {
+  background-color: #fafafa; /* Change color when toggled */
+}
 
+.navbar-toggler-line:nth-child(1).open {
+  transform: translateY(6px) rotate(45deg); /* First line transforms */
+}
+
+.navbar-toggler-line:nth-child(2).open {
+  opacity: 1; /* Second line disappears */
+}
+
+.navbar-toggler-line:nth-child(3).open {
+  transform: translateY(-6px) rotate(-45deg); /* Third line transforms */
+}
 
 /* Adjust the navbar for mobile */
 @media (max-width: 768px) {
@@ -147,15 +164,16 @@
   .navbar-nav-right .nav-link {
     font-size: 1rem;
     margin-left: 0;
-    margin-top: 1rem;
     text-align: center;
     color: #ccaf66;
   }
 
   .navbar-nav-right .nav-link {
     margin-left: 120px;
-    width: 80%;
+    width: 100%;
+    border-radius: 20px;
   }
+
   .contact {
     margin-left: 140px !important;
   }
