@@ -6,6 +6,9 @@ import ServicesPage from './Components/Pages/View More/ServicesPage';
 import Contact from './Components/Pages/View More/Contact';
 import About from './Components/Pages/View More/About';
 import TestimonialsPage from './Components/Pages/View More/Testimonials';
+import Notebook from './Components/Pages/Home/Notebook';
+import Gallery from './Components/Pages/Home/Gallery';
+import GallerySection from './Components/Pages/View More/Gallery';
 
 
 function App() {
@@ -20,6 +23,8 @@ function App() {
         <Route path='contact' element={<Contact />} />
         <Route path='about' element={<About />} />
         <Route path='testimonials' element={<TestimonialsPage />} />
+        <Route path='notebook' element={<Notebook />} />
+        <Route path='gallery' element={<GallerySection />} />
           
     
 

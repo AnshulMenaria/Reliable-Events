@@ -57,7 +57,7 @@ const NavigationBar = () => {
 
             <Nav className="navbar-nav-right">
               <Nav.Link href="/contact" className="mt-1 contact" onClick={handleLinkClick}>
-                Contact Us
+                Book Now
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

@@ -6,7 +6,7 @@ const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
-  const [message, setMessage] = useState('');
+  const [service, setService] = useState(''); // State for service selection
   const [status, setStatus] = useState('');
 
   const handleSubmit = async (e) => {
@@ -16,15 +16,15 @@ const Contact = () => {
       const response = await axios.post('https://reliable-events.onrender.com/api/contact', { 
         name,
         email,
-        message,
         mobile,
+        service, // Include service in the request
       });
 
       setStatus('Message sent successfully!');
       setName('');
       setEmail('');
-      setMessage('');
       setMobile('');
+      setService(''); // Reset service selection
     } catch (error) {
       setStatus('An error occurred. Please try again.');
       console.error(error);
@@ -76,14 +76,23 @@ const Contact = () => {
               />
             </div>
             <div className="form-group">
-              <label>Message</label>
-              <textarea
+              <label>Service</label>
+              <select
                 className="form-control"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder="Your Message"
+                value={service}
+                onChange={(e) => setService(e.target.value)}
                 required
-              ></textarea>
+              >
+                <option value="" disabled>Select a service</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Corporate Event">Corporate Event</option>
+                <option value="Seminar & Conferences">Seminar & Conferences</option>
+                <option value="Social Event">Social Event</option>
+                <option value="College Fest">College Fest</option>
+                <option value="Sound Lighting & Decoration">Sound Lighting & Decoration</option>
+                <option value="Live Shows & Artist Management">Live Shows & Artist Management</option>
+                <option value="Photography & Videography">Photography & Videography</option>
+              </select>
             </div>
             <button type="submit" className="btn btn-submit">Send Message</button>
           </form>

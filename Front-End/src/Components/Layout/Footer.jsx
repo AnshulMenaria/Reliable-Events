@@ -58,7 +58,7 @@ const Footer = () => {
         <Row className="text-center mt-3">
           <Col>
             <p className="footer-copyright">
-              &copy; 2018 Realiable Events Co. All rights reserved.
+              &copy; 2018 Reliable Events Co. All rights reserved.
             </p>
           </Col>
         </Row>
