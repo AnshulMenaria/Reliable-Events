@@ -55,7 +55,6 @@ const contactController = {
     },
 };
 
-// Email sending function using Nodemailer
 async function sendEmailNotification(name, email, mobile, service) {
     // Create a transporter using SMTP service (Gmail is used here)
     const transporter = nodemailer.createTransport({
@@ -66,18 +65,42 @@ async function sendEmailNotification(name, email, mobile, service) {
         },
     });
 
-    // Email options
+    // Professional HTML email content
     const mailOptions = {
         from: 'anshul9145946510@gmail.com', // Sender's email address
-        to: 'anshulmenaria@gmail.com', // Admin email address to receive services
-        subject: `New Contact Form Submission from ${name}`, // Subject of the email
-        text: `
-            You have a new contact form submission.
-
-            Name: ${name}
-            Email: ${email}
-            Mobile: ${mobile}
-            Service: ${service}
+        to: 'anshulmenaria@gmail.com', // Admin email address to receive notifications
+        subject: `New Contact Form Submission: ${name}`, // Email subject
+        html: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+            <h2 style="color: #5c5c5c;">New Contact Form Submission</h2>
+            <p>You have received a new contact form submission from your website. Here are the details:</p>
+            
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr style="background-color: #f9f9f9;">
+                    <td style="padding: 8px; font-weight: bold;">Name:</td>
+                    <td style="padding: 8px;">${name}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; font-weight: bold;">Email:</td>
+                    <td style="padding: 8px;">${email}</td>
+                </tr>
+                <tr style="background-color: #f9f9f9;">
+                    <td style="padding: 8px; font-weight: bold;">Mobile:</td>
+                    <td style="padding: 8px;">${mobile}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; font-weight: bold;">Service Interested In:</td>
+                    <td style="padding: 8px;">${service}</td>
+                </tr>
+            </table>
+            
+            <br/>
+            <p style="font-size: 14px; color: #666;">Please contact the client for further discussions.</p>
+            
+            <div style="border-top: 1px solid #ddd; padding-top: 10px; font-size: 12px; color: #999;">
+                <p>This is an automated email from your website. Please do not reply to this email.</p>
+            </div>
+        </div>
         `,
     };
 
