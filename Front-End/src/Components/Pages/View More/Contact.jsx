@@ -1,32 +1,38 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Contact.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner, faCheckCircle, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
-  const [service, setService] = useState(''); // State for service selection
+  const [service, setService] = useState('');
   const [status, setStatus] = useState('');
+  const [isSending, setIsSending] = useState(false); // New state for sending status
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSending(true); // Set to true while sending
 
-    try { // eslint-disable-next-line
+    try {
       const response = await axios.post('https://reliable-events.onrender.com/api/contact', { 
         name,
         email,
         mobile,
-        service, // Include service in the request
+        service,
       });
 
       setStatus('Message sent successfully!');
+      setIsSending(false); // Reset sending status
       setName('');
       setEmail('');
       setMobile('');
-      setService(''); // Reset service selection
+      setService('');
     } catch (error) {
       setStatus('An error occurred. Please try again.');
+      setIsSending(false); // Reset sending status in case of error
       console.error(error);
     }
   };
@@ -40,7 +46,9 @@ const Contact = () => {
         </div>
         <div className="form-container">
           <h2>Contact Us</h2>
-          {status && <p className="status-message">{status}</p>}
+          {status && <p className={`status-message ${status.includes('error') ? 'error' : 'success'}`}>
+            <FontAwesomeIcon icon={status.includes('error') ? faExclamationCircle : faCheckCircle} /> {status}
+          </p>}
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label>Name</label>
@@ -94,7 +102,15 @@ const Contact = () => {
                 <option value="Photography & Videography">Photography & Videography</option>
               </select>
             </div>
-            <button type="submit" className="btn btn-submit">Send Message</button>
+            <button type="submit" className="btn btn-submit" disabled={isSending}>
+              {isSending ? (
+                <>
+                  <FontAwesomeIcon icon={faSpinner} spin /> Sending...
+                </>
+              ) : (
+                'Send Message'
+              )}
+            </button>
           </form>
         </div>
       </div>

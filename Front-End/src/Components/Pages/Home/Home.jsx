@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import ServicesSection from "./Services";
-import Testimonials from "./Testimonials";
 import Gallery from "./Gallery";
 import Review from "./Review";
 import eventbg1 from "../../../Assets/HeroSection/eventbg1.jpg";
@@ -64,9 +63,6 @@ const Home = () => {
       </section>
       <section id="gallery">
         <Gallery />
-      </section>
-      <section id="testimonials">
-        <Testimonials />
       </section>
       <section id="reviews">
         <Review />

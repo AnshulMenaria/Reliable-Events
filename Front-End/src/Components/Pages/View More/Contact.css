@@ -119,6 +119,39 @@ textarea.form-control {
   background-color: #ff4e4e;
   transform: translateY(-3px);
 }
+/* Status message styles */
+.status-message {
+  color: #28a745;
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.status-message.error {
+  color: #dc3545;
+}
+
+.status-message .fa-check-circle {
+  margin-right: 10px;
+}
+
+.status-message .fa-exclamation-circle {
+  margin-right: 10px;
+}
+
+/* Button and form interaction */
+.btn-submit[disabled] {
+  background-color: #ffaaaa !important;
+  cursor: not-allowed !important;
+}
+
+/* Spinner animation for sending state */
+.btn-submit .fa-spinner {
+  margin-right: 10px;
+}
 
 /* Responsive adjustments */
 @media (max-width: 991px) {

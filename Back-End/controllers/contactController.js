@@ -72,8 +72,8 @@ async function sendEmailNotification(name, email, mobile, service) {
         subject: `New Contact Form Submission: ${name}`, // Email subject
         html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-            <h2 style="color: #5c5c5c;">New Contact Form Submission</h2>
-            <p>You have received a new contact form submission from your website. Here are the details:</p>
+            <h2 style="color: #5c5c5c;">New Query Received</h2>
+            <p>You have received a new query from your website. Here are the details:</p>
             
             <table style="width: 100%; border-collapse: collapse;">
                 <tr style="background-color: #f9f9f9;">
