@@ -1,9 +1,9 @@
 .admin-card {
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
-    border: none;
+    border: 2px solid #8a5b3e !important;
     border-radius: 10px;
-    background: linear-gradient(135deg, #007bff, #6610f2);
+    background: darkcyan !important;
     color: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
