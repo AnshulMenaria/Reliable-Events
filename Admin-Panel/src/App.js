@@ -1,17 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AdminPanel from './Components/Admin-Panel';
+import NavigationBar from './Components/Navbar';
 import Login from './Components/Admin-Login';
 import AllContacts from './Components/Contact';
 import Reviews from './Components/Review';
 import UpdateAdmin from './Components/Setting';
 import Layout from './Components/Layout';
 
+
 function App() {
-
   return (
-    <>
-
-      <Routes>
+    <Router>
+        
+        <Routes>
         <Route path="/" element={<Layout/>}>
 
         <Route index element={<Login />} />
@@ -21,14 +22,8 @@ function App() {
         <Route path='/setting' element={<UpdateAdmin />} />
         </Route>
       </Routes>
-    </>
+    </Router>
   );
 }
 
-const WrapperApp = () => (
-  <Router>
-    <App />
-  </Router>
-);
-
-export default WrapperApp;
+export default App;
