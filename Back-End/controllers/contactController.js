@@ -70,6 +70,13 @@ async function sendEmailNotification(name, email, mobile, service, date, adminEm
         },
     });
 
+    // Format the date
+    const formattedDate = new Date(date).toLocaleDateString(undefined, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    });
+
     // Prepare the email content
     const mailOptions = {
         from: 'anshul9145946510@gmail.com', // Sender's email address
@@ -99,7 +106,7 @@ async function sendEmailNotification(name, email, mobile, service, date, adminEm
                 </tr>
                 <tr style="background-color: #f9f9f9;">
                     <td style="padding: 8px; font-weight: bold;">Selected Date:</td>
-                    <td style="padding: 8px;">${new Date(date).toLocaleString()}</td> <!-- Format the date for display -->
+                    <td style="padding: 8px;">${formattedDate}</td> <!-- Use formatted date -->
                 </tr>
             </table>
             

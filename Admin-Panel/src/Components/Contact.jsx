@@ -36,6 +36,12 @@ const AllContacts = () => {
     return { formattedDate, formattedTime };
   };
 
+  // Function to format date
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+  };
+
   if (loading) {
     return (
       <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
@@ -65,13 +71,14 @@ const AllContacts = () => {
             {contacts.length > 0 ? (
               contacts.map((contact) => {
                 const { formattedDate, formattedTime } = formatDateTime(contact.createdAt); // Use createdAt for date and time
+                const formattedEnquiryDate = formatDate(contact.uniquedate); // Format the enquiry date
                 return (
                   <tr key={contact._id}> {/* Assuming each contact has a unique _id */}
                     <td>{contact.name}</td>
                     <td>{contact.email}</td>
                     <td>{contact.mobile}</td> {/* Displaying mobile number */}
                     <td>{contact.service}</td>
-                    <td>{contact.uniquedate}</td>
+                    <td>{formattedEnquiryDate}</td> {/* Displaying formatted enquiry date */}
                     <td>{formattedDate}</td> {/* Displaying formatted date */}
                     <td>{formattedTime}</td> {/* Displaying formatted time */}
                   </tr>
@@ -79,7 +86,7 @@ const AllContacts = () => {
               })
             ) : (
               <tr>
-                <td colSpan="6" className="text-center">No contacts found</td> {/* Adjusted colspan to match the number of columns */}
+                <td colSpan="7" className="text-center">No contacts found</td> {/* Adjusted colspan to match the number of columns */}
               </tr>
             )}
           </tbody>
