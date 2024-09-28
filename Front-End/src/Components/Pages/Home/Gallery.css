@@ -1,30 +1,67 @@
 .gallery-section {
-    padding: 4rem 0;
-  }
-  
-  .section-title {
-    text-align: center;
+  padding: 4rem 0;
+  background-color: #ebedec; /* Light gray background similar to the image */
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 4rem;
+  color: #ccaf66; /* Match the style of the 'Recent Events' title */
+  font-family: "Great Vibes", cursive;
+}
+
+.gallery-line {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: -10px;
+  margin-bottom: 2rem;
+}
+
+.gallery-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.gallery-card {
+  flex: 1;
+  max-width: 400px; /* Constrain the width to resemble the image */
+  border: none; /* Remove card border to match design */
+  overflow: hidden;
+  background: none;
+}
+
+.animated-image {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.view-latest-link {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #8a5b3e;
+  text-decoration: none;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@media (max-width: 768px) {
+  .gallery-row {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
     margin-bottom: 2rem;
-    font-size: 2.5rem;
-    color: #8A5B3E;
   }
-  
-  .gallery-card {
-    margin-bottom: 2rem;
-  }
-  
-  .animated-image {
-    transition: opacity 0.5s ease-in-out;
-  }
-  
-  .gallery-card img {
-    max-height: 250px;
-    object-fit: cover;
-  }
-  
-  @media (max-width: 768px) {
-    .gallery-card img {
-      max-height: 150px;
-    }
-  }
-  
+}

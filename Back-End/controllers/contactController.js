@@ -1,12 +1,13 @@
 const nodemailer = require('nodemailer');
 const Contact = require('../models/contactModel');
+const Admin = require('../models/adminLogin'); // Import Admin model to retrieve admin emails
 
 const contactController = {
     async createContact(req, res, next) {
         try {
             const { name, email, mobile, service } = req.body;
 
-            // Save the contact service in the database
+            // Save the contact form in the database
             const contact = await Contact.create({
                 name,
                 email,
@@ -14,19 +15,23 @@ const contactController = {
                 service,
             });
 
-            // Send email notification to admin (your email)
-            await sendEmailNotification(name, email, mobile, service);
+            // Retrieve all admin emails from the database
+            const admins = await Admin.find();
+            const adminEmails = admins.map(admin => admin.email);
+
+            // Send email notification to all admins
+            await sendEmailNotification(name, email, mobile, service, adminEmails);
 
             // Respond with success
             res.status(201).json({
-                service: 'Contact form submitted successfully!',
+                message: 'Contact form submitted successfully!',
                 contact,
             });
         } catch (error) {
             console.error('Error while submitting contact form:', error);
             res.status(500).json({
                 error: 'Internal Server Error',
-                details: error.service,
+                details: error.message,
             });
         }
     },
@@ -48,14 +53,14 @@ const contactController = {
             if (!contact) {
                 return res.status(404).json({ error: 'Contact not found' });
             }
-            res.status(200).json({ service: 'Contact deleted successfully' });
+            res.status(200).json({ message: 'Contact deleted successfully' });
         } catch (error) {
             res.status(500).json({ error: 'Server error', serverError: error });
         }
     },
 };
 
-async function sendEmailNotification(name, email, mobile, service) {
+async function sendEmailNotification(name, email, mobile, service, adminEmails) {
     // Create a transporter using SMTP service (Gmail is used here)
     const transporter = nodemailer.createTransport({
         service: 'Gmail',
@@ -65,10 +70,10 @@ async function sendEmailNotification(name, email, mobile, service) {
         },
     });
 
-    // Professional HTML email content
+    // Prepare the email content
     const mailOptions = {
         from: 'anshul9145946510@gmail.com', // Sender's email address
-        to: 'anshulmenaria@gmail.com', // Admin email address to receive notifications
+        to: adminEmails, // Send email to all admin emails
         subject: `New Contact Form Submission: ${name}`, // Email subject
         html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
@@ -107,7 +112,7 @@ async function sendEmailNotification(name, email, mobile, service) {
     // Send the email
     try {
         await transporter.sendMail(mailOptions);
-        console.log('Email sent successfully!');
+        console.log('Email sent successfully to admins!');
     } catch (error) {
         console.error('Error while sending email:', error);
     }

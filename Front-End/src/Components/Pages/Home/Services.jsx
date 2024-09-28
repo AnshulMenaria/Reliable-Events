@@ -1,77 +1,150 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "./Services.css";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 // Import images for each service
 import weddingImage from "../../../Assets/ServicesPage/wedding3.png";
 import corporateImage from "../../../Assets/ServicesPage/corporate2.jpg";
 import socialImage from "../../../Assets/ServicesPage/SocialEvents.jpg";
-
-const services = [
-  {
-    title: "Wedding Planning",
-    description: "We make your wedding a truly special occasion.",
-    image: weddingImage,
-    link: "/services",
-  },
-  {
-    title: "Corporate Events",
-    description: "Seamless planning for corporate events and meetings.",
-    image: corporateImage,
-    link: "/services",
-  },
-  {
-    title: "Social Gatherings",
-    description: "Host the perfect social gathering with our expertise.",
-    image: socialImage,
-    link: "/services",
-  },
-];
+import LiveShows from "../../../Assets/ServicesPage/LiveShows.jpg"; // Additional image for the first column middle
 
 const ServicesSection = () => {
-  const navigate = useNavigate(); // Initialize useNavigate
-
-  const handleViewMore = (link) => {
-    navigate(link); // Redirect to the provided link
-  };
-
   return (
     <section id="services" className="services-section">
-      <Container>
-        <h2 className="section-title">Our Services</h2>
-        <Row>
-          {services.map((service, index) => (
-            <Col md={6} lg={4} key={index} className="service-col">
-              <Card className="service-card">
-                <div className="img-container">
-                  <Card.Img
-                    variant="top"
-                    src={service.image}
-                    className="service-img"
-                  />
-                  <div className="card-overlay">
-                    <div className="card-info">
-                      <Card.Title className="service-title">{service.title}</Card.Title>
-                      <Card.Text>{service.description}</Card.Text>
-                      <button
-                        className="view-btn"
-                        onClick={() => handleViewMore(service.link)}
-                      >
-                        View more
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <Card.Body>
-                  {/* Display title below the image */}
-                  <Card.Title className="service-title-hidden">{service.title}</Card.Title>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
+      <Container className="services-gallery">
+        {/* Top row of images */}
+        <Row className="image-row">
+          <Col className="image-col">
+            <div className="image-container-1">
+              <img src={weddingImage} alt="Wedding" className="service-image" />
+              <div className="image-overlay">
+                <h3 className="overlay-title">Wedding Service</h3>
+                <p className="overlay-description">
+                  Make your wedding unforgettable with our expert planning.
+                </p>
+              </div>
+            </div>
+          </Col>
+          <Col className="image-col">
+            <div className="image-container-1">
+              <img
+                src={corporateImage}
+                alt="Corporate"
+                className="service-image"
+              />
+              <div className="image-overlay">
+                <h3 className="overlay-title">Corporate Events</h3>
+                <p className="overlay-description">
+                  Professional corporate event management services.
+                </p>
+              </div>
+            </div>
+          </Col>
+          <Col className="image-col">
+            <div className="image-container-1">
+              <img src={LiveShows} alt="Social" className="service-image" />
+              <div className="image-overlay">
+              <h3 className="overlay-title">Live Shows & Artist Management</h3>
+                <p className="overlay-description">
+                Elevate your event with seamless live shows and exceptional artist management.
+                </p>
+              </div>
+            </div>
+          </Col>
+        </Row>
+
+        {/* First additional image in the 1st column middle */}
+        <Row className="image-row extra-row">
+          <Col className="image-col extra-col">
+            <div className="image-container-2">
+              <img src={socialImage} alt="Extra 1" className="service-image" />
+              <div className="image-overlay">
+              <h3 className="overlay-title">Social Events</h3>
+                <p className="overlay-description">
+                Celebrate life's moments with our social event services.
+                </p>
+              </div>
+            </div>
+          </Col>
+
+          {/* Service Section between extra images */}
+          <Col className="service-section-content-wrapper">
+            <div className="service-section-content">
+              <h2 className="ser-title">Our Services</h2>
+              <p>WHAT WE OFFER FOR YOU</p>
+              <div class="view-more-btn-container">
+        <a href="/services" class="view-more-btn-0">
+          ➔ View More
+        </a>
+      </div>
+            </div>
+          </Col>
+
+          <Col className="image-col extra-col">
+            <div className="image-container-2">
+              <img src={socialImage} alt="Extra 2" className="service-image" />
+              <div className="image-overlay">
+              <h3 className="overlay-title">Social Events</h3>
+                <p className="overlay-description">
+                Celebrate life's moments with our social event services.
+
+                </p>
+              </div>
+            </div>
+          </Col>
+        </Row>
+
+        {/* Bottom row of images */}
+        <Row className="image-row">
+          <Col className="image-col">
+            <div className="image-container-3">
+              <img src={LiveShows} alt="Social" className="service-image" />
+              <div className="image-overlay">
+              <h3 className="overlay-title">Live Shows & Artist Management</h3>
+
+                <p className="overlay-description">
+                Elevate your event with seamless live shows and exceptional artist management.
+                </p>
+              </div>
+            </div>
+          </Col>
+          <Col className="image-col">
+            <div className="image-container-3">
+              <img src={corporateImage} alt="Wedding" className="service-image" />
+              <div className="image-overlay">
+              <h3 className="overlay-title">Corporate Events</h3>
+                <p className="overlay-description">
+                Professional corporate event management services.
+
+                </p>
+              </div>
+            </div>
+          </Col>
+          <Col className="image-col">
+            <div className="image-container-3">
+              <img
+                src={weddingImage}
+                alt="Corporate"
+                className="service-image"
+              />
+              <div className="image-overlay">
+                
+                <h3 className="overlay-title">Wedding Service</h3>
+
+                <p className="overlay-description">
+                Make your wedding unforgettable with our expert planning.
+
+                </p>
+              </div>
+            </div>
+          </Col>
         </Row>
       </Container>
+      <div class="view-more-btn-container">
+        <a href="/services" class="view-more-btn">
+          ➔ View More
+        </a>
+      </div>
     </section>
   );
 };

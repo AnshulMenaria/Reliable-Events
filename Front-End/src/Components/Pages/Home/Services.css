@@ -1,115 +1,215 @@
 .services-section {
   padding: 4rem 0;
-  background-color: #f8f9fa;
+  background: linear-gradient(180deg, #fff 0%, #ebedec 100%);
 }
 
-.section-title {
-  font-family: "Script", Sans-serif;
-  font-size: 2.5rem;
+.services-gallery {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  gap: 5px;
+  justify-items: center;
+  align-items: center;
+}
+
+.service-section-content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.service-section-content {
   text-align: center;
-  margin-bottom: 2rem;
+  padding: 90px 30px;
+}
+
+.ser-title {
+  font-family: "Great Vibes", cursive;
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
   color: #ccaf66;
 }
 
-.service-col {
-  margin-bottom: 2rem;
+.service-section-content p {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: -10px;
 }
 
-.service-card {
-  border: none;
-  transition: transform 0.3s ease-in-out;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+.image-row {
+  display: flex;
+  gap: 5px;
+  width: 100%;
+}
+
+.image-col {
+  flex: 1;
   overflow: hidden;
-  position: relative;
-  height: 400px; /* Set a fixed height for the card */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.service-card:hover {
+.image-container-1 {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  width: 100%;
+  height: 250px; /* Set a fixed height for the container to make the images appear rectangular */
+}
+
+.image-container-2 {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  width: 100%;
+  height: 250px; /* Set a fixed height for the container to make the images appear rectangular */
+}
+
+.image-container-3 {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  width: 100%;
+  height: 250px; /* Set a fixed height for the container to make the images appear rectangular */
+}
+
+.service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container without distortion */
+  transition: transform 0.3s ease-in-out;
+}
+
+.service-image:hover {
   transform: scale(1.05);
 }
 
-.img-container {
-  position: relative;
-  height: 70%; /* Ensure the image container takes up a specific height */
-}
-
-.service-img {
-  width: 100%;
-  height: 100%; /* Take full height of the container */
-  object-fit: cover; /* Cover the entire area */
-  transition: transform 0.3s ease-in-out;
-}
-
-.card-overlay {
+.image-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7); /* Dark overlay */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  opacity: 0; /* Hidden initially */
-  transition: opacity 0.4s ease-in-out;
-}
-
-.service-card:hover .card-overlay {
-  opacity: 1; /* Show overlay on hover */
-}
-
-.card-info {
-  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px 20px;
   text-align: center;
-  padding: 10px;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.service-title {
+.overlay-title {
+  font-family: "Great Vibes", cursive; /* Adjust this to your desired font */
   font-size: 1.5rem;
-  font-weight: 700;
-  color: #ffffff;
+  color: #333;
+  margin-bottom: 0.5rem;
 }
 
-.card-info .card-text {
+.overlay-description {
   font-size: 1rem;
-  margin-bottom: 10px;
-  color: #ffffff;
+  color: #b29b91; /* Light color similar to the reference */
 }
 
-.view-btn {
-  font-family: "Montserrat", Sans-serif;
-  background: linear-gradient(135deg, #8a5b3e, #ccaf66);
-  padding: 5px 20px;
-  color: #ffffff;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease-in-out;
+.image-col:hover .image-overlay {
+  opacity: 1;
 }
-
-.view-btn:hover {
-  background-color: #ccaf66;
-}
-
-/* Styles for the title that appears below the image */
-.service-title-hidden {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #000; /* Change color as needed */
+.view-more-btn-0 {
+  display: block; /* Hidden by default */
   text-align: center;
-  margin-top: 10px;
+  color: #8a5b3e;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: "Lato", sans-serif;
+  margin: 10px auto;
+  transition: background-color 0.3s ease;
+}
+/* Style for the "View More" button */
+.view-more-btn {
+  display: none; /* Hidden by default */
+  text-align: center;
+  color: #8a5b3e;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: "Lato", sans-serif;
+  margin: 10px auto;
+  transition: background-color 0.3s ease;
 }
 
-/* Hide the title when hovering */
-.service-card:hover .service-title-hidden {
-  display: none; /* Hide title on hover */
-}
-
-/* Responsive adjustments */
+/* Mobile view adjustment for horizontal scrolling */
 @media (max-width: 768px) {
-  .service-card {
-    height: auto; /* Allow height to adjust on smaller screens */
+  .service-section-content {
+    text-align: center;
+    padding: 40px 10px;
+  }
+
+  .ser-title {
+    text-align: center;
+    font-size: 4rem;
+    color: #ccaf66; /* Match the style of the 'Recent Events' title */
+    font-family: "Great Vibes", cursive;
+  }
+
+  /* Gallery layout for horizontal scrolling */
+  .services-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Hide additional image containers if needed */
+  .image-container-1,
+  .image-container-2 {
+    display: none; /* Hides extra rows */
+  }
+
+  /* Adjust image row layout */
+  .image-row {
+    flex: none; /* Ensure rows stay flexible */
+    display: flex;
+  }
+
+  /* Make each image take up space horizontally */
+  .image-col {
+    min-width: 100%; /* Adjust to control how many images show at a time */
+    flex: none;
+  }
+
+  /* Adjust image container height */
+  .image-container-3 {
+    height: 200px; /* Allow responsive height */
+    margin-bottom: 20px;
+  }
+
+  /* Ensure images are fully responsive */
+  .service-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .overlay-title {
+    font-family: "Great Vibes", cursive; /* Adjust this to your desired font */
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+
+  .overlay-description {
+    font-size: 0.7rem;
+    color: #b29b91; /* Light color similar to the reference */
+  }
+
+  .image-col:hover .image-overlay {
+    opacity: 1;
+  }
+  /* Styling the "View More" button */
+  .view-more-btn {
+    display: block; /* Show button on mobile */
+  }
+  .view-more-btn-0 {
+    display: none; /* Show button on mobile */
   }
 }

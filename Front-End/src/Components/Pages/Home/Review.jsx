@@ -61,7 +61,10 @@ const Review = () => {
     };
 
     try {
-      await axios.post("https://reliable-events.onrender.com/api/review", reviewData);
+      await axios.post(
+        "https://reliable-events.onrender.com/api/review",
+        reviewData
+      );
       setSubmitted(true);
       setName("");
       setRating(0);
@@ -123,18 +126,23 @@ const Review = () => {
       {/* Review Form */}
       <div className="form-section">
         <h2>Leave a Review</h2>
-
+        <p>
+          We highly value your feedback! Kindly take a moment to rate your
+          experience and provide us with your valuable feedback.
+        </p>
         <form onSubmit={handleSubmit} className="review-form">
           <div className="rating">
-            <h3>Rate Us</h3>
             <div className="stars">
+              {/* <h3>Rate Us: </h3> */}
               {[...Array(5)].map((star, index) => {
                 const ratingValue = index + 1;
                 return (
                   <FaStar
                     key={index}
                     size={30}
-                    color={ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"}
+                    color={
+                      ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"
+                    }
                     onMouseEnter={() => setHover(ratingValue)}
                     onMouseLeave={() => setHover(0)}
                     onClick={() => setRating(ratingValue)}
@@ -146,10 +154,11 @@ const Review = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="name">Your Name</label>
+            {/* <label htmlFor="name">Your Name</label> */}
             <input
               type="text"
               className="form-control"
+              placeholder="Enter your Name"
               id="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -158,10 +167,11 @@ const Review = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="review">Your Review</label>
+            {/* <label htmlFor="review">Your Review</label> */}
             <textarea
               className="form-control"
               id="review"
+              placeholder="Write your Review"
               rows="4"
               value={review}
               onChange={(e) => setReview(e.target.value)}
@@ -173,7 +183,9 @@ const Review = () => {
             Submit Review
           </button>
 
-          {submitted && <p className="success-message">Thank you for your review!</p>}
+          {submitted && (
+            <p className="success-message">Thank you for your review!</p>
+          )}
         </form>
       </div>
     </div>
