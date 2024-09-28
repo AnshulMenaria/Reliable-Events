@@ -13,11 +13,11 @@ const AdminPanel = () => {
     const fetchCounts = async () => {
       try {
         // Fetch all contacts from backend
-        const contactResponse = await axios.get('http://localhost:8080/api/contact');
+        const contactResponse = await axios.get('https://reliable-events.onrender.com/api/contact');
         setContactCount(contactResponse.data.length); // Count total contacts
 
         // Fetch all reviews from backend
-        const reviewResponse = await axios.get('http://localhost:8080/api/review');
+        const reviewResponse = await axios.get('https://reliable-events.onrender.com/api/review');
         setReviewCount(reviewResponse.data.length); // Count total reviews
       } catch (error) {
         console.error('Error fetching data:', error);

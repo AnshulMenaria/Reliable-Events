@@ -10,7 +10,7 @@ const Reviews = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/review`);
+        const response = await fetch(`https://reliable-events.onrender.com/api/review`);
         if (!response.ok) {
           throw new Error("Failed to fetch reviews");
         }
@@ -29,7 +29,7 @@ const Reviews = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/review/${id}`, {
+      const response = await fetch(`https://reliable-events.onrender.com/api/review/${id}`, {
         method: "DELETE",
       });
 

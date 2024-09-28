@@ -10,7 +10,7 @@ const AllContacts = () => {
   useEffect(() => {
     const fetchContacts = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/contact`);
+        const response = await fetch(`https://reliable-events.onrender.com/api/contact`);
         if (!response.ok) {
           throw new Error("Failed to fetch contacts");
         }

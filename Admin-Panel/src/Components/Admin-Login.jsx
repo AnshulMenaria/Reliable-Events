@@ -13,7 +13,7 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8080/api/adminlogin', { email, password });
+            const response = await axios.post('https://reliable-events.onrender.com/api/adminlogin', { email, password });
             const { token, admin } = response.data; // Make sure to destructure admin object
 
             // Store the token and admin details in localStorage

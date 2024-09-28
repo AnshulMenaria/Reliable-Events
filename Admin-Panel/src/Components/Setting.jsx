@@ -19,7 +19,7 @@ const UpdateAdmin = () => {
   useEffect(() => {
     const fetchAdminDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/admin/${adminId}`);
+        const response = await axios.get(`https://reliable-events.onrender.com/api/admin/${adminId}`);
         setEmail(response.data.email); // Set current admin email
       } catch (err) {
         setError(err.response ? err.response.data.error : 'Error fetching admin details');
