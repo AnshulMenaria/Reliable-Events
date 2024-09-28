@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AdminPanel from './Components/Admin-Panel';
-import NavigationBar from './Components/Navbar';
 import Login from './Components/Admin-Login';
 import AllContacts from './Components/Contact';
 import Reviews from './Components/Review';
