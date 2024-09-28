@@ -1,10 +1,10 @@
 /* Gallery Section */
-.unique-gallery-section {
+.gallery-section {
   padding: 50px 0;
   margin-top: 60px;
 }
 
-.unique-gallery-section-title {
+.gallery-title {
   text-align: center;
   font-family: "Great Vibes", cursive;
   font-size: 4rem;
@@ -13,31 +13,36 @@
 }
 
 /* Gallery Grid */
-.unique-gallery-section-grid {
+.gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); /* Responsive grid */
   grid-gap: 10px; /* Add slight gap between images */
 }
 
 /* Gallery Item */
-.unique-gallery-section-item {
+.gallery-item {
   position: relative;
   overflow: hidden;
   opacity: 0;
   transform: translateY(30px); /* Adjust for smoother entry */
   transition: opacity 0.4s ease-in-out, transform 0.2s ease-in-out; /* Smooth transitions */
+  /* border: 5px solid #8a5b3e;  */
 }
 
-.unique-gallery-section-item.show {
+.gallery-item.show {
   opacity: 1;
   transform: translateY(0);
 }
 
 /* Gallery Image */
-.unique-gallery-section-image {
+.gallery-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* border-radius: 5px; */
 }
 
 /* Adjust height for portrait and landscape images */
@@ -53,26 +58,36 @@
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-  .unique-gallery-section-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust column size for tablets */
+  .gallery-grid {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(200px, 1fr)
+    ); /* Adjust column size for tablets */
   }
 }
 
 @media (max-width: 576px) {
-  .unique-gallery-section-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Smaller grid on mobile */
+  .gallery-grid {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(150px, 1fr)
+    ); /* Smaller grid on mobile */
   }
 
   .landscape {
     grid-row: span 1;
     grid-column: span 1; /* Adjust landscape images for mobile */
   }
+  .landscape {
+    grid-row: span 1;
+    grid-column: span 2; /* Adjust landscape images for mobile */
+  }
 
-  .unique-gallery-section-item {
+  .gallery-item {
     transform: translateY(20px); /* Reduce transition distance for mobile */
   }
 
-  .unique-gallery-section-title {
+  .gallery-title {
     font-size: 2rem; /* Adjust font size for mobile */
   }
 }

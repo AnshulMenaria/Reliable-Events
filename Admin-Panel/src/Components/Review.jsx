@@ -53,6 +53,9 @@ const Reviews = () => {
     return { formattedDate, formattedTime };
   };
 
+  // Sort reviews by createdAt date in descending order
+  const sortedReviews = reviews.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
   return (
     <div className="container mt-4 mb-5">
       <h2 className="mb-4">Reviews</h2>
@@ -76,8 +79,8 @@ const Reviews = () => {
                 </tr>
               </thead>
               <tbody>
-                {reviews.length > 0 ? (
-                  reviews.map((review) => {
+                {sortedReviews.length > 0 ? (
+                  sortedReviews.map((review) => {
                     const { formattedDate, formattedTime } = formatDateTime(review.createdAt); // Use createdAt for date and time
                     return (
                       <tr key={review._id}>

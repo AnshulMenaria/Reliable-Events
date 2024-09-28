@@ -105,7 +105,7 @@ async function sendEmailNotification(name, email, mobile, service, date, adminEm
                     <td style="padding: 8px;">${service}</td>
                 </tr>
                 <tr style="background-color: #f9f9f9;">
-                    <td style="padding: 8px; font-weight: bold;">Selected Date:</td>
+                    <td style="padding: 8px; font-weight: bold;">Enquiry Date:</td>
                     <td style="padding: 8px;">${formattedDate}</td> <!-- Use formatted date -->
                 </tr>
             </table>

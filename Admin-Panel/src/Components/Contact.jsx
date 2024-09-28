@@ -27,6 +27,25 @@ const AllContacts = () => {
     fetchContacts();
   }, []);
 
+  // Function to delete a contact
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch(`https://reliable-events.onrender.com/api/contact/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete contact");
+      }
+
+      // Update state to remove the deleted contact
+      setContacts(contacts.filter((contact) => contact._id !== id));
+    } catch (error) {
+      console.error("Delete contact error:", error);
+      setError("Failed to delete contact. Please try again later.");
+    }
+  };
+
   // Function to format timestamp into date and time
   const formatDateTime = (timestamp) => {
     const date = new Date(timestamp);
@@ -50,6 +69,9 @@ const AllContacts = () => {
     );
   }
 
+  // Sort contacts by createdAt date in descending order
+  const sortedContacts = contacts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
   return (
     <div className="container mt-4 mb-5">
       <h2 className="mb-4">Queries</h2>
@@ -65,11 +87,12 @@ const AllContacts = () => {
               <th>Enquiry For</th>
               <th>Date</th> {/* Date column */}
               <th>Time</th> {/* Time column */}
+              <th>Actions</th> {/* Actions column for delete button */}
             </tr>
           </thead>
           <tbody>
-            {contacts.length > 0 ? (
-              contacts.map((contact) => {
+            {sortedContacts.length > 0 ? (
+              sortedContacts.map((contact) => {
                 const { formattedDate, formattedTime } = formatDateTime(contact.createdAt); // Use createdAt for date and time
                 const formattedEnquiryDate = formatDate(contact.uniquedate); // Format the enquiry date
                 return (
@@ -81,12 +104,20 @@ const AllContacts = () => {
                     <td>{formattedEnquiryDate}</td> {/* Displaying formatted enquiry date */}
                     <td>{formattedDate}</td> {/* Displaying formatted date */}
                     <td>{formattedTime}</td> {/* Displaying formatted time */}
+                    <td>
+                      <button
+                        className="btn btn-danger"
+                        onClick={() => handleDelete(contact._id)} // Call delete handler on click
+                      >
+                        Delete
+                      </button>
+                    </td>
                   </tr>
                 );
               })
             ) : (
               <tr>
-                <td colSpan="7" className="text-center">No contacts found</td> {/* Adjusted colspan to match the number of columns */}
+                <td colSpan="8" className="text-center">No contacts found</td> {/* Adjusted colspan to match the number of columns */}
               </tr>
             )}
           </tbody>

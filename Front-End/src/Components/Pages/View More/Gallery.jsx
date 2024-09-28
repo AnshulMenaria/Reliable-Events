@@ -42,36 +42,53 @@ const galleryImages = [
 ];
 
 const GallerySection = () => {
-  const [visible, setVisible] = useState([]);
+  const [visible, setVisible] = useState(new Set());
 
   useEffect(() => {
     const handleScroll = () => {
-      const items = document.querySelectorAll(".unique-gallery-section-item");
+      const items = document.querySelectorAll(".gallery-item");
+      const screenPosition = window.innerHeight / 1.2;
+
       items.forEach((item, index) => {
         const itemPosition = item.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.1; // Changed to trigger sooner
-        if (itemPosition < screenPosition && !visible.includes(index)) {
-          setVisible((prevVisible) => [...prevVisible, index]);
+
+        if (itemPosition < screenPosition && !visible.has(index)) {
+          setVisible((prevVisible) => new Set(prevVisible).add(index));
         }
       });
     };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Check visibility on initial load
+    // Debounce scroll event for performance
+    const debounceScroll = (func, delay) => {
+      let timer;
+      return () => {
+        clearTimeout(timer);
+        timer = setTimeout(func, delay);
+      };
+    };
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    const debouncedHandleScroll = debounceScroll(handleScroll, 50);
+
+    window.addEventListener("scroll", debouncedHandleScroll);
+
+    // Trigger initial check for visible items
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", debouncedHandleScroll);
   }, [visible]);
 
   return (
-    <section id="gallery-section" className="unique-gallery-section">
-      <h2 className="unique-gallery-section-title">Event Gallery</h2>
-      <div className="unique-gallery-section-grid">
+    <section id="gallery-section" className="gallery-section">
+      <h2 className="gallery-title">Event Gallery</h2>
+      <div className="gallery-grid">
         {galleryImages.map((image, index) => (
           <div
             key={index}
-            className={`unique-gallery-section-item ${image.type} ${visible.includes(index) ? "show" : ""}`}
+            className={`gallery-item ${image.type} ${
+              visible.has(index) ? "show" : ""
+            }`}
           >
-            <img src={image.src} alt={image.alt} className="unique-gallery-section-image" />
+            <img src={image.src} alt={image.alt} className="gallery-image" />
           </div>
         ))}
       </div>

@@ -9,33 +9,33 @@ const Contact = () => {
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
   const [service, setService] = useState('');
-  const [date, setDate] = useState(''); // New state for date
+  const [date, setDate] = useState('');
   const [status, setStatus] = useState('');
-  const [isSending, setIsSending] = useState(false); // New state for sending status
+  const [isSending, setIsSending] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSending(true); // Set to true while sending
+    setIsSending(true);
 
-    try { // eslint-disable-next-line
+    try {              // eslint-disable-next-line
       const response = await axios.post('https://reliable-events.onrender.com/api/contact', { 
         name,
         email,
         mobile,
         service,
-        date, // Include the date in the request body
+        date,
       });
 
-      setStatus('Message sent successfully!');
-      setIsSending(false); // Reset sending status
+      setStatus('Message sent successfully! We will get back to you shortly.');
+      setIsSending(false);
       setName('');
       setEmail('');
       setMobile('');
       setService('');
-      setDate(''); // Reset date
+      setDate('');
     } catch (error) {
       setStatus('An error occurred. Please try again.');
-      setIsSending(false); // Reset sending status in case of error
+      setIsSending(false);
       console.error(error);
     }
   };
@@ -49,9 +49,12 @@ const Contact = () => {
         </div>
         <div className="form-container">
           <h2>Contact Us</h2>
-          {status && <p className={`status-message ${status.includes('error') ? 'error' : 'success'}`}>
-            <FontAwesomeIcon icon={status.includes('error') ? faExclamationCircle : faCheckCircle} /> {status}
-          </p>}
+          {status && (
+            <p className={`status-message ${status.includes('error') ? 'error' : 'success'}`}>
+              <FontAwesomeIcon icon={status.includes('error') ? faExclamationCircle : faCheckCircle} /> 
+              {status}
+            </p>
+          )}
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <input
@@ -103,7 +106,7 @@ const Contact = () => {
             </div>
             <div className="form-group">
               <input
-                type="date" // Date input type
+                type="date"
                 className="form-control"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}

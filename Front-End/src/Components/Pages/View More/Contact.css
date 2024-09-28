@@ -6,7 +6,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background: linear-gradient(135deg, #f8f8f8 30%, #ffffff 100%); */
   font-family: "Great Vibes", cursive;
   padding: 50px 20px;
 }
@@ -67,9 +66,24 @@
 }
 
 .status-message {
-  color: #28a745;
   text-align: center;
   margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.status-message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.status-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
 }
 
 .form-group {
@@ -116,28 +130,6 @@ textarea.form-control {
   background-color: #ff4e4e;
   transform: translateY(-3px);
 }
-/* Status message styles */
-.status-message {
-  color: #28a745;
-  text-align: center;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
-}
-
-.status-message.error {
-  color: #dc3545;
-}
-
-.status-message .fa-check-circle {
-  margin-right: 10px;
-}
-
-.status-message .fa-exclamation-circle {
-  margin-right: 10px;
-}
 
 /* Button and form interaction */
 .btn-submit[disabled] {
@@ -173,11 +165,7 @@ textarea.form-control {
     font-size: 2rem;
   }
 
-  .form-control {
-    padding: 12px;
-  }
-
-  .btn-submit {
-    font-size: 1.1rem;
+  .form-container {
+    padding: 20px;
   }
 }
