@@ -71,7 +71,7 @@ const AllContacts = () => {
                     <td>{contact.email}</td>
                     <td>{contact.mobile}</td> {/* Displaying mobile number */}
                     <td>{contact.service}</td>
-                    <td>{contact.date}</td>
+                    <td>{contact.uniquedate}</td>
                     <td>{formattedDate}</td> {/* Displaying formatted date */}
                     <td>{formattedTime}</td> {/* Displaying formatted time */}
                   </tr>

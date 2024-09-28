@@ -9,39 +9,35 @@ const Contact = () => {
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
   const [service, setService] = useState('');
-  const [uniquedate, setUniquedate] = useState(''); // State for selected unique date
+  const [date, setDate] = useState(''); // New state for date
   const [status, setStatus] = useState('');
-  const [isSending, setIsSending] = useState(false); // Sending status
+  const [isSending, setIsSending] = useState(false); // New state for sending status
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSending(true); // Set sending status to true
+    setIsSending(true); // Set to true while sending
 
-    try {
+    try { // eslint-disable-next-line
       const response = await axios.post('https://reliable-events.onrender.com/api/contact', { 
         name,
         email,
         mobile,
         service,
-        uniquedate, // Send the selected unique date to the backend
+        date, // Include the date in the request body
       });
 
-      setStatus('Message sent successfully! We will contact you shortly to discuss your event details.');
+      setStatus('Message sent successfully!');
       setIsSending(false); // Reset sending status
-      clearForm();
+      setName('');
+      setEmail('');
+      setMobile('');
+      setService('');
+      setDate(''); // Reset date
     } catch (error) {
       setStatus('An error occurred. Please try again.');
       setIsSending(false); // Reset sending status in case of error
       console.error(error);
     }
-  };
-
-  const clearForm = () => {
-    setName('');
-    setEmail('');
-    setMobile('');
-    setService('');
-    setUniquedate(''); // Reset unique date field
   };
 
   return (
@@ -53,11 +49,9 @@ const Contact = () => {
         </div>
         <div className="form-container">
           <h2>Contact Us</h2>
-          {status && (
-            <p className={`status-message ${status.includes('error') ? 'error' : 'success'}`}>
-              <FontAwesomeIcon icon={status.includes('error') ? faExclamationCircle : faCheckCircle} /> {status}
-            </p>
-          )}
+          {status && <p className={`status-message ${status.includes('error') ? 'error' : 'success'}`}>
+            <FontAwesomeIcon icon={status.includes('error') ? faExclamationCircle : faCheckCircle} /> {status}
+          </p>}
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <input
@@ -81,15 +75,13 @@ const Contact = () => {
             </div>
             <div className="form-group">
               <input
-                type="tel"
+                type="text"
                 className="form-control"
                 value={mobile}
                 onChange={(e) => setMobile(e.target.value)}
                 placeholder="Your Mobile Number"
-                pattern="[0-9]{10}" // Basic validation for 10-digit mobile numbers
                 required
               />
-              <small className="form-text text-muted">Format: 10-digit mobile number.</small>
             </div>
             <div className="form-group">
               <select
@@ -111,10 +103,10 @@ const Contact = () => {
             </div>
             <div className="form-group">
               <input
-                type="date"
+                type="date" // Date input type
                 className="form-control"
-                value={uniquedate} // Controlled by state
-                onChange={(e) => setUniquedate(e.target.value)} // Update state on change
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
                 required
               />
             </div>
