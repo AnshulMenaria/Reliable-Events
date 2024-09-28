@@ -8,6 +8,8 @@ import eventbg1 from "../../../Assets/HeroSection/eventbg1.jpg";
 import eventbg2 from "../../../Assets/HeroSection/eventbg2.jpg";
 import eventbg3 from "../../../Assets/HeroSection/eventbg3.jpg";
 import eventbg4 from "../../../Assets/HeroSection/eventbg4.jpg";
+// import bg1 from "../../../Assets/HeroSection/bg-1.jpg";
+
 
 const images = [eventbg1, eventbg2, eventbg3, eventbg4];
 
@@ -52,10 +54,12 @@ const Home = () => {
         <div className="hero-content">
           <h2 className="animate-text">Creating Unforgettable Memories</h2>
           <p className="animate-subtext">
-            We plan, design, and manage exceptional celebrations for any
-            occasion.
+            We Plan, Design, and Manage exceptional celebrations for any
+            Occasion.
           </p>
-          <button className="cta-btn" onClick={handleExploreClick}>Explore Our Services</button>
+          <button className="cta-btn" onClick={handleExploreClick}>
+            Explore Our Services
+          </button>
         </div>
       </div>
       <section id="services">

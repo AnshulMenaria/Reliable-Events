@@ -1,14 +1,13 @@
 /* Full page contact section */
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
 
 .contact-page {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #f8f8f8 30%, #ffffff 100%);
-  font-family: 'Dancing Script', cursive; 
-
+  /* background: linear-gradient(135deg, #f8f8f8 30%, #ffffff 100%); */
+  font-family: "Great Vibes", cursive;
   padding: 50px 20px;
 }
 
@@ -37,20 +36,21 @@
 }
 
 .left-section h2 {
+  text-align: center;
   font-size: 3rem;
   margin-bottom: 20px;
-  font-family: 'Dancing Script', cursive; /* Cursive font */
-  color: #333;
+  font-family: "Great Vibes", cursive;
+  color: #8a5b3e;
 }
 
 .left-section p {
-  font-size: 1.3rem;
+  font-family: "Lato", sans-serif;
+  text-align: center;
+  font-size: 1rem;
   color: #666;
   margin-bottom: 30px;
   line-height: 1.6;
 }
-
-
 
 /* Right form section */
 .form-container {
@@ -60,12 +60,10 @@
 }
 
 .form-container h2 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  text-align: center;
-  color: #333;  
-  font-family: 'Dancing Script', cursive; /* Cursive font */
-
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  color: #ccaf66;
+  font-family: "Great Vibes", cursive;
 }
 
 .status-message {
@@ -77,8 +75,7 @@
 .form-group {
   margin-bottom: 25px;
   font-size: 1.5rem;
-  font-family: 'Dancing Script', cursive; /* Cursive font */
-
+  font-family: "Lato", sans-serif;
 }
 
 .form-control {
@@ -87,8 +84,7 @@
   border-radius: 8px;
   border: 1px solid #ddd;
   width: 100%;
-  font-family: 'Dancing Script', cursive; /* Cursive font */
-
+  font-family: "Lato", sans-serif;
   transition: border-color 0.3s ease;
   background-color: #f9f9f9;
   box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -104,6 +100,7 @@ textarea.form-control {
 }
 
 .btn-submit {
+  font-family: "Lato", sans-serif !important;
   background-color: #ff7e7e !important;
   color: white !important;
   border: none !important;

@@ -26,7 +26,6 @@ const Gallery = () => {
     wedding: galleryImages.wedding[0],
     corporate: galleryImages.corporate[0],
     parties: galleryImages.parties[0],
-    seminars: galleryImages.seminars[0],
   });
 
   useEffect(() => {
@@ -35,7 +34,6 @@ const Gallery = () => {
         wedding: getNextImage(prevImages.wedding, galleryImages.wedding),
         corporate: getNextImage(prevImages.corporate, galleryImages.corporate),
         parties: getNextImage(prevImages.parties, galleryImages.parties),
-        seminars: getNextImage(prevImages.seminars, galleryImages.seminars),
       }));
     }, 4000);
 
@@ -79,7 +77,7 @@ const Gallery = () => {
             />
           </Card>
         </div>
-        <a href="#view-latest" className="view-latest-link">
+        <a href="/gallery" className="view-latest-link">
           ➔ View The Latest
         </a>
       </Container>

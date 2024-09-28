@@ -1,8 +1,7 @@
 /* Review Page Styling */
-.review-page {
+.reviews-page {
   width: 100%;
   padding: 40px;
-  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,14 +9,14 @@
 }
 
 /* Slider Container Styling */
-.slider-container {
+.reviews-slider-container {
   width: 90%;
   margin-bottom: 40px;
   position: relative;
   justify-content: center;
 }
 
-.review-card {
+.reviews-card {
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -26,23 +25,22 @@
   margin: 15px;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
-  margin-left: 30px; /* Add space between each card */
+  margin-left: 30px;
 }
 
-.review-card:hover {
+.reviews-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
-.review-card h4 {
+.reviews-card h4 {
   font-style: italic;
   margin: 13px 0 0;
   font-size: 1rem;
   color: #333;
-  /* font-weight: bold; */
 }
 
-.review-card p {
+.reviews-card p {
   font-weight: 700;
   font-size: large;
   margin: 14px 6px 0 0;
@@ -51,7 +49,7 @@
 }
 
 /* Star Rating Styling */
-.stars {
+.reviews-stars {
   display: flex;
   gap: 4px;
   justify-content: center;
@@ -59,27 +57,49 @@
 }
 
 /* Form Section Styling */
-.form-section {
+.reviews-form-section {
+  display: flex;
+  background-color: #fff;
+  overflow: hidden;
   width: 100%;
-  max-width: 1200px;
-  background-color: #f9f9f9;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  gap: 0;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+/* Form Container */
+.reviews-form-container {
+  width: 50%;
+  padding: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 60px;
+  justify-content: center;
 }
 
-.form-section h2 {
-  margin-bottom: 10px;
-  font-size: 2.5rem;
+/* Image Container */
+.reviews-image-container {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.reviews-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Form Section Header */
+.reviews-form-section h2 {
   font-family: "Great Vibes", cursive;
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
   color: #ccaf66;
 }
 
-.form-section p {
+.reviews-form-section p {
   text-align: center;
   font-size: 1rem;
   margin-bottom: 20px;
@@ -88,20 +108,20 @@
 }
 
 /* Form Styling */
-.review-form {
+.reviews-form {
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center;
 }
 
-.form-group {
+.reviews-form-group {
   margin-bottom: 15px;
   width: 100%;
   max-width: 400px;
 }
 
-.form-control {
+.reviews-form-control {
   padding: 10px;
   font-size: 1rem;
   width: 100%;
@@ -110,7 +130,7 @@
 }
 
 /* Submit Button Styling */
-.submit-btn {
+.reviews-submit-btn {
   background-color: #547d69;
   color: #fff;
   padding: 12px 20px;
@@ -123,13 +143,13 @@
   max-width: 200px;
 }
 
-.submit-btn:hover {
+.reviews-submit-btn:hover {
   background-color: #4b6f5d;
 }
 
 /* Custom Arrow Styles */
-.custom-prev-arrow,
-.custom-next-arrow {
+.reviews-custom-prev-arrow,
+.reviews-custom-next-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -139,12 +159,12 @@
 }
 
 /* Positioning for Left Arrow */
-.custom-prev-arrow {
+.reviews-custom-prev-arrow {
   left: -40px;
 }
 
 /* Positioning for Right Arrow */
-.custom-next-arrow {
+.reviews-custom-next-arrow {
   right: -40px;
 }
 
@@ -162,28 +182,24 @@
   color: #0056b3;
 }
 
-/* Avatar and Name Section */
-.review-card .avatar-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-}
+/* Media Queries for Mobile (768px and below) */
+@media only screen and (max-width: 768px) {
+  .reviews-form-section {
+    flex-direction: column;
+  }
 
-.review-card img {
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-}
+  /* Form container takes full width */
+  .reviews-form-container {
+    width: auto;
+  }
 
-.review-card .name {
-  font-weight: bold;
-  font-size: 0.9rem;
-  color: #333;
-}
+  /* Image container takes full width */
+  .reviews-image-container {
+    width: 100%;
+  }
 
-.review-card .designation {
-  font-size: 0.8rem;
-  color: #777;
+  .reviews-img {
+    width: 90%;
+    height: auto;
+  }
 }

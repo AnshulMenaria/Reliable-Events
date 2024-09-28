@@ -6,13 +6,15 @@ import Slider from "react-slick";
 import "./Review.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import bg2 from "../../../Assets/HeroSection/bg-2.jpg";
+
 
 // Custom Left Arrow Component
 const PrevArrow = (props) => {
   const { className, style, onClick } = props;
   return (
     <div
-      className={`${className} custom-prev-arrow`}
+      className={`${className} reviews-custom-prev-arrow`}
       style={{ ...style, display: "block" }}
       onClick={onClick}
     >
@@ -26,7 +28,7 @@ const NextArrow = (props) => {
   const { className, style, onClick } = props;
   return (
     <div
-      className={`${className} custom-next-arrow`}
+      className={`${className} reviews-custom-next-arrow`}
       style={{ ...style, display: "block" }}
       onClick={onClick}
     >
@@ -101,13 +103,13 @@ const Review = () => {
   };
 
   return (
-    <div className="review-page">
+    <div className="reviews-page">
       {/* Slider for reviews */}
-      <div className="slider-container">
+      <div className="reviews-slider-container">
         <Slider {...sliderSettings}>
           {reviews.map((rev, index) => (
-            <div key={index} className="review-card">
-              <div className="stars">
+            <div key={index} className="reviews-card">
+              <div className="reviews-stars">
                 {[...Array(5)].map((star, i) => (
                   <FaStar
                     key={i}
@@ -124,69 +126,76 @@ const Review = () => {
       </div>
 
       {/* Review Form */}
-      <div className="form-section">
-        <h2>Leave a Review</h2>
-        <p>
-          We highly value your feedback! Kindly take a moment to rate your
-          experience and provide us with your valuable feedback.
-        </p>
-        <form onSubmit={handleSubmit} className="review-form">
-          <div className="rating">
-            <div className="stars">
-              {/* <h3>Rate Us: </h3> */}
-              {[...Array(5)].map((star, index) => {
-                const ratingValue = index + 1;
-                return (
-                  <FaStar
-                    key={index}
-                    size={30}
-                    color={
-                      ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"
-                    }
-                    onMouseEnter={() => setHover(ratingValue)}
-                    onMouseLeave={() => setHover(0)}
-                    onClick={() => setRating(ratingValue)}
-                    className="star"
-                  />
-                );
-              })}
+      <div className="reviews-form-section">
+        {/* Form Section */}
+        <div className="reviews-form-container">
+          <h2>Submit Review</h2>
+          <p>
+            We highly value your feedback! Kindly take a moment to rate your
+            experience and provide us with your valuable feedback.
+          </p>
+          <form onSubmit={handleSubmit} className="reviews-form">
+            <div className="reviews-rating">
+              <div className="reviews-stars">
+                {[...Array(5)].map((star, index) => {
+                  const ratingValue = index + 1;
+                  return (
+                    <FaStar
+                      key={index}
+                      size={30}
+                      color={
+                        ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"
+                      }
+                      onMouseEnter={() => setHover(ratingValue)}
+                      onMouseLeave={() => setHover(0)}
+                      onClick={() => setRating(ratingValue)}
+                      className="star"
+                    />
+                  );
+                })}
+              </div>
             </div>
-          </div>
 
-          <div className="form-group">
-            {/* <label htmlFor="name">Your Name</label> */}
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Enter your Name"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </div>
+            <div className="reviews-form-group">
+              <input
+                type="text"
+                className="reviews-form-control"
+                placeholder="Enter your Name"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
 
-          <div className="form-group">
-            {/* <label htmlFor="review">Your Review</label> */}
-            <textarea
-              className="form-control"
-              id="review"
-              placeholder="Write your Review"
-              rows="4"
-              value={review}
-              onChange={(e) => setReview(e.target.value)}
-              required
-            ></textarea>
-          </div>
+            <div className="reviews-form-group">
+              <textarea
+                className="reviews-form-control"
+                id="review"
+                placeholder="Write your Review"
+                rows="4"
+                value={review}
+                onChange={(e) => setReview(e.target.value)}
+                required
+              ></textarea>
+            </div>
 
-          <button type="submit" className="submit-btn">
-            Submit Review
-          </button>
+            <button type="submit" className="reviews-submit-btn">
+              Submit Review
+            </button>
 
-          {submitted && (
-            <p className="success-message">Thank you for your review!</p>
-          )}
-        </form>
+            {submitted && (
+              <p className="reviews-success-message">
+                Thank you for your review!
+              </p>
+            )}
+          </form>
+        </div>
+
+        {/* Image Section */}
+        <div className="reviews-image-container">
+          <img src={bg2} alt="Review Illustration" className="reviews-img" />
+        </div>
       </div>
     </div>
   );

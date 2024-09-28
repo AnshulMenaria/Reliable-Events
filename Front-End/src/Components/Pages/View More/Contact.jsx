@@ -9,6 +9,7 @@ const Contact = () => {
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
   const [service, setService] = useState('');
+  const [date, setDate] = useState(''); // New state for date
   const [status, setStatus] = useState('');
   const [isSending, setIsSending] = useState(false); // New state for sending status
 
@@ -16,20 +17,22 @@ const Contact = () => {
     e.preventDefault();
     setIsSending(true); // Set to true while sending
 
-    try { // eslint-disable-next-line
+    try {
       const response = await axios.post('https://reliable-events.onrender.com/api/contact', { 
         name,
         email,
         mobile,
         service,
+        date, // Send the date to the backend
       });
 
-      setStatus('Message sent successfully!');
+      setStatus('Message sent successfully! We will contact you shortly to discuss your event details.');
       setIsSending(false); // Reset sending status
       setName('');
       setEmail('');
       setMobile('');
       setService('');
+      setDate(''); // Reset date field
     } catch (error) {
       setStatus('An error occurred. Please try again.');
       setIsSending(false); // Reset sending status in case of error
@@ -51,7 +54,6 @@ const Contact = () => {
           </p>}
           <form onSubmit={handleSubmit}>
             <div className="form-group">
-              <label>Name</label>
               <input
                 type="text"
                 className="form-control"
@@ -62,7 +64,6 @@ const Contact = () => {
               />
             </div>
             <div className="form-group">
-              <label>Email</label>
               <input
                 type="email"
                 className="form-control"
@@ -73,7 +74,6 @@ const Contact = () => {
               />
             </div>
             <div className="form-group">
-              <label>Mobile</label>
               <input
                 type="text"
                 className="form-control"
@@ -84,7 +84,6 @@ const Contact = () => {
               />
             </div>
             <div className="form-group">
-              <label>Service</label>
               <select
                 className="form-control"
                 value={service}
@@ -101,6 +100,15 @@ const Contact = () => {
                 <option value="Live Shows & Artist Management">Live Shows & Artist Management</option>
                 <option value="Photography & Videography">Photography & Videography</option>
               </select>
+            </div>
+            <div className="form-group">
+              <input
+                type="date"
+                className="form-control"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                required
+              />
             </div>
             <button type="submit" className="btn btn-submit" disabled={isSending}>
               {isSending ? (

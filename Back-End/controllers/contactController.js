@@ -6,6 +6,7 @@ const contactController = {
     async createContact(req, res, next) {
         try {
             const { name, email, mobile, service } = req.body;
+            const date = new Date(); // Get the current date and time
 
             // Save the contact form in the database
             const contact = await Contact.create({
@@ -13,6 +14,7 @@ const contactController = {
                 email,
                 mobile,
                 service,
+                date, // Save the current date in the database
             });
 
             // Retrieve all admin emails from the database
@@ -20,7 +22,7 @@ const contactController = {
             const adminEmails = admins.map(admin => admin.email);
 
             // Send email notification to all admins
-            await sendEmailNotification(name, email, mobile, service, adminEmails);
+            await sendEmailNotification(name, email, mobile, service, date, adminEmails); // Pass the date to the email function
 
             // Respond with success
             res.status(201).json({
@@ -60,7 +62,7 @@ const contactController = {
     },
 };
 
-async function sendEmailNotification(name, email, mobile, service, adminEmails) {
+async function sendEmailNotification(name, email, mobile, service, date, adminEmails) {
     // Create a transporter using SMTP service (Gmail is used here)
     const transporter = nodemailer.createTransport({
         service: 'Gmail',
@@ -74,7 +76,7 @@ async function sendEmailNotification(name, email, mobile, service, adminEmails) 
     const mailOptions = {
         from: 'anshul9145946510@gmail.com', // Sender's email address
         to: adminEmails, // Send email to all admin emails
-        subject: `New Contact Form Submission: ${name}`, // Email subject
+        subject: `New Query Received: ${name}`, // Email subject
         html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
             <h2 style="color: #5c5c5c;">New Query Received</h2>
@@ -96,6 +98,10 @@ async function sendEmailNotification(name, email, mobile, service, adminEmails) 
                 <tr>
                     <td style="padding: 8px; font-weight: bold;">Service Interested In:</td>
                     <td style="padding: 8px;">${service}</td>
+                </tr>
+                <tr style="background-color: #f9f9f9;">
+                    <td style="padding: 8px; font-weight: bold;">Date:</td>
+                    <td style="padding: 8px;">${date.toLocaleString()}</td> <!-- Format the date for display -->
                 </tr>
             </table>
             

@@ -1,3 +1,33 @@
+/* Full Page Background with Overlay */
+html,
+body {
+  height: 100%; /* Ensure body and html take full height */
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+  color: white;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background Image with Overlay */
+body::before {
+  content: "";
+  position: fixed; /* Fixed position to cover the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Ensure it covers the full height */
+  background-image: url("../../../Assets/HeroSection/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.1; /* Adjust opacity */
+  z-index: -1; /* Ensure it stays behind the content */
+}
+
+/* Hero Section */
 .hero-section {
   display: flex;
   flex-direction: column;
@@ -8,11 +38,12 @@
   color: white;
   position: relative;
   overflow: hidden;
-  background-image: linear-gradient(165deg, rgb(0, 0, 0) 40%, rgb(243, 243, 243) 40%);
+  background: linear-gradient(165deg, rgb(0, 0, 0) 40%, rgba(0, 0, 0, 0) 40%);
 }
 
+/* Image Slider */
 .image-slider {
-  width: 90%; /* Responsive width */
+  width: 90%;
   height: 100%; /* Responsive height */
   display: flex;
   flex-direction: column;
@@ -48,6 +79,7 @@
   margin-bottom: 20px;
 }
 
+/* Hero Content */
 .hero-content {
   text-align: center;
   padding: 20px;
@@ -55,19 +87,19 @@
 }
 
 .animate-text {
-  font-family: "Script", Sans-serif;
+  font-family: "Great Vibes", cursive;
   color: #ccaf66;
-  font-size: 3rem; /* Large font size */
-  font-weight: bold;
-  margin-bottom: 20px;
+  font-size: 3.5rem; /* Large font size */
+  margin-bottom: 10px;
 }
 
 .animate-subtext {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Lato", sans-serif;
   font-size: 1.5rem;
   margin-bottom: 20px;
 }
 
+/* Call to Action Buttons */
 .cta-btn,
 .cta1-btn {
   padding: 15px 30px;
@@ -96,10 +128,11 @@
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* Media Queries */
 /* Desktop (1024px and above) */
 @media only screen and (min-width: 1024px) {
   .image-slider {
-    height: 1000px !important; /* Increase image height only for desktop */
+    height: 1000px !important; /* Increased image height for desktop */
   }
 }
 
@@ -134,7 +167,7 @@
   .hero-section {
     height: auto;
     padding: 0;
-    background-image: linear-gradient(145deg, rgb(0, 0, 0) 40%, rgb(255, 255, 255) 28%);
+    background: linear-gradient(155deg, rgb(0, 0, 0) 40%, rgba(0, 0, 0, 0) 40%);
   }
 
   .image-slider {

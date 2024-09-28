@@ -60,7 +60,7 @@ const services = [
     image: lightingImage
   },
   {
-    title: 'Live Shows & Artist Management', // Updated title
+    title: 'Live Shows & Artist Management',
     description: `
       We organize live performances, concerts, and stage shows with expertise in event logistics, artist management, and technical setup. 
       From small intimate gatherings to large-scale concerts, we ensure that your live show runs smoothly, delivering a memorable experience for both the performers and the audience.`,
@@ -77,21 +77,23 @@ const services = [
 
 const ServicesPage = () => {
   useEffect(() => {
-    const handleScroll = () => {
-      const rows = document.querySelectorAll('.unique-service-row');
-      rows.forEach((row, index) => {
-        if (index === 0) return; // Skip the first row (already visible)
-
-        const rowPosition = row.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.2;
-        if (rowPosition < screenPosition) {
-          row.classList.add('show');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target); // Stop observing after adding the class
         }
       });
-    };
+    }, {
+      threshold: 0.1 // Trigger when 10% of the row is visible
+    });
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const rows = document.querySelectorAll('.unique-service-row');
+    rows.forEach(row => observer.observe(row));
+
+    return () => {
+      rows.forEach(row => observer.unobserve(row));
+    };
   }, []);
 
   return (

@@ -1,16 +1,15 @@
 /* General Page Styling */
 .testimonials-page-container {
   padding: 60px;
-  background: #f0f0f5;
+  margin-top: 60px;
+
   text-align: center;
 }
 
 .testimonials-heading {
   font-size: 3.5rem;
-  color: #333;
   margin-bottom: 50px;
-  font-family: "Georgia", serif;
-  text-transform: capitalize;
+  font-family: "Great Vibes", cursive;
   letter-spacing: 1.5px;
   color: #ccaf66;
 }
@@ -43,7 +42,11 @@
   border: 4px solid #ccaf66; /* Gold border */
   border-radius: 15px;
   padding: 20px;
-  background: linear-gradient(135deg, #faf2e4, #fff0db); /* Subtle background gradient */
+  background: linear-gradient(
+    135deg,
+    #faf2e4,
+    #fff0db
+  ); /* Subtle background gradient */
 }
 
 /* Testimonial Content */
@@ -138,4 +141,3 @@
     padding: 20px;
   }
 }
-  

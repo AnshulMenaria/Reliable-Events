@@ -56,6 +56,7 @@ const AllContacts = () => {
               <th>Email</th>
               <th>Mobile</th> {/* Mobile column */}
               <th>Service</th>
+              <th>Enquiry For</th>
               <th>Date</th> {/* Date column */}
               <th>Time</th> {/* Time column */}
             </tr>
@@ -70,6 +71,7 @@ const AllContacts = () => {
                     <td>{contact.email}</td>
                     <td>{contact.mobile}</td> {/* Displaying mobile number */}
                     <td>{contact.service}</td>
+                    <td>{contact.date}</td>
                     <td>{formattedDate}</td> {/* Displaying formatted date */}
                     <td>{formattedTime}</td> {/* Displaying formatted time */}
                   </tr>

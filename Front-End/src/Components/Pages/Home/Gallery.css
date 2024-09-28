@@ -1,13 +1,14 @@
 .gallery-section {
   padding: 4rem 0;
-  background-color: #ebedec; /* Light gray background similar to the image */
+  background-color: #f7f7f7;
 }
 
 .gallery-title {
   text-align: center;
-  font-size: 4rem;
-  color: #ccaf66; /* Match the style of the 'Recent Events' title */
   font-family: "Great Vibes", cursive;
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  color: #ccaf66;
 }
 
 .gallery-line {
@@ -27,20 +28,50 @@
 
 .gallery-card {
   flex: 1;
-  max-width: 400px; /* Constrain the width to resemble the image */
-  border: none; /* Remove card border to match design */
+  max-width: 400px;
+  border: none;
   overflow: hidden;
   background: none;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+}
+
+.gallery-card:hover {
+  transform: translateY(-10px);
 }
 
 .animated-image {
-  transition: opacity 0.5s ease-in-out;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fadeZoom 3s infinite;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .gallery-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.1);
+}
+
+@keyframes fadeZoom {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
 }
 
 .view-latest-link {
@@ -54,6 +85,11 @@
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-style: normal;
+  transition: color 0.3s ease-in-out;
+}
+
+.view-latest-link:hover {
+  color: #ccaf66;
 }
 
 @media (max-width: 768px) {

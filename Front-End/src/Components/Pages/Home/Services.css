@@ -1,6 +1,6 @@
 .services-section {
   padding: 4rem 0;
-  background: linear-gradient(180deg, #fff 0%, #ebedec 100%);
+  /* background: linear-gradient(180deg, #fff 0%, #ebedec 100%); */
 }
 
 .services-gallery {
@@ -19,18 +19,18 @@
 
 .service-section-content {
   text-align: center;
-  padding: 90px 30px;
+  padding: 60px 30px;
 }
 
 .ser-title {
   font-family: "Great Vibes", cursive;
   font-size: 4rem;
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
   color: #ccaf66;
 }
 
 .service-section-content p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #333;
   margin-top: -10px;
 }
@@ -113,6 +113,7 @@
 .image-col:hover .image-overlay {
   opacity: 1;
 }
+
 .view-more-btn-0 {
   display: block; /* Hidden by default */
   text-align: center;
@@ -122,10 +123,10 @@
   text-decoration: none;
   font-size: 1rem;
   font-family: "Lato", sans-serif;
-  margin: 10px auto;
+  /* margin: 10px auto; */
   transition: background-color 0.3s ease;
 }
-/* Style for the "View More" button */
+
 .view-more-btn {
   display: none; /* Hidden by default */
   text-align: center;

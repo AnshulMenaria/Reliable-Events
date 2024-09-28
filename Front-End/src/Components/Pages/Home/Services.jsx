@@ -44,9 +44,12 @@ const ServicesSection = () => {
             <div className="image-container-1">
               <img src={LiveShows} alt="Social" className="service-image" />
               <div className="image-overlay">
-              <h3 className="overlay-title">Live Shows & Artist Management</h3>
+                <h3 className="overlay-title">
+                  Live Shows & Artist Management
+                </h3>
                 <p className="overlay-description">
-                Elevate your event with seamless live shows and exceptional artist management.
+                  Elevate your event with seamless live shows and exceptional
+                  artist management.
                 </p>
               </div>
             </div>
@@ -59,9 +62,9 @@ const ServicesSection = () => {
             <div className="image-container-2">
               <img src={socialImage} alt="Extra 1" className="service-image" />
               <div className="image-overlay">
-              <h3 className="overlay-title">Social Events</h3>
+                <h3 className="overlay-title">Social Events</h3>
                 <p className="overlay-description">
-                Celebrate life's moments with our social event services.
+                  Celebrate life's moments with our social event services.
                 </p>
               </div>
             </div>
@@ -73,10 +76,10 @@ const ServicesSection = () => {
               <h2 className="ser-title">Our Services</h2>
               <p>WHAT WE OFFER FOR YOU</p>
               <div class="view-more-btn-container">
-        <a href="/services" class="view-more-btn-0">
-          ➔ View More
-        </a>
-      </div>
+                <a href="/services" class="view-more-btn-0">
+                  ➔ View More
+                </a>
+              </div>
             </div>
           </Col>
 
@@ -84,10 +87,9 @@ const ServicesSection = () => {
             <div className="image-container-2">
               <img src={socialImage} alt="Extra 2" className="service-image" />
               <div className="image-overlay">
-              <h3 className="overlay-title">Social Events</h3>
+                <h3 className="overlay-title">Social Events</h3>
                 <p className="overlay-description">
-                Celebrate life's moments with our social event services.
-
+                  Celebrate life's moments with our social event services.
                 </p>
               </div>
             </div>
@@ -100,22 +102,28 @@ const ServicesSection = () => {
             <div className="image-container-3">
               <img src={LiveShows} alt="Social" className="service-image" />
               <div className="image-overlay">
-              <h3 className="overlay-title">Live Shows & Artist Management</h3>
+                <h3 className="overlay-title">
+                  Live Shows & Artist Management
+                </h3>
 
                 <p className="overlay-description">
-                Elevate your event with seamless live shows and exceptional artist management.
+                  Elevate your event with seamless live shows and exceptional
+                  artist management.
                 </p>
               </div>
             </div>
           </Col>
           <Col className="image-col">
             <div className="image-container-3">
-              <img src={corporateImage} alt="Wedding" className="service-image" />
+              <img
+                src={corporateImage}
+                alt="Wedding"
+                className="service-image"
+              />
               <div className="image-overlay">
-              <h3 className="overlay-title">Corporate Events</h3>
+                <h3 className="overlay-title">Corporate Events</h3>
                 <p className="overlay-description">
-                Professional corporate event management services.
-
+                  Professional corporate event management services.
                 </p>
               </div>
             </div>
@@ -128,12 +136,10 @@ const ServicesSection = () => {
                 className="service-image"
               />
               <div className="image-overlay">
-                
                 <h3 className="overlay-title">Wedding Service</h3>
 
                 <p className="overlay-description">
-                Make your wedding unforgettable with our expert planning.
-
+                  Make your wedding unforgettable with our expert planning.
                 </p>
               </div>
             </div>

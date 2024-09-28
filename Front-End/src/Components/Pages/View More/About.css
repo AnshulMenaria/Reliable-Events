@@ -1,23 +1,28 @@
 .about-section {
-  background-color: #f8f9fa;
+  /* background-color: #f8f9fa; */
   padding: 40px 20px;
 }
 
 .title {
-  font-size: 2.5rem;
-  color: #343a40;
-  font-weight: bold;
+  font-size: 3.5rem;
+  font-family: "Great Vibes", cursive;
+  letter-spacing: 1.5px;
+  color: #ccaf66;
 }
 
 .subtitle {
   font-size: 1.25rem;
-  color: #6c757d;
+  color: #666;
+  font-family: "Lato", sans-serif;
+  margin-top: -1rem;
+  margin-bottom: 3rem;
 }
 
 .owner-name {
-  font-size: 2rem;
-  color: #007bff;
-  margin-top: 30px;
+  font-size: 3.5rem;
+  font-family: "Great Vibes", cursive;
+  letter-spacing: 1.5px;
+  color: #ccaf66;
 }
 
 .statistic-box {
@@ -30,7 +35,7 @@
 .circle {
   width: 80px; /* Circle size */
   height: 80px; /* Circle size */
-  background-color: #007bff; /* Circle color */
+  background-color: #35453d; /* Circle color */
   color: white; /* Text color */
   border-radius: 50%; /* Make it circular */
   display: flex;
@@ -45,10 +50,13 @@ h3 {
   color: #343a40;
   margin: 0; /* Reset margin for titles */
   font-size: 1.25rem; /* Font size for titles */
+  font-family: "Lato", sans-serif;
+  margin-bottom: 2rem;
 }
 
 p {
-  color: #495057;
+  font-family: "Lato", sans-serif;
+  color: #666;
   line-height: 1.6;
-  font-size: 1.20rem;
+  font-size: 1.2rem;
 }
