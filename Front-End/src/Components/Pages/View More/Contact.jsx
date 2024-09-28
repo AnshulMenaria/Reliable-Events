@@ -17,9 +17,6 @@ const Contact = () => {
     e.preventDefault();
     setIsSending(true); // Set sending status to true
 
-    // Log the selected unique date for debugging
-    console.log("Selected unique date:", uniquedate);
-
     try {
       const response = await axios.post('https://reliable-events.onrender.com/api/contact', { 
         name,
@@ -31,16 +28,20 @@ const Contact = () => {
 
       setStatus('Message sent successfully! We will contact you shortly to discuss your event details.');
       setIsSending(false); // Reset sending status
-      setName('');
-      setEmail('');
-      setMobile('');
-      setService('');
-      setUniquedate(''); // Reset unique date field
+      clearForm();
     } catch (error) {
       setStatus('An error occurred. Please try again.');
       setIsSending(false); // Reset sending status in case of error
       console.error(error);
     }
+  };
+
+  const clearForm = () => {
+    setName('');
+    setEmail('');
+    setMobile('');
+    setService('');
+    setUniquedate(''); // Reset unique date field
   };
 
   return (
@@ -52,9 +53,11 @@ const Contact = () => {
         </div>
         <div className="form-container">
           <h2>Contact Us</h2>
-          {status && <p className={`status-message ${status.includes('error') ? 'error' : 'success'}`}>
-            <FontAwesomeIcon icon={status.includes('error') ? faExclamationCircle : faCheckCircle} /> {status}
-          </p>}
+          {status && (
+            <p className={`status-message ${status.includes('error') ? 'error' : 'success'}`}>
+              <FontAwesomeIcon icon={status.includes('error') ? faExclamationCircle : faCheckCircle} /> {status}
+            </p>
+          )}
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <input
@@ -78,13 +81,15 @@ const Contact = () => {
             </div>
             <div className="form-group">
               <input
-                type="text"
+                type="tel"
                 className="form-control"
                 value={mobile}
                 onChange={(e) => setMobile(e.target.value)}
                 placeholder="Your Mobile Number"
+                pattern="[0-9]{10}" // Basic validation for 10-digit mobile numbers
                 required
               />
+              <small className="form-text text-muted">Format: 10-digit mobile number.</small>
             </div>
             <div className="form-group">
               <select
