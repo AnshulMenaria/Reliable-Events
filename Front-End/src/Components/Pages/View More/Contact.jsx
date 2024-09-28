@@ -9,21 +9,24 @@ const Contact = () => {
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
   const [service, setService] = useState('');
-  const [date, setDate] = useState(''); // New state for date
+  const [uniquedate, setUniquedate] = useState(''); // State for selected unique date
   const [status, setStatus] = useState('');
-  const [isSending, setIsSending] = useState(false); // New state for sending status
+  const [isSending, setIsSending] = useState(false); // Sending status
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSending(true); // Set to true while sending
+    setIsSending(true); // Set sending status to true
 
-    try {// eslint-disable-next-line
+    // Log the selected unique date for debugging
+    console.log("Selected unique date:", uniquedate);
+
+    try {
       const response = await axios.post('https://reliable-events.onrender.com/api/contact', { 
         name,
         email,
         mobile,
         service,
-        date, // Send the date to the backend
+        uniquedate, // Send the selected unique date to the backend
       });
 
       setStatus('Message sent successfully! We will contact you shortly to discuss your event details.');
@@ -32,7 +35,7 @@ const Contact = () => {
       setEmail('');
       setMobile('');
       setService('');
-      setDate(''); // Reset date field
+      setUniquedate(''); // Reset unique date field
     } catch (error) {
       setStatus('An error occurred. Please try again.');
       setIsSending(false); // Reset sending status in case of error
@@ -105,8 +108,8 @@ const Contact = () => {
               <input
                 type="date"
                 className="form-control"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
+                value={uniquedate} // Controlled by state
+                onChange={(e) => setUniquedate(e.target.value)} // Update state on change
                 required
               />
             </div>

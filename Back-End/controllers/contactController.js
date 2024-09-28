@@ -6,7 +6,7 @@ const contactController = {
     async createContact(req, res, next) {
         try {
             const { name, email, mobile, service } = req.body;
-            const date = new Date(); // Get the current date and time
+            const uniquedate = new Date(); // Get the current date and time
 
             // Save the contact form in the database
             const contact = await Contact.create({
@@ -14,7 +14,7 @@ const contactController = {
                 email,
                 mobile,
                 service,
-                date, // Save the current date in the database
+                uniquedate, // Save the current date in the database
             });
 
             // Retrieve all admin emails from the database
@@ -22,7 +22,7 @@ const contactController = {
             const adminEmails = admins.map(admin => admin.email);
 
             // Send email notification to all admins
-            await sendEmailNotification(name, email, mobile, service, date, adminEmails); // Pass the date to the email function
+            await sendEmailNotification(name, email, mobile, service, uniquedate, adminEmails); // Pass the uniquedate to the email function
 
             // Respond with success
             res.status(201).json({
@@ -38,7 +38,6 @@ const contactController = {
         }
     },
 
-    // Other functions like index, deleteContact...
     async index(req, res, next) {
         try {
             const contacts = await Contact.find();
@@ -62,7 +61,7 @@ const contactController = {
     },
 };
 
-async function sendEmailNotification(name, email, mobile, service, date, adminEmails) {
+async function sendEmailNotification(name, email, mobile, service, uniquedate, adminEmails) {
     // Create a transporter using SMTP service (Gmail is used here)
     const transporter = nodemailer.createTransport({
         service: 'Gmail',
@@ -100,8 +99,8 @@ async function sendEmailNotification(name, email, mobile, service, date, adminEm
                     <td style="padding: 8px;">${service}</td>
                 </tr>
                 <tr style="background-color: #f9f9f9;">
-                    <td style="padding: 8px; font-weight: bold;">Date:</td>
-                    <td style="padding: 8px;">${date.toLocaleString()}</td> <!-- Format the date for display -->
+                    <td style="padding: 8px; font-weight: bold;">Unique Date:</td>
+                    <td style="padding: 8px;">${uniquedate.toLocaleString()}</td> <!-- Format the date for display -->
                 </tr>
             </table>
             

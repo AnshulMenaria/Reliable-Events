@@ -1,4 +1,4 @@
-const { mongoose } = require("mongoose");
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const contactSchema = new Schema(
@@ -7,7 +7,7 @@ const contactSchema = new Schema(
         email: { type: String, required: true },
         mobile: { type: String, required: true },
         service: { type: String, required: true },
-        date: { type: Date, required: true } // Add the date field here
+        uniquedate: { type: Date, required: true } // Change the field name to uniquedate
     },
     {
         timestamps: true,
