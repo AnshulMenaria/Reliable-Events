@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./Gallery.css";
 
 // Import gallery images
@@ -22,10 +22,10 @@ import img18 from "../../../Assets/GalleryPage/Gallery18.jpg";
 
 // Gallery data
 const galleryImages = [
-  { src: img1, alt: "Image 1", type: "landscape" },
-  { src: img2, alt: "Image 2", type: "landscape" },
-  { src: img3, alt: "Image 3", type: "portrait" },
-  { src: img4, alt: "Image 4", type: "landscape" },
+  { src: img1, alt: "Image 1", type: "prtrait" },
+  { src: img2, alt: "Image 2", type: "prtrait" },
+  { src: img3, alt: "Image 3", type: "landscape" },
+  { src: img4, alt: "Image 4", type: "portrait" },
   { src: img5, alt: "Image 5", type: "portrait" },
   { src: img6, alt: "Image 6", type: "landscape" },
   { src: img7, alt: "Image 7", type: "portrait" },
@@ -42,40 +42,34 @@ const galleryImages = [
 ];
 
 const GallerySection = () => {
-  const [visible, setVisible] = useState(new Set());
+  const [visible, setVisible] = useState([]);
+  const galleryRef = useRef([]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const items = document.querySelectorAll(".gallery-item");
-      const screenPosition = window.innerHeight / 1.2;
+    const observerOptions = {
+      root: null, // Observes within the viewport
+      rootMargin: "0px",
+      threshold: 0.1, // Trigger when 10% of the item is visible
+    };
 
-      items.forEach((item, index) => {
-        const itemPosition = item.getBoundingClientRect().top;
-
-        if (itemPosition < screenPosition && !visible.has(index)) {
-          setVisible((prevVisible) => new Set(prevVisible).add(index));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = entry.target.getAttribute("data-index");
+          setVisible((prevVisible) => [...prevVisible, Number(index)]);
+          observer.unobserve(entry.target); // Stop observing once visible
         }
       });
+    }, observerOptions);
+
+    galleryRef.current.forEach((item) => {
+      if (item) observer.observe(item);
+    });
+
+    return () => {
+      observer.disconnect(); // Clean up observer on unmount
     };
-
-    // Debounce scroll event for performance
-    const debounceScroll = (func, delay) => {
-      let timer;
-      return () => {
-        clearTimeout(timer);
-        timer = setTimeout(func, delay);
-      };
-    };
-
-    const debouncedHandleScroll = debounceScroll(handleScroll, 50);
-
-    window.addEventListener("scroll", debouncedHandleScroll);
-
-    // Trigger initial check for visible items
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", debouncedHandleScroll);
-  }, [visible]);
+  }, []);
 
   return (
     <section id="gallery-section" className="gallery-section">
@@ -84,8 +78,10 @@ const GallerySection = () => {
         {galleryImages.map((image, index) => (
           <div
             key={index}
+            data-index={index}
+            ref={(el) => (galleryRef.current[index] = el)}
             className={`gallery-item ${image.type} ${
-              visible.has(index) ? "show" : ""
+              visible.includes(index) ? "show" : ""
             }`}
           >
             <img src={image.src} alt={image.alt} className="gallery-image" />
