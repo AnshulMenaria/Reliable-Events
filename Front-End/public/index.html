@@ -20,7 +20,7 @@
     <meta property="og:title" content="Reliable Events - Expert Event Planning in Gujarat, Udaipur & Maharashtra" />
     <meta property="og:description" content="Tailored event planning services for all occasions in Gujarat, Udaipur, and Maharashtra." />
     <meta property="og:image" content="%PUBLIC_URL%/Logo.png" />
-    <meta property="og:url" content="https://yourwebsite.com" />
+    <meta property="og:url" content="www.reliableevents.netlify.app" />
     <meta property="og:type" content="website" />
 
     <!-- Twitter Card Meta Tags -->
@@ -89,15 +89,28 @@
                 <li><a href="/services">Our Services</a></li>
                 <li><a href="/testimonials">Client Testimonials</a></li>
                 <li><a href="/gallery">Event Gallery</a></li>
+                <li><a href="/blog">Event Planning Tips</a></li> <!-- New internal link -->
+                <li><a href="https://www.eventbrite.com/">External Event Management Resources</a></li> <!-- New external link -->
             </ul>
+
+            <h2>FAQs</h2>
+            <h3>What types of events do you plan?</h3>
+            <p>We plan various events, including weddings, corporate functions, birthday parties, and more. Our goal is to tailor each event to your specific needs.</p>
+
+            <h3>How can I contact you?</h3>
+            <p>You can reach us at +91-8005754631 or through our <a href="/contact">Contact Us</a> page.</p>
+
+            <h3>What is your service area?</h3>
+            <p>We provide event planning services across Gujarat, Udaipur, and Maharashtra.</p>
         </section>
     </main>
 
-    <!-- 301 Redirect Example -->
+    <!-- Redirects configuration for Netlify -->
     <script>
-      if (window.location.hostname === "www.reliableevents.netlify.app") {
-        window.location.href = window.location.href.replace("www.", "");
-      }
+        // Redirect from www to non-www (handled through _redirects file)
+        if (window.location.hostname === "www.reliableevents.netlify.app") {
+            window.location.href = window.location.href.replace("www.", "");
+        }
     </script>
 </body>
 </html>
