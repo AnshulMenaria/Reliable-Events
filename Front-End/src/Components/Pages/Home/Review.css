@@ -153,7 +153,7 @@
 /* Media Queries */
 @media (max-width: 768px) {
   .reviews-form-section {
-    flex-direction: column; /* Stack image and form in column layout */
+    flex-direction: column; 
   }
 
   .reviews-image-container,

@@ -32,6 +32,10 @@ const About = () => {
 
   return (
     <Container className="mt-5 about-section">
+      {/* SEO Meta Tags */}
+      <meta name="description" content="Learn about our journey, founder, and commitment to creating unforgettable events since 2018." />
+      <meta name="keywords" content="about us, event planning, event management, wedding planner, corporate events, Neeraj Salvi" />
+
       <h1 className="text-center mb-4 title">About Us</h1>
       <p className="text-center mb-5 subtitle">
         We have been creating unforgettable events since 2018!

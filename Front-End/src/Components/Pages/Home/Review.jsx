@@ -12,13 +12,14 @@ import bg2 from "../../../Assets/HeroSection/bg-2.jpg";
 const PrevArrow = (props) => {
   const { className, style, onClick } = props;
   return (
-    <div
+    <button
       className={`${className} reviews-custom-prev-arrow`}
       style={{ ...style, display: "block" }}
       onClick={onClick}
+      aria-label="Previous Review"
     >
       <MdArrowBack size={30} />
-    </div>
+    </button>
   );
 };
 
@@ -26,13 +27,14 @@ const PrevArrow = (props) => {
 const NextArrow = (props) => {
   const { className, style, onClick } = props;
   return (
-    <div
+    <button
       className={`${className} reviews-custom-next-arrow`}
       style={{ ...style, display: "block" }}
       onClick={onClick}
+      aria-label="Next Review"
     >
       <MdArrowForward size={30} />
-    </div>
+    </button>
   );
 };
 
@@ -102,24 +104,27 @@ const Review = () => {
   };
 
   return (
-    <div className="reviews-page">
+    <section className="reviews-page">
+      <h1 className="reviews-heading">Customer Reviews</h1> {/* Added for SEO */}
+      
       {/* Slider for reviews */}
-      <div className="reviews-slider-container">
+      <div className="reviews-slider-container" aria-label="Customer Reviews Carousel">
         <Slider {...sliderSettings}>
           {reviews.map((rev, index) => (
-            <div key={index} className="reviews-card">
-              <div className="reviews-stars">
+            <article key={index} className="reviews-card">
+              <div className="reviews-stars" aria-label={`Rating: ${rev.rating} out of 5`}>
                 {[...Array(5)].map((star, i) => (
                   <FaStar
                     key={i}
                     size={20}
                     color={i < rev.rating ? "#ffc107" : "#e4e5e9"}
+                    aria-hidden="true"
                   />
                 ))}
               </div>
               <h4>{rev.name}</h4>
               <p>{rev.review}</p>
-            </div>
+            </article>
           ))}
         </Slider>
       </div>
@@ -127,12 +132,12 @@ const Review = () => {
       {/* Review Form */}
       <div className="reviews-form-section">
         {/* Image Section */}
-        <div className="reviews-image-container">
-          <img src={bg2} alt="Review Illustration" className="reviews-img" />
-        </div>
+        <figure className="reviews-image-container">
+          <img src={bg2} alt="Illustration for Reviews" className="reviews-img" />
+        </figure>
 
         {/* Form Section */}
-        <div className="reviews-form-container">
+        <section className="reviews-form-container">
           <h2>Submit Review</h2>
           <p>
             We highly value your feedback! Kindly take a moment to rate your
@@ -140,6 +145,9 @@ const Review = () => {
           </p>
           <form onSubmit={handleSubmit} className="reviews-form">
             <div className="reviews-rating">
+              <label htmlFor="rating" className="sr-only">
+                Rating
+              </label>
               <div className="reviews-stars">
                 {[...Array(5)].map((star, index) => {
                   const ratingValue = index + 1;
@@ -154,6 +162,7 @@ const Review = () => {
                       onMouseLeave={() => setHover(0)}
                       onClick={() => setRating(ratingValue)}
                       className="star"
+                      aria-label={`Rating ${ratingValue} out of 5`}
                     />
                   );
                 })}
@@ -161,6 +170,9 @@ const Review = () => {
             </div>
 
             <div className="reviews-form-group">
+              <label htmlFor="name" className="sr-only">
+                Name
+              </label>
               <input
                 type="text"
                 className="reviews-form-control"
@@ -173,6 +185,9 @@ const Review = () => {
             </div>
 
             <div className="reviews-form-group">
+              <label htmlFor="review" className="sr-only">
+                Review
+              </label>
               <textarea
                 className="reviews-form-control"
                 id="review"
@@ -194,9 +209,9 @@ const Review = () => {
               </p>
             )}
           </form>
-        </div>
+        </section>
       </div>
-    </div>
+    </section>
   );
 };
 

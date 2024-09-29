@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Gallery.css";
+import { Helmet } from "react-helmet"; // Import Helmet for SEO
 import { Container, Card } from "react-bootstrap";
 import wedding1 from "../../../Assets/HomeGallery/wedding1.jpg";
 import wedding2 from "../../../Assets/HomeGallery/wedding2.jpg";
@@ -47,41 +48,58 @@ const Gallery = () => {
   };
 
   return (
-    <section id="gallery" className="gallery-section">
-      <Container>
-        <h2 className="gallery-title">Recent Events</h2>
-        <p className="gallery-line">CRAFTING MEMORABLE MEMORIES</p>
-        <div className="gallery-row">
-          <Card className="gallery-card">
-            <Card.Img
-              variant="top"
-              src={currentImages.wedding}
-              alt="Wedding"
-              className="animated-image"
-            />
-          </Card>
-          <Card className="gallery-card">
-            <Card.Img
-              variant="top"
-              src={currentImages.corporate}
-              alt="Corporate"
-              className="animated-image"
-            />
-          </Card>
-          <Card className="gallery-card">
-            <Card.Img
-              variant="top"
-              src={currentImages.parties}
-              alt="Parties"
-              className="animated-image"
-            />
-          </Card>
-        </div>
-        <a href="/gallery" className="view-latest-link">
-          ➔ View The Latest
-        </a>
-      </Container>
-    </section>
+    <>
+      {/* SEO Head Elements */}
+      <Helmet>
+        <title>Gallery - Recent Events | Weddings, Corporate Events & Parties</title>
+        <meta
+          name="description"
+          content="Explore our event gallery showcasing recent weddings, corporate events, and parties. Relive unforgettable moments crafted by our expert event planners."
+        />
+        <meta
+          name="keywords"
+          content="event gallery, wedding events, corporate events, party planning, recent events, event memories"
+        />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+
+      {/* Main Gallery Section */}
+      <section id="gallery" className="gallery-section">
+        <Container>
+          <h2 className="gallery-title">Recent Events</h2>
+          <p className="gallery-line">CRAFTING MEMORABLE MEMORIES</p>
+          <div className="gallery-row">
+            <Card className="gallery-card">
+              <Card.Img
+                variant="top"
+                src={currentImages.wedding}
+                alt="Wedding Event"
+                className="animated-image"
+              />
+            </Card>
+            <Card className="gallery-card">
+              <Card.Img
+                variant="top"
+                src={currentImages.corporate}
+                alt="Corporate Event"
+                className="animated-image"
+              />
+            </Card>
+            <Card className="gallery-card">
+              <Card.Img
+                variant="top"
+                src={currentImages.parties}
+                alt="Party Event"
+                className="animated-image"
+              />
+            </Card>
+          </div>
+          <a href="/gallery" className="view-latest-link">
+            ➔ View The Latest
+          </a>
+        </Container>
+      </section>
+    </>
   );
 };
 

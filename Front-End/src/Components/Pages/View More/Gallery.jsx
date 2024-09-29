@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import Helmet from "react-helmet"; // Import Helmet for managing head
 import "./Gallery.css";
 
 // Import gallery images
@@ -22,23 +23,23 @@ import img18 from "../../../Assets/GalleryPage/Gallery18.jpg";
 
 // Gallery data
 const galleryImages = [
-  { src: img1, alt: "Image 1", type: "prtrait" },
-  { src: img2, alt: "Image 2", type: "prtrait" },
-  { src: img3, alt: "Image 3", type: "landscape" },
-  { src: img4, alt: "Image 4", type: "portrait" },
-  { src: img5, alt: "Image 5", type: "portrait" },
-  { src: img6, alt: "Image 6", type: "landscape" },
-  { src: img7, alt: "Image 7", type: "portrait" },
-  { src: img8, alt: "Image 8", type: "portrait" },
-  { src: img9, alt: "Image 9", type: "landscape" },
-  { src: img10, alt: "Image 10", type: "portrait" },
-  { src: img11, alt: "Image 11", type: "portrait" },
-  { src: img12, alt: "Image 12", type: "portrait" },
-  { src: img13, alt: "Image 13", type: "portrait" },
-  { src: img14, alt: "Image 14", type: "landscape" },
-  { src: img15, alt: "Image 15", type: "landscape" },
-  { src: img17, alt: "Image 17", type: "portrait" },
-  { src: img18, alt: "Image 18", type: "portrait" },
+  { src: img1, alt: "Beautiful Wedding Decoration", type: "portrait" },
+  { src: img2, alt: "Corporate Event Setup", type: "portrait" },
+  { src: img3, alt: "Engaging Seminar", type: "landscape" },
+  { src: img4, alt: "Social Event Celebration", type: "portrait" },
+  { src: img5, alt: "College Fest Activities", type: "portrait" },
+  { src: img6, alt: "Lighting and Sound Setup", type: "landscape" },
+  { src: img7, alt: "Live Performance Highlights", type: "portrait" },
+  { src: img8, alt: "Photography Moments", type: "portrait" },
+  { src: img9, alt: "Event Networking", type: "landscape" },
+  { src: img10, alt: "Fun at the Event", type: "portrait" },
+  { src: img11, alt: "Creative Event Decoration", type: "portrait" },
+  { src: img12, alt: "Memorable Moments Captured", type: "portrait" },
+  { src: img13, alt: "Artistic Event Setup", type: "portrait" },
+  { src: img14, alt: "Spectacular View of the Event", type: "landscape" },
+  { src: img15, alt: "Outdoor Event Fun", type: "landscape" },
+  { src: img17, alt: "Unique Event Experiences", type: "portrait" },
+  { src: img18, alt: "Celebration Highlights", type: "portrait" },
 ];
 
 const GallerySection = () => {
@@ -73,6 +74,11 @@ const GallerySection = () => {
 
   return (
     <section id="gallery-section" className="gallery-section">
+      <Helmet>
+        <title>Event Gallery - Our Unforgettable Moments</title>
+        <meta name="description" content="Explore our event gallery showcasing unforgettable moments from weddings, corporate events, and social gatherings. Discover our exceptional event planning services." />
+        <link rel="canonical" href="https://yourwebsite.com/gallery" />
+      </Helmet>
       <h2 className="gallery-title">Event Gallery</h2>
       <div className="gallery-grid">
         {galleryImages.map((image, index) => (
@@ -80,9 +86,7 @@ const GallerySection = () => {
             key={index}
             data-index={index}
             ref={(el) => (galleryRef.current[index] = el)}
-            className={`gallery-item ${image.type} ${
-              visible.includes(index) ? "show" : ""
-            }`}
+            className={`gallery-item ${image.type} ${visible.includes(index) ? "show" : ""}`}
           >
             <img src={image.src} alt={image.alt} className="gallery-image" />
           </div>

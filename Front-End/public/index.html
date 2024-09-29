@@ -54,7 +54,7 @@
         "url": "https://yourwebsite.com",
         "logo": "%PUBLIC_URL%/Logo.png",
         "sameAs": [
-          "ttps://www.facebook.com/share/KTMr6F5EmFgrdHYh/?mibextid=LQQJ4d",
+          "https://www.facebook.com/share/KTMr6F5EmFgrdHYh/?mibextid=LQQJ4d",
           "https://www.instagram.com/reliable_events_udaipur"
         ],
         "address": {
@@ -73,6 +73,41 @@
           "availableLanguage": "Hindi, English"
         }
       }
+    </script>
+
+    <!-- Page-Specific Metadata (Home, About, Contact, etc.) -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const path = window.location.pathname;
+        let title, description, keywords;
+
+        switch (path) {
+          case '/':
+            title = "Reliable Events - Your Premier Event Planner";
+            description = "Discover how Reliable Events can make your special day unforgettable with our expert planning services.";
+            keywords = "event planning, wedding planner, birthday parties, Gujarat, Udaipur, Maharashtra";
+            break;
+          case '/about':
+            title = "About Reliable Events - Our Story";
+            description = "Learn about Reliable Events, our mission, and our dedicated team of event planners.";
+            keywords = "about, event planning, reliable events, team, mission";
+            break;
+          case '/contact':
+            title = "Contact Us - Reliable Events";
+            description = "Get in touch with Reliable Events to start planning your unforgettable event.";
+            keywords = "contact, event planning, reliable events, get in touch";
+            break;
+          // Add more cases for other pages as needed
+          default:
+            title = "Reliable Events - A Perfect Event Planner in Gujarat, Udaipur & Maharashtra";
+            description = "Reliable Events - Your premier event planner in Gujarat, Udaipur, and Maharashtra. We specialize in planning unforgettable celebrations tailored to your unique needs.";
+            keywords = "event planning, event management, celebrations, Gujarat, Udaipur, Maharashtra, reliable events, wedding planner, birthday parties, corporate events";
+        }
+
+        document.title = title;
+        document.querySelector('meta[name="description"]').setAttribute("content", description);
+        document.querySelector('meta[name="keywords"]').setAttribute("content", keywords);
+      });
     </script>
   </head>
   <body>

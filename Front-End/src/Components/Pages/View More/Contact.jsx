@@ -17,7 +17,7 @@ const Contact = () => {
     e.preventDefault();
     setIsSending(true);
 
-    try {              // eslint-disable-next-line
+    try {
       const response = await axios.post('https://reliable-events.onrender.com/api/contact', { 
         name,
         email,
@@ -41,7 +41,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact-page">
+    <div className="contact-page" role="main">
       <div className="content-container">
         <div className="left-section">
           <h2>Let us help you plan your perfect event!</h2>
@@ -55,7 +55,7 @@ const Contact = () => {
               {status}
             </p>
           )}
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} aria-label="Contact Form">
             <div className="form-group">
               <input
                 type="text"
@@ -64,6 +64,7 @@ const Contact = () => {
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Your Name"
                 required
+                aria-required="true"
               />
             </div>
             <div className="form-group">
@@ -74,6 +75,7 @@ const Contact = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your Email"
                 required
+                aria-required="true"
               />
             </div>
             <div className="form-group">
@@ -84,6 +86,7 @@ const Contact = () => {
                 onChange={(e) => setMobile(e.target.value)}
                 placeholder="Your Mobile Number"
                 required
+                aria-required="true"
               />
             </div>
             <div className="form-group">
@@ -92,6 +95,7 @@ const Contact = () => {
                 value={service}
                 onChange={(e) => setService(e.target.value)}
                 required
+                aria-required="true"
               >
                 <option value="" disabled>Select a service</option>
                 <option value="Wedding">Wedding</option>
@@ -111,6 +115,7 @@ const Contact = () => {
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
                 required
+                aria-required="true"
               />
             </div>
             <button type="submit" className="btn btn-submit" disabled={isSending}>

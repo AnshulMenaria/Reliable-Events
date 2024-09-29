@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet'; // Import Helmet for SEO
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import './ServicesPage.css';
 
@@ -15,62 +16,42 @@ import photographyImage from '../../../Assets/ServicesPage/Photography.jpg';
 const services = [
   {
     title: 'Wedding Planning',
-    description: `
-      Our wedding planning services cover every aspect of your special day, from venue selection and decoration to entertainment and catering. 
-      We focus on making your wedding day as stress-free as possible, offering customized planning based on your vision. 
-      Whether it's an intimate ceremony or a grand affair, we ensure that every detail is taken care of so you can focus on enjoying the moment.`,
+    description: `Our wedding planning services cover every aspect of your special day, from venue selection and decoration to entertainment and catering. We focus on making your wedding day as stress-free as possible, offering customized planning based on your vision.`,
     image: weddingImage
   },
   {
     title: 'Corporate Events',
-    description: `
-      Whether you're organizing a product launch, an annual meeting, or a team-building retreat, our corporate event planning services have you covered. 
-      We specialize in creating professional and memorable corporate events that reflect your company's values and goals. 
-      From venue selection and AV setup to event logistics and branding, we ensure a seamless experience.`,
+    description: `We specialize in creating professional and memorable corporate events that reflect your company's values and goals. From venue selection and AV setup to event logistics and branding, we ensure a seamless experience.`,
     image: corporateImage
   },
   {
     title: 'Seminars & Conferences',
-    description: `
-      Planning and executing large seminars or conferences can be overwhelming, but with our experience and expertise, we make it simple. 
-      We handle everything from speaker coordination and event registration to venue management and technical support. 
-      Whether it's a local seminar or an international conference, we provide an organized and efficient experience for all attendees.`,
+    description: `We handle everything from speaker coordination and event registration to venue management and technical support. Whether it's a local seminar or an international conference, we provide an organized and efficient experience for all attendees.`,
     image: seminarImage
   },
   {
     title: 'Social Events',
-    description: `
-      Be it birthdays, anniversaries, or reunions, our team helps you create the perfect social gathering that leaves lasting memories. 
-      We offer end-to-end event management services, including venue selection, catering, decor, and entertainment, ensuring that your guests have an unforgettable experience.`,
+    description: `Be it birthdays, anniversaries, or reunions, our team helps you create the perfect social gathering that leaves lasting memories. We offer end-to-end event management services, ensuring that your guests have an unforgettable experience.`,
     image: socialEventsImage
   },
   {
     title: 'College Fests',
-    description: `
-      We specialize in organizing high-energy and engaging college fests, offering complete event solutions from stage setup to entertainment coordination. 
-      Whether you're looking for live shows, sports competitions, or talent events, we ensure that your college fest is managed professionally and delivers fun and excitement for all.`,
+    description: `We specialize in organizing high-energy and engaging college fests, offering complete event solutions from stage setup to entertainment coordination. Whether it's live shows or sports competitions, we manage your fest professionally.`,
     image: collegeFestImage
   },
   {
     title: 'Sound, Lighting & Decoration',
-    description: `
-      A successful event depends on the ambiance, and our sound, lighting, and decoration services bring your event to life. 
-      We use the latest technology in sound systems and lighting to create the perfect atmosphere, whether it's a corporate event, wedding, or live performance. 
-      Our decoration team also works closely with you to ensure that the decor reflects your vision.`,
+    description: `Our sound, lighting, and decoration services use the latest technology to create the perfect atmosphere for any event. Our team works closely with you to ensure that the decor reflects your vision.`,
     image: lightingImage
   },
   {
     title: 'Live Shows & Artist Management',
-    description: `
-      We organize live performances, concerts, and stage shows with expertise in event logistics, artist management, and technical setup. 
-      From small intimate gatherings to large-scale concerts, we ensure that your live show runs smoothly, delivering a memorable experience for both the performers and the audience.`,
+    description: `We organize live performances, concerts, and stage shows with expertise in artist management and event logistics, ensuring your show runs smoothly for both the performers and the audience.`,
     image: liveShowsImage
   },
   {
     title: 'Photography & Videography',
-    description: `
-      Capture every precious moment of your event with our professional photography and videography services. 
-      We offer a team of highly skilled photographers and videographers who specialize in everything from candid shots to cinematic videos, ensuring that you have beautiful memories to cherish forever.`,
+    description: `Capture every precious moment of your event with our professional photography and videography services, ensuring that you have beautiful memories to cherish forever.`,
     image: photographyImage
   }
 ];
@@ -81,11 +62,11 @@ const ServicesPage = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('show');
-          observer.unobserve(entry.target); // Stop observing after adding the class
+          observer.unobserve(entry.target); 
         }
       });
     }, {
-      threshold: 0.1 // Trigger when 10% of the row is visible
+      threshold: 0.1 
     });
 
     const rows = document.querySelectorAll('.unique-service-row');
@@ -98,6 +79,13 @@ const ServicesPage = () => {
 
   return (
     <section id="services-page" className="services-page">
+      {/* Add SEO Meta Tags */}
+      <Helmet>
+        <title>Professional Event Services | Weddings, Corporate & More</title>
+        <meta name="description" content="We offer comprehensive event management services including weddings, corporate events, seminars, social events, live shows, photography, and more. Let us make your event unforgettable." />
+        <meta name="keywords" content="wedding planning, corporate events, seminars, social events, live shows, photography, videography, college fests, sound, lighting, decoration" />
+      </Helmet>
+
       <Container className='mt-5'>
         <h2 className="section-title text-center">Our Services</h2>
         {services.map((service, index) => (
