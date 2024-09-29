@@ -17,7 +17,7 @@ const Contact = () => {
     e.preventDefault();
     setIsSending(true);
 
-    try {
+    try {// eslint-disable-next-line
       const response = await axios.post('https://reliable-events.onrender.com/api/contact', { 
         name,
         email,
