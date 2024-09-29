@@ -8,7 +8,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import bg2 from "../../../Assets/HeroSection/bg-2.jpg";
 
-
 // Custom Left Arrow Component
 const PrevArrow = (props) => {
   const { className, style, onClick } = props;
@@ -127,6 +126,11 @@ const Review = () => {
 
       {/* Review Form */}
       <div className="reviews-form-section">
+        {/* Image Section */}
+        <div className="reviews-image-container">
+          <img src={bg2} alt="Review Illustration" className="reviews-img" />
+        </div>
+
         {/* Form Section */}
         <div className="reviews-form-container">
           <h2>Submit Review</h2>
@@ -190,11 +194,6 @@ const Review = () => {
               </p>
             )}
           </form>
-        </div>
-
-        {/* Image Section */}
-        <div className="reviews-image-container">
-          <img src={bg2} alt="Review Illustration" className="reviews-img" />
         </div>
       </div>
     </div>
