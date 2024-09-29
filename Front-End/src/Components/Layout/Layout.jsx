@@ -6,17 +6,17 @@ import Footer from './Footer.jsx';
 const Layout = () => {
   return (
     <>
-        <div>
-          <div className="app-container">
-            <NavigationBar />
-              <div className="main-content">
-                <Outlet/>
-              </div>
-              <Footer/>
-          </div>
+      <div>
+        <div className="app-container">
+          <NavigationBar />
+            <main className="main-content" role="main">
+              <Outlet />
+            </main>
+            <Footer />
         </div>
+      </div>
     </> 
   )
 }
 
-export default Layout
+export default Layout;
