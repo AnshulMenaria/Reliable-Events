@@ -1,4 +1,3 @@
-// require('dotenv').config();
 require('dotenv').config();
 const express = require("express");
 const mongoose = require("mongoose");
@@ -8,6 +7,16 @@ const cors = require('cors');
 
 const app = express();
 
+// Middleware to redirect www to non-www
+app.use((req, res, next) => {
+    const host = req.headers.host;
+    if (host.startsWith('www.')) {
+        const nonWwwHost = host.slice(4); // Remove 'www.'
+        const redirectUrl = `${req.protocol}://${nonWwwHost}${req.originalUrl}`;
+        return res.redirect(301, redirectUrl); // Permanent redirect
+    }
+    next();
+});
 
 app.use(cors());
 
