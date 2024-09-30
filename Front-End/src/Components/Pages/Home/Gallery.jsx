@@ -56,24 +56,27 @@ const Gallery = () => {
             <Card.Img
               variant="top"
               src={currentImages.wedding}
-              alt="Wedding"
+              alt="Wedding Event"
               className="animated-image"
+              loading="lazy" // Lazy loading for better performance
             />
           </Card>
           <Card className="gallery-card">
             <Card.Img
               variant="top"
               src={currentImages.corporate}
-              alt="Corporate"
+              alt="Corporate Event"
               className="animated-image"
+              loading="lazy"
             />
           </Card>
           <Card className="gallery-card">
             <Card.Img
               variant="top"
               src={currentImages.parties}
-              alt="Parties"
+              alt="Party Event"
               className="animated-image"
+              loading="lazy"
             />
           </Card>
         </div>

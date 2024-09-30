@@ -13,16 +13,19 @@ import lightingImage from '../../../Assets/ServicesPage/eventbg1.jpg';
 import liveShowsImage from '../../../Assets/ServicesPage/LiveShows.jpg';
 import photographyImage from '../../../Assets/ServicesPage/Photography.jpg';
 
+// Service data
 const services = [
   {
     title: 'Wedding Planning',
     description: `Our wedding planning services cover every aspect of your special day, from venue selection and decoration to entertainment and catering. We focus on making your wedding day as stress-free as possible, offering customized planning based on your vision.`,
-    image: weddingImage
+    image: weddingImage,
+    keywords: 'wedding, planning, event management'
   },
   {
     title: 'Corporate Events',
     description: `We specialize in creating professional and memorable corporate events that reflect your company's values and goals. From venue selection and AV setup to event logistics and branding, we ensure a seamless experience.`,
-    image: corporateImage
+    image: corporateImage,
+    keywords: 'corporate events, professional events, event planning'
   },
   {
     title: 'Seminars & Conferences',
@@ -53,7 +56,7 @@ const services = [
     title: 'Photography & Videography',
     description: `Capture every precious moment of your event with our professional photography and videography services, ensuring that you have beautiful memories to cherish forever.`,
     image: photographyImage
-  }
+  } 
 ];
 
 const ServicesPage = () => {
@@ -84,6 +87,25 @@ const ServicesPage = () => {
         <title>Professional Event Services | Weddings, Corporate & More</title>
         <meta name="description" content="We offer comprehensive event management services including weddings, corporate events, seminars, social events, live shows, photography, and more. Let us make your event unforgettable." />
         <meta name="keywords" content="wedding planning, corporate events, seminars, social events, live shows, photography, videography, college fests, sound, lighting, decoration" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Your Company Name",
+            "url": "https://reliableevents.netlify.app/services",
+            "logo": "https://reliableevents.netlify.app/Logo.png",
+            "sameAs": [
+              "https://www.facebook.com/share/KTMr6F5EmFgrdHYh/?mibextid=LQQJ4d",
+              "https://www.instagram.com/reliable_events_udaipur" 
+              // Add more social links
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+91-6378394687",
+              "contactType": "Customer Service"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Container className='mt-5'>

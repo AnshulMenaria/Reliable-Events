@@ -32,24 +32,60 @@ const Footer = () => {
           <Col xs={6} md={2} className="footer-socials-wrapper mt-4 mt-md-0">
             <h5 className="footer-section-title">Follow Us</h5>
             <ul className="footer-socials">
-              <li><a href="https://www.instagram.com/reliable_events_udaipur" target="_blank" rel="noreferrer" aria-label="Follow us on Instagram"><i className="fab fa-instagram"></i> Instagram</a></li>
-              <li><a href="https://www.facebook.com/share/KTMr6F5EmFgrdHYh/?mibextid=LQQJ4d" target="_blank" rel="noreferrer" aria-label="Follow us on Facebook"><i className="fab fa-facebook-f"></i> Facebook</a></li>
-              <li><a href="https://wa.me/6378394687" target="_blank" rel="noreferrer" aria-label="Chat with us on WhatsApp"><i className="fab fa-whatsapp"></i> WhatsApp</a></li>
+              <li>
+                <a 
+                  href="https://www.instagram.com/reliable_events_udaipur" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  aria-label="Follow us on Instagram"
+                >
+                  <i className="fab fa-instagram"></i> Instagram
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://www.facebook.com/share/KTMr6F5EmFgrdHYh/?mibextid=LQQJ4d" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  aria-label="Follow us on Facebook"
+                >
+                  <i className="fab fa-facebook-f"></i> Facebook
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://wa.me/6378394687" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  aria-label="Chat with us on WhatsApp"
+                >
+                  <i className="fab fa-whatsapp"></i> WhatsApp
+                </a>
+              </li>
             </ul>
           </Col>
 
           {/* Contact Us Section */}
           <Col xs={6} md={3} className="footer-contact-wrapper mt-4 mt-md-0">
             <h5 className="footer-section-title">Contact Us</h5>
-            <p><a href="tel:+918005754631" aria-label="Call +91 8005754631">+91 8005754631</a></p>
-            <p><a href="tel:+916378394687" aria-label="Call +91 6378394687">+91 6378394687</a></p>
-            <p><a href="mailto:reliableeventsudaipur@gmail.com" aria-label="Email Reliable Events">reliableeventsudaipur@gmail.com</a></p>
+            <p>
+              <a href="tel:+918005754631" aria-label="Call +91 8005754631">+91 8005754631</a>
+            </p>
+            <p>
+              <a href="tel:+916378394687" aria-label="Call +91 6378394687">+91 6378394687</a>
+            </p>
+            <p>
+              <a href="mailto:reliableeventsudaipur@gmail.com" aria-label="Email Reliable Events">reliableeventsudaipur@gmail.com</a>
+            </p>
           </Col>
 
           {/* Address Section */}
           <Col xs={12} md={3} className="footer-address-wrapper mt-5 mt-md-2">
             <h5 className="footer-section-title">Address</h5>
-            <p>69, Behind Rajasthan Patrika Office, North Sunderwas, Udaipur, Rajasthan, 313001</p>
+            <address>
+              <p>69, Behind Rajasthan Patrika Office,</p>
+              <p>North Sunderwas, Udaipur, Rajasthan, 313001</p>
+            </address>
           </Col>
         </Row>
 

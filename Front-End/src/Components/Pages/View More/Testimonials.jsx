@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet"; // Import Helmet for SEO
 import "./TestimonialsPage.css";
 
 const testimonials = [
@@ -77,9 +78,13 @@ const testimonials = [
 const TestimonialsPage = () => {
   return (
     <div className="testimonials-page-container">
+      <Helmet>
+        <title>Client Testimonials | Event Planning Services</title>
+        <meta name="description" content="Read testimonials from our satisfied clients who experienced outstanding event planning services. Discover why we're the best choice for your special occasions!" />
+        <meta name="keywords" content="testimonials, event planning, client feedback, wedding planner, corporate events, birthday parties" />
+      </Helmet>
+      
       <h1 className="testimonials-heading">Our Clients' Testimonials</h1>
-      <meta name="description" content="Read testimonials from our satisfied clients who experienced outstanding event planning services. Discover why we're the best choice for your special occasions!" />
-      <meta name="keywords" content="testimonials, event planning, client feedback, wedding planner, corporate events, birthday parties" />
       <div className="testimonials-grid">
         {testimonials.map((testimonial, index) => (
           <div className="testimonial-card" key={index} aria-labelledby={`testimonial-${index}`}>
@@ -99,3 +104,4 @@ const TestimonialsPage = () => {
 };
 
 export default TestimonialsPage;
+  

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet"; // Import react-helmet
 import "./Home.css";
 import ServicesSection from "./Services";
 import Gallery from "./Gallery";
@@ -39,6 +40,45 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Reliable Events - Event Planner in Udaipur, Gujarat</title>
+        <meta
+          name="description"
+          content="Reliable Events offers top-tier event planning services in Udaipur and Gujarat. Specializing in weddings, corporate events, and celebrations tailored to your unique needs."
+        />
+        <meta name="keywords" content="event planner, event management, Udaipur, Gujarat, weddings, corporate events" />
+        <link rel="canonical" href="https://reliableevents.netlify.app/" />
+        {/* Structured Data for SEO */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Reliable Events",
+            "url": "https://reliableevents.netlify.app/",
+            "logo": "%PUBLIC_URL%/Logo.png",
+            "sameAs": [
+              "https://www.facebook.com/yourpage",
+              "https://www.instagram.com/yourprofile"
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Your Address",
+              "addressLocality": "Udaipur",
+              "addressRegion": "Rajasthan",
+              "postalCode": "your postal code",
+              "addressCountry": "India"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+91-6378394687",
+              "contactType": "customer service",
+              "areaServed": "IN",
+              "availableLanguage": "Hindi, English"
+            }
+          })}
+        </script>
+      </Helmet>
+
       <header className="hero-section">
         <div className="image-slider" aria-label="Background Image Slider">
           <div className="slider-line"></div>

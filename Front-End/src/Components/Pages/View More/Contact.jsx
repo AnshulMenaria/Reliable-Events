@@ -42,6 +42,10 @@ const Contact = () => {
 
   return (
     <div className="contact-page" role="main">
+      {/* SEO Meta Tags */}
+      <meta name="description" content="Get in touch with us for your event planning needs. Contact Reliable Events for weddings, corporate events, and more." />
+      <meta name="keywords" content="contact, event planning, wedding, corporate events, Reliable Events, event management" />
+
       <div className="content-container">
         <div className="left-section">
           <h2>Let us help you plan your perfect event!</h2>
