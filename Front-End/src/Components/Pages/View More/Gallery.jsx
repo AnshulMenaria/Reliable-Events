@@ -77,7 +77,7 @@ const GallerySection = () => {
       <Helmet>
         <title>Event Gallery - Our Unforgettable Moments</title>
         <meta name="description" content="Explore our event gallery showcasing unforgettable moments from weddings, corporate events, and social gatherings. Discover our exceptional event planning services." />
-        <link rel="canonical" href="https://reliableevents.netlify.app/gallery" />
+        <link rel="canonical" href="https://reliableeventsudaipur.com/gallery" />
       </Helmet>
       <h2 className="gallery-title">Event Gallery</h2>
       <div className="gallery-grid">

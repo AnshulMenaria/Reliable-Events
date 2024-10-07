@@ -65,8 +65,8 @@ async function sendEmailNotification(name, email, mobile, service, date, adminEm
     const transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: 'anshul9145946510@gmail.com',
-            pass: 'ydnr intr rbsz dbhd', // Use App-specific password if using Gmail
+            user: 'nirajsalvi@reliableeventsudaipur.com',
+            pass: 'Niraj2008@', // Use App-specific password if using Gmail
         },
     });
 
@@ -79,7 +79,7 @@ async function sendEmailNotification(name, email, mobile, service, date, adminEm
 
     // Prepare the email content
     const mailOptions = {
-        from: 'anshul9145946510@gmail.com', // Sender's email address
+        from: 'nirajsalvi@reliableeventsudaipur.com', // Sender's email address
         to: adminEmails, // Send email to all admin emails
         subject: `New Query Received: ${name}`, // Email subject
         html: `

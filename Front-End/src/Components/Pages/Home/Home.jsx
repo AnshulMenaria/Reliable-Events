@@ -47,25 +47,25 @@ const Home = () => {
           content="Reliable Events offers top-tier event planning services in Udaipur and Gujarat. Specializing in weddings, corporate events, and celebrations tailored to your unique needs."
         />
         <meta name="keywords" content="event planner, event management, Udaipur, Gujarat, weddings, corporate events" />
-        <link rel="canonical" href="https://reliableevents.netlify.app/" />
+        <link rel="canonical" href="https://reliableeventsudaipur.com/" />
         {/* Structured Data for SEO */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Reliable Events",
-            "url": "https://reliableevents.netlify.app/",
+            "url": "https://reliableeventsudaipur.com/",
             "logo": "%PUBLIC_URL%/Logo.png",
             "sameAs": [
-              "https://www.facebook.com/yourpage",
-              "https://www.instagram.com/yourprofile"
+              "https://www.facebook.com/share/KTMr6F5EmFgrdHYh/?mibextid=LQQJ4d",
+              "https://www.instagram.com/reliable_events_udaipur"
             ],
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "Your Address",
+              "streetAddress": "Sunderwas",
               "addressLocality": "Udaipur",
               "addressRegion": "Rajasthan",
-              "postalCode": "your postal code",
+              "postalCode": "313001",
               "addressCountry": "India"
             },
             "contactPoint": {

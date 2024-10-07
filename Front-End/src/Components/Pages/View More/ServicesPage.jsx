@@ -92,8 +92,8 @@ const ServicesPage = () => {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Your Company Name",
-            "url": "https://reliableevents.netlify.app/services",
-            "logo": "https://reliableevents.netlify.app/Logo.png",
+            "url": "https://reliableeventsudaipur.com/services",
+            "logo": "https://reliableeventsudaipur.com/Logo.png",
             "sameAs": [
               "https://www.facebook.com/share/KTMr6F5EmFgrdHYh/?mibextid=LQQJ4d",
               "https://www.instagram.com/reliable_events_udaipur" 

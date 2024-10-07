@@ -109,13 +109,13 @@ async function sendUpdateNotificationEmail(adminEmail) {
   const transporter = nodemailer.createTransport({
     service: "Gmail",
     auth: {
-      user: 'anshul9145946510@gmail.com',
-      pass: 'ydnr intr rbsz dbhd', // Use your email password or app-specific password
+      user: 'nirajsalvi@reliableeventsudaipur.com',
+      pass: 'Niraj2008@', // Use your email password or app-specific password
     },
   });
 
   const mailOptions = {
-    from: "anshul9145946510@gmail.com",
+    from: "nirajsalvi@reliableeventsudaipur.com",
     to: adminEmail,
     subject: "Your Admin Account Details Were Updated",
     html: `
