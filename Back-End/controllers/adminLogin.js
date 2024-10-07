@@ -104,13 +104,15 @@ const adminLogin = {
   },
 };
 
-// Function to send email notification to admin
+// Function to send email notification to admin using Hostinger SMTP
 async function sendUpdateNotificationEmail(adminEmail) {
   const transporter = nodemailer.createTransport({
-    service: "Gmail",
+    host: "smtp.hostinger.com",
+    port: 465,
+    secure: true, // Use SSL
     auth: {
       user: 'nirajsalvi@reliableeventsudaipur.com',
-      pass: 'Niraj2008@', // Use your email password or app-specific password
+      pass: 'Niraj2008@', // Use your email password
     },
   });
 

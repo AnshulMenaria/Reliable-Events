@@ -61,12 +61,14 @@ const contactController = {
 };
 
 async function sendEmailNotification(name, email, mobile, service, date, adminEmails) {
-    // Create a transporter using SMTP service (Gmail is used here)
+    // Create a transporter using Hostinger's SMTP service
     const transporter = nodemailer.createTransport({
-        service: 'Gmail',
+        host: 'smtp.hostinger.com', // Hostinger SMTP server
+        port: 465, // Port 465 for SSL
+        secure: true, // Use true for port 465 (SSL)
         auth: {
-            user: 'nirajsalvi@reliableeventsudaipur.com',
-            pass: 'Niraj2008@', // Use App-specific password if using Gmail
+            user: 'nirajsalvi@reliableeventsudaipur.com', // Your Hostinger email
+            pass: 'Niraj2008@', // Your Hostinger email password
         },
     });
 
