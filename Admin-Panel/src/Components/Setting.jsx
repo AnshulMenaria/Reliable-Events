@@ -52,7 +52,7 @@ const UpdateAdmin = () => {
     }
 
     try {
-      const response = await axios.post(`http://localhost:8080/api/update/${adminId}`, {
+      const response = await axios.post(`https://reliable-events.onrender.com/api/update/${adminId}`, {
         email: newEmail || email, // Send newEmail if changed, otherwise send current email
         password,
       });

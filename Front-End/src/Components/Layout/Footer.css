@@ -58,7 +58,6 @@
   margin-bottom: 0.5rem;
   color: #fafafa;
   font-size: 1.2rem !important;
-
 }
 
 .footer-copyright {
@@ -71,7 +70,7 @@
   .footer-logo {
     width: 220px;
     height: 160px;
-    }
+  }
 
   .footer-section-title {
     font-size: 1.5rem;
@@ -96,5 +95,15 @@
   .footer-address-wrapper {
     width: 100%;
     clear: both;
+  }
+
+  /* Ensure email wraps and doesn't cut off */
+  .email-address {
+    padding: 0 15px !important; /* Add padding to create space from edges */
+  }
+
+  .email-address a {
+    word-wrap: break-word;
+    font-size: 0.9rem;
   }
 }
