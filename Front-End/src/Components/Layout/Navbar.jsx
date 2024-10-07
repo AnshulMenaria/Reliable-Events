@@ -45,6 +45,9 @@ const NavigationBar = () => {
               <Nav.Link href="/services" className="mt-2" onClick={handleLinkClick} aria-label="Our Services">
                 Services
               </Nav.Link>
+              <Nav.Link href="/destinations" className="mt-2" onClick={handleLinkClick} aria-label="Destinations">
+              Destinations
+              </Nav.Link>
               <Nav.Link href="/gallery" className="mt-2" onClick={handleLinkClick} aria-label="View Gallery">
                 Gallery
               </Nav.Link>

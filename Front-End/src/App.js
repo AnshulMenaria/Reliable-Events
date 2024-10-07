@@ -7,6 +7,7 @@ import Contact from './Components/Pages/View More/Contact';
 import About from './Components/Pages/View More/About';
 import TestimonialsPage from './Components/Pages/View More/Testimonials';
 import GallerySection from './Components/Pages/View More/Gallery';
+import Destinations from './Components/Pages/View More/Destinations';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route index exact element={<Home />} />
 
         <Route path='services' element={<ServicesPage />} />
+        <Route path='destinations' element={<Destinations />} />
         <Route path='contact' element={<Contact />} />
         <Route path='about' element={<About />} />
         <Route path='testimonials' element={<TestimonialsPage />} />
