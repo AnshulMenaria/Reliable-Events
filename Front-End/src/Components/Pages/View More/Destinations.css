@@ -1,75 +1,90 @@
+/* Header styling */
 .destinations-header {
     text-align: center;
     margin: 20px 0;
-    font-size: 2.5em; /* Larger font size for the header */
-    color: #ccaf66; /* Attractive color for the header */
+    font-size: 2em; /* Larger font size */
+    color: #ccaf66; /* Premium gold-like color */
+    font-family: 'Lobster', cursive; /* Cursive font for title */
 }
 
+.destinations-header p {
+    font-family: 'Dancing Script', cursive; /* Add cursive font to subtitle */
+    font-size: 1em;
+    color: #666; /* Lighter color */
+}
+
+/* Destination list grid */
 .destinations-list {
-    display: grid; /* Use grid layout */
-    grid-template-columns: repeat(2, 1fr); /* Create 2 equal columns */
-    gap: 30px; /* Add space between grid items */
-    justify-items: center; /* Center items horizontally */
-    margin: 0 10%; /* Optional: Center the grid in the container */
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px;
+    justify-items: center; 
+    margin: 0 10%;
 }
 
+/* Destination card styling */
 .destination-card {
-    border: 2px solid #ccaf66; /* Thicker border */
-    border-radius: 15px; /* More rounded corners */
-    padding: 20px; /* Increased padding */
-    width: 100%; /* Increased max width */
-    height: 500px; /* Set a fixed height for cards */
+    border: 2px solid #ccaf66;
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    height: 500px;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.95); /* Slightly more opaque */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
-    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
-    opacity: 0; /* Initially hidden */
-    animation: fade-in 0.5s forwards; /* Trigger fade-in animation */
+    background-color: rgba(255, 255, 255, 0.95); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+    transition: transform 0.3s, box-shadow 0.3s, opacity 0.5s;
+    opacity: 0;
+    animation: fade-in 0.5s forwards;
 }
 
 /* Animation keyframes */
 @keyframes fade-in {
     from {
         opacity: 0;
-        transform: translateY(20px); /* Slide in from below */
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
-        transform: translateY(0); /* Original position */
+        transform: translateY(0);
     }
 }
 
 .destination-card:hover {
-    transform: translateY(-5px); /* Slight upward movement */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
+    transform: translateY(-10px); /* More pronounced hover effect */
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
 }
 
+/* Image styling */
 .destination-card img {
     width: 100%;
-    height: 300px; /* Fixed height for images */
-    border-radius: 15px; /* Match card corners */
-    object-fit: cover; /* Ensure image covers the area without distortion */
+    height: 300px; /* Fixed height for consistency */
+    border-radius: 20px; /* Rounded image corners */
+    object-fit: cover; /* Ensure consistent image appearance */
 }
 
+/* Name of the hotel in cursive */
 .destination-card h2 {
-    font-size: 1.5em; /* Increase font size for hotel names */
-    margin: 10px 0; /* Space above and below the name */
-    color: #333; /* Darker color for better readability */
+    font-size: 1.8em;
+    margin: 10px 0;
+    color: #333;
+    font-family: 'Great Vibes', cursive; /* Elegant cursive font for hotel name */
 }
 
+/* Description text */
 .destination-card p {
-    font-size: 1em; /* Font size for description */
-    color: #555; /* Softer color for text */
+    font-size: 1.1em;
+    color: #555;
+    font-family: 'Merriweather', serif; /* Premium serif font for description */
 }
 
-/* Responsive Design */
+/* Responsive design for smaller screens */
 @media (max-width: 768px) {
     .destinations-list {
-        grid-template-columns: 1fr; /* Change to a single column on smaller screens */
+        grid-template-columns: 1fr; /* Single column on smaller screens */
     }
 
     .destination-card {
-        width: 120% !important; /* Full width on mobile */
-        height: auto; /* Auto height to fit content */
+        width: 120% !important; 
+        height: auto;
     }
 }
