@@ -42,7 +42,7 @@ const testimonials = [
     name: "Neha Singh",
     location: "Maharashtra, India",
     feedback:
-      "We hired them for a family event in Ahmedabad, and the experience was superb. Their team ensured everything was perfect. I highly recommend their services.",
+      "We hired them for a family event in Udaipur, and the experience was superb. Their team ensured everything was perfect. I highly recommend their services.",
     date: "January 2024",
   },
   {
@@ -70,7 +70,7 @@ const testimonials = [
     name: "Megha Chaudhary",
     location: "Maharashtra, India",
     feedback:
-      "I hired them for a family event in Pune, and their team made sure every little detail was taken care of. Truly professional and reliable service!",
+      "I hired them for a family event in Udaipur, and their team made sure every little detail was taken care of. Truly professional and reliable service!",
     date: "May 2024",
   },
 ];

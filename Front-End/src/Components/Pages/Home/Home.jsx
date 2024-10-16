@@ -41,12 +41,12 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Reliable Events - Event Planner in Udaipur, Gujarat</title>
+        <title>Reliable Events - Event Planner in Udaipur</title>
         <meta
           name="description"
-          content="Reliable Events offers top-tier event planning services in Udaipur and Gujarat. Specializing in weddings, corporate events, and celebrations tailored to your unique needs."
+          content="Reliable Events offers top-tier event planning services in Udaipur. Specializing in weddings, corporate events, and celebrations tailored to your unique needs."
         />
-        <meta name="keywords" content="event planner, event management, Udaipur, Gujarat, weddings, corporate events" />
+        <meta name="keywords" content="event planner, event management, Udaipur, weddings, corporate events" />
         <link rel="canonical" href="https://reliableeventsudaipur.com/" />
         {/* Structured Data for SEO */}
         <script type="application/ld+json">

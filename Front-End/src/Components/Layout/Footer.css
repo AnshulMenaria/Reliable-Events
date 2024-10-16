@@ -19,24 +19,28 @@
   font-size: 1.2rem;
 }
 
-.footer-links, .footer-socials {
+.footer-links,
+.footer-socials {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.footer-links li, .footer-socials li {
+.footer-links li,
+.footer-socials li {
   margin-bottom: 10px;
 }
 
-.footer-links a, .footer-socials a {
+.footer-links a,
+.footer-socials a {
   color: #fafafa;
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s ease-in-out;
 }
 
-.footer-links a:hover, .footer-socials a:hover {
+.footer-links a:hover,
+.footer-socials a:hover {
   color: #ccaf66;
 }
 
@@ -46,7 +50,7 @@
 
 .footer-contact-wrapper a {
   color: #fafafa;
-  font-size: .9rem;
+  font-size: 0.9rem;
   text-decoration: none;
 }
 
@@ -76,17 +80,24 @@
     font-size: 1.5rem;
   }
 
-  .footer-links-wrapper, .footer-socials-wrapper, .footer-contact-wrapper, .footer-address-wrapper {
+  .footer-links-wrapper,
+  .footer-socials-wrapper,
+  .footer-contact-wrapper,
+  .footer-address-wrapper {
     text-align: center;
     margin-top: 20px;
   }
 
-  .footer-links, .footer-socials {
+  .footer-links,
+  .footer-socials {
     margin: 0 auto;
   }
 
   /* 2x2 grid for mobile layout */
-  .footer-logo-wrapper, .footer-links-wrapper, .footer-socials-wrapper, .footer-contact-wrapper {
+  .footer-logo-wrapper,
+  .footer-links-wrapper,
+  .footer-socials-wrapper,
+  .footer-contact-wrapper {
     width: 50%;
     float: left;
     text-align: center;
@@ -98,12 +109,13 @@
   }
 
   /* Ensure email wraps and doesn't cut off */
-  .email-address {
-    padding: 0 15px !important; /* Add padding to create space from edges */
+  .footer-contact-wrapper a {
+    word-wrap: break-word;
+    font-size: 1rem;
   }
 
-  .email-address a {
-    word-wrap: break-word;
-    font-size: 0.9rem;
+  .footer-contact-wrapper {
+    padding-right: 15px;
+    padding-left: 15px;
   }
 }
